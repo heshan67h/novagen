@@ -1,10 +1,122 @@
-// Smooth scrolling for navigation links
+// Loading Screen Animation
+window.addEventListener('load', function () {
+    const loadingScreen = document.getElementById('loading-screen');
+    const progressBar = document.getElementById('progress-bar');
+    const loadingPercentage = document.getElementById('loading-percentage');
+
+    let progress = 0;
+    const interval = setInterval(() => {
+        progress += Math.random() * 15;
+        if (progress > 100) progress = 100;
+
+        progressBar.style.width = progress + '%';
+        loadingPercentage.textContent = Math.floor(progress) + '%';
+
+        if (progress >= 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+                loadingScreen.classList.add('fade-out');
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                    // Start typing animations after loading
+                    startTypingAnimations();
+                }, 500);
+            }, 300);
+        }
+    }, 100);
+});
+
+// Typing Animation for Hero Title
+function startTypingAnimations() {
+    const heroTexts = [
+        "Transform Your Ideas Into Digital Reality",
+        "Building Next-Gen Software Solutions",
+        "Innovating Through Code Excellence"
+    ];
+    let textIndex = 0;
+    let charIndex = 0;
+    const typingText = document.getElementById('typing-text');
+
+    function typeText() {
+        if (charIndex < heroTexts[textIndex].length) {
+            typingText.textContent += heroTexts[textIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(typeText, 80);
+        } else {
+            setTimeout(eraseText, 2000);
+        }
+    }
+
+    function eraseText() {
+        if (charIndex > 0) {
+            typingText.textContent = heroTexts[textIndex].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(eraseText, 50);
+        } else {
+            textIndex = (textIndex + 1) % heroTexts.length;
+            setTimeout(typeText, 500);
+        }
+    }
+
+    typeText();
+
+    // Code Window Typing Animation
+    const codeLines = [
+        '# Advanced AI System',
+        'import tensorflow as tf',
+        'from transformers import GPT',
+        '',
+        'class AIEngine:',
+        '    def __init__(self):',
+        '        self.model = GPT.load()',
+        '        self.optimizer = tf.optimizers.Adam()',
+        '    ',
+        '    def train(self, dataset):',
+        '        for epoch in range(100):',
+        '            loss = self.model.fit(dataset)',
+        '            print(f"Loss: {loss:.4f}")',
+        '    ',
+        '    def predict(self, input_data):',
+        '        return self.model.generate(input_data)',
+        '',
+        '# Initialize and run',
+        'ai = AIEngine()',
+        'ai.train(training_data)',
+        'result = ai.predict(user_input)'
+    ];
+
+    let lineIndex = 0;
+    let codeCharIndex = 0;
+    const typingCode = document.getElementById('typing-code');
+    let currentCode = '';
+
+    function typeCode() {
+        if (lineIndex < codeLines.length) {
+            if (codeCharIndex < codeLines[lineIndex].length) {
+                currentCode += codeLines[lineIndex].charAt(codeCharIndex);
+                typingCode.textContent = currentCode;
+                codeCharIndex++;
+                setTimeout(typeCode, 30);
+            } else {
+                currentCode += '\n';
+                typingCode.textContent = currentCode;
+                lineIndex++;
+                codeCharIndex = 0;
+                setTimeout(typeCode, 100);
+            }
+        }
+    }
+
+    setTimeout(typeCode, 500);
+}
+
+
 document.querySelectorAll('.nav-menu a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
         const targetSection = document.querySelector(targetId);
-        
+
         if (targetSection) {
             targetSection.scrollIntoView({
                 behavior: 'smooth',
@@ -20,13 +132,13 @@ const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
+
     if (currentScroll > lastScroll && currentScroll > 100) {
         navbar.style.transform = 'translateY(-100%)';
     } else {
         navbar.style.transform = 'translateY(0)';
     }
-    
+
     lastScroll = currentScroll;
 });
 
@@ -54,11 +166,11 @@ document.querySelectorAll('.service-card').forEach(card => {
 
 // Team avatars animation on hover
 document.querySelectorAll('.avatar').forEach(avatar => {
-    avatar.addEventListener('mouseenter', function() {
+    avatar.addEventListener('mouseenter', function () {
         this.style.boxShadow = '0 8px 30px rgba(0, 212, 255, 0.6)';
     });
-    
-    avatar.addEventListener('mouseleave', function() {
+
+    avatar.addEventListener('mouseleave', function () {
         this.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.3)';
     });
 });
@@ -69,7 +181,7 @@ document.querySelectorAll('.service-card').forEach(card => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        
+
         card.style.setProperty('--mouse-x', `${x}px`);
         card.style.setProperty('--mouse-y', `${y}px`);
     });
@@ -95,12 +207,12 @@ document.querySelectorAll('.faq-item').forEach(item => {
     const question = item.querySelector('.faq-question');
     question.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
-        
+
         // Close all FAQ items
         document.querySelectorAll('.faq-item').forEach(faq => {
             faq.classList.remove('active');
         });
-        
+
         // Open clicked item if it wasn't active
         if (!isActive) {
             item.classList.add('active');
@@ -159,18 +271,18 @@ projectImages.forEach((img, index) => {
 
 // Add hover effect to process steps
 document.querySelectorAll('.process-step').forEach(step => {
-    step.addEventListener('mouseenter', function() {
+    step.addEventListener('mouseenter', function () {
         this.style.transform = 'translateX(10px)';
     });
-    
-    step.addEventListener('mouseleave', function() {
+
+    step.addEventListener('mouseleave', function () {
         this.style.transform = 'translateX(0)';
     });
 });
 
 // Pricing card click handlers
 document.querySelectorAll('.btn-pricing').forEach(btn => {
-    btn.addEventListener('click', function() {
+    btn.addEventListener('click', function () {
         const plan = this.closest('.pricing-card').querySelector('h4').textContent;
         alert(`You selected the ${plan} plan. We'll contact you soon!`);
     });
