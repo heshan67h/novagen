@@ -2,6 +2,7 @@
 
 import React from "react";
 import Navbar from "@/components/Navbar";
+import Image from "next/image";
 
 export default function ProjectsPage() {
   const projects = [
@@ -16,6 +17,10 @@ export default function ProjectsPage() {
         "+38%", "sales pipeline visibility",
         "< 4 months", "time to first enterprise deal",
       ],
+      imageUrl: "/images/projects/revenue-platform-mockup.png",
+      techStack: ["React", "TypeScript", "Node.js", "PostgreSQL", "AWS"],
+      category: "SaaS Platform",
+      featured: true,
     },
     {
       label: "Fintech",
@@ -28,6 +33,9 @@ export default function ProjectsPage() {
         "4.8★", "app store rating",
         "+22%", "increase in paid conversions",
       ],
+      imageUrl: "/images/projects/finance-app-mockup.png",
+      techStack: ["React Native", "Next.js", "Python", "TensorFlow"],
+      category: "Mobile App",
     },
     {
       label: "Ops tooling",
@@ -37,6 +45,9 @@ export default function ProjectsPage() {
         "Unified control center that gives operations teams real-time visibility across logistics, support, and on‑ground teams.",
       timeline: "Pilots, rollout, ongoing iteration",
       impact: ["x3", "faster incident response", "95%", "SLA compliance"],
+      imageUrl: "/images/projects/operations-dashboard-mockup.png",
+      techStack: ["Vue.js", "GraphQL", "Redis", "Kubernetes"],
+      category: "Dashboard",
     },
   ];
 
@@ -204,6 +215,7 @@ export default function ProjectsPage() {
             </div>
           </div>
 
+          {/* Premium Projects Grid */}
           <div
             style={{
               display: "grid",
@@ -212,157 +224,121 @@ export default function ProjectsPage() {
               marginBottom: "2.25rem",
             }}
           >
+            {/* Projects Column */}
             <div
               style={{
                 display: "grid",
-                gap: "1rem",
+                gap: "1.5rem",
               }}
             >
-              {projects.map((project) => (
-                <div key={project.name} style={cardStyle}>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      gap: "0.75rem",
-                      marginBottom: "0.6rem",
-                      alignItems: "center",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: "0.5rem",
-                        fontSize: "0.75rem",
-                        color: "#9ca3af",
-                      }}
-                    >
-                      <span
+              {projects.map((project, index) => (
+                <div
+                  key={project.name}
+                  className={`project-card-enhanced ${project.featured ? 'project-card-featured gradient-border-animated' : ''}`}
+                >
+                  {/* Project Image */}
+                  <div className="project-image-container">
+                    <Image
+                      src={project.imageUrl}
+                      alt={project.name}
+                      width={1200}
+                      height={750}
+                      className="project-device-mockup"
+                      priority={index === 0}
+                    />
+
+                    {/* Glassmorphic Overlay */}
+                    <div className="project-glass-overlay">
+                      <div
                         style={{
-                          padding: "0.15rem 0.6rem",
-                          borderRadius: "999px",
-                          border: "1px solid rgba(148,163,184,0.6)",
-                          background:
-                            "linear-gradient(135deg, rgba(56,189,248,0.15), rgba(15,23,42,0.9))",
-                          color: "#e5e7eb",
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "0.5rem",
+                          fontSize: "0.75rem",
+                          color: "#9ca3af",
+                          marginBottom: "0.5rem",
                         }}
                       >
-                        {project.label}
-                      </span>
-                      <span style={{ opacity: 0.45 }}>•</span>
-                      <span>{project.stage}</span>
-                    </div>
-                    <span
-                      style={{
-                        fontSize: "0.7rem",
-                        padding: "0.2rem 0.55rem",
-                        borderRadius: "999px",
-                        border: "1px solid rgba(75,85,99,0.7)",
-                        background:
-                          "radial-gradient(circle at 0% 0%, rgba(34,197,94,0.28), transparent 60%), rgba(15,23,42,0.9)",
-                      }}
-                    >
-                      End-to-end build
-                    </span>
-                  </div>
-                  <h3
-                    style={{
-                      fontSize: "1.15rem",
-                      marginBottom: "0.4rem",
-                      color: "#f9fafb",
-                    }}
-                  >
-                    {project.name}
-                  </h3>
-                  <p
-                    style={{
-                      fontSize: "0.9rem",
-                      color: "#9ca3af",
-                      marginBottom: "0.7rem",
-                    }}
-                  >
-                    {project.summary}
-                  </p>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "flex-end",
-                      gap: "0.75rem",
-                      fontSize: "0.8rem",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "inline-flex",
-                        padding: "0.22rem 0.7rem",
-                        borderRadius: "999px",
-                        border: "1px solid rgba(55,65,81,0.9)",
-                        background:
-                          "radial-gradient(circle at 0% 0%, rgba(56,189,248,0.2), transparent 60%), rgba(15,23,42,0.9)",
-                        color: "#e5e7eb",
-                        gap: "0.4rem",
-                        alignItems: "center",
-                      }}
-                    >
-                      <span
-                        style={{
-                          width: 6,
-                          height: 6,
-                          borderRadius: "999px",
-                          background:
-                            "radial-gradient(circle at 0% 0%, #38bdf8, #0ea5e9)",
-                        }}
-                      />
-                      <span>{project.timeline}</span>
-                    </div>
-                    <div
-                      style={{
-                        display: "grid",
-                        gridTemplateColumns: "repeat(2,minmax(0,1fr))",
-                        gap: "0.4rem 0.9rem",
-                        justifyItems: "flex-end",
-                      }}
-                    >
-                      <div>
-                        <div
+                        <span
                           style={{
-                            fontSize: "0.95rem",
-                            fontWeight: 600,
-                            color: "#bbf7d0",
+                            padding: "0.15rem 0.6rem",
+                            borderRadius: "999px",
+                            border: "1px solid rgba(148,163,184,0.6)",
+                            background:
+                              "linear-gradient(135deg, rgba(56,189,248,0.15), rgba(15,23,42,0.9))",
+                            color: "#e5e7eb",
                           }}
                         >
+                          {project.label}
+                        </span>
+                        <span style={{ opacity: 0.45 }}>•</span>
+                        <span>{project.stage}</span>
+                      </div>
+                      <h3
+                        style={{
+                          fontSize: "1.15rem",
+                          color: "#f9fafb",
+                          marginBottom: "0.25rem",
+                        }}
+                      >
+                        {project.name}
+                      </h3>
+                    </div>
+                  </div>
+
+                  {/* Project Content */}
+                  <div className="project-content">
+                    <p
+                      style={{
+                        fontSize: "0.9rem",
+                        color: "#9ca3af",
+                        marginBottom: "0.75rem",
+                        lineHeight: 1.6,
+                      }}
+                    >
+                      {project.summary}
+                    </p>
+
+                    {/* Tech Stack */}
+                    <div className="tech-stack-container">
+                      {project.techStack.map((tech) => (
+                        <span key={tech} className="tech-badge">
+                          <span className="tech-badge-icon" />
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Impact Metrics */}
+                    <div className="project-impact-metrics">
+                      <div className="impact-metric-item">
+                        <div className="impact-metric-value">
                           {project.impact[0]}
                         </div>
-                        <div
-                          style={{ fontSize: "0.75rem", color: "#9ca3af" }}
-                        >
+                        <div className="impact-metric-label">
                           {project.impact[1]}
                         </div>
                       </div>
-                      <div>
-                        <div
-                          style={{
-                            fontSize: "0.95rem",
-                            fontWeight: 600,
-                            color: "#bfdbfe",
-                          }}
-                        >
+                      <div className="impact-metric-item">
+                        <div className="impact-metric-value">
                           {project.impact[2]}
                         </div>
-                        <div
-                          style={{ fontSize: "0.75rem", color: "#9ca3af" }}
-                        >
+                        <div className="impact-metric-label">
                           {project.impact[3]}
                         </div>
                       </div>
                     </div>
+
+                    {/* CTA Button */}
+                    <button className="btn-case-study">
+                      View Case Study
+                    </button>
                   </div>
                 </div>
               ))}
             </div>
 
+            {/* Right Column - Metrics & CTA */}
             <div>
               <div
                 style={{
@@ -652,7 +628,7 @@ export default function ProjectsPage() {
                   <p
                     style={{ fontSize: "0.85rem", color: "#e5e7eb" }}
                   >
-                    Tell us what you want to ship. We’ll map a
+                    Tell us what you want to ship. We'll map a
                     lean, realistic path from idea to impact.
                   </p>
                 </div>
