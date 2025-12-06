@@ -99,23 +99,32 @@ export default function Home(): JSX.Element {
       });
     });
 
-    // Add scroll effect to navbar
-    let lastScroll = 0;
-    const navbar = document.querySelector('.navbar');
+    // Add scroll effect to navbar - SSR-safe with proper TypeScript types
+    if (typeof window !== 'undefined') {
+      let lastScroll = 0;
+      const navbar = document.querySelector('.navbar') as HTMLElement | null;
 
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
+      const handleScroll = () => {
+        const currentScroll = window.pageYOffset;
 
-      if (currentScroll > lastScroll && currentScroll > 100) {
         if (navbar) {
-          navbar.style.transform = 'translateY(-100%)';
+          if (currentScroll > lastScroll && currentScroll > 100) {
+            navbar.style.transform = 'translateY(-100%)';
+          } else {
+            navbar.style.transform = 'translateY(0)';
+          }
         }
-      } else if (navbar) {
-        navbar.style.transform = 'translateY(0)';
-      }
 
-      lastScroll = currentScroll;
-    });
+        lastScroll = currentScroll;
+      };
+
+      window.addEventListener('scroll', handleScroll);
+
+      // Cleanup function will be handled by useEffect return
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }
 
     // Animate service cards on scroll
     const observerOptions = {
