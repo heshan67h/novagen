@@ -1,4 +1,4 @@
-// File: C:\Users\HESHAN SATHYANGA\Desktop\jj\app\layout.tsx
+// File: C:\Users\HESHAN SATHYANGA\Documents\GitHub\novagen\app\layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import ContactSection from '@/components/ContactSection';
+import SocialBar from '@/components/SocialBar';
 
 export default function Home(): JSX.Element {
   useEffect(() => {
@@ -368,6 +369,8 @@ export default function Home(): JSX.Element {
         </div>
       </nav>
 
+      <SocialBar />
+
 
       {/* Hero Section - Exact SoftGen Structure with Dark Theme */}
       <section id="home" className="hero relative overflow-hidden flex items-center" style={{ minHeight: 'calc(100vh + 80px)', paddingTop: '100px' }}>
@@ -464,48 +467,6 @@ export default function Home(): JSX.Element {
             </div>
 
           </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="scroll-indicator" style={{
-          position: 'absolute',
-          bottom: '120px',
-          left: '49%',
-          transform: 'translateX(-50%)',
-          zIndex: 10,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '12px',
-          width: 'auto'
-        }}>
-          <div className="mouse-icon" style={{
-            width: '30px',
-            height: '50px',
-            border: '2px solid rgba(255,255,255,0.3)',
-            borderRadius: '20px',
-            display: 'flex',
-            justifyContent: 'center',
-            paddingTop: '8px'
-          }}>
-            <div style={{
-              width: '4px',
-              height: '12px',
-              backgroundColor: 'rgba(255,255,255,0.5)',
-              borderRadius: '2px',
-              animation: 'scrollBounce 2s infinite'
-            }}></div>
-          </div>
-          <span style={{
-            color: 'rgba(255,255,255,0.35)',
-            fontSize: '13px',
-            fontWeight: 500,
-            letterSpacing: '0.5px',
-            textTransform: 'uppercase',
-            fontFamily: "'Inter', sans-serif",
-            textAlign: 'center'
-          }}>Scroll</span>
         </div>
       </section>
 
