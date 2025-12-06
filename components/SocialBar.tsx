@@ -37,7 +37,7 @@ export default function SocialBar() {
         isVisible ? 'translate-y-0' : 'translate-y-full'
       }`}
     >
-      <div className="w-full flex justify-between items-center px-8 py-2 bg-gradient-to-r from-[#0a0f23] to-[#16213e] border-t border-white/10 shadow-[0_-4px_20px_rgba(0,0,0,0.4)] text-white text-[15px]">
+      <div className="w-full flex justify-between items-center px-8 md:px-20 py-2 bg-gradient-to-r from-[#0a0f23] to-[#16213e] border-t border-white/10 shadow-[0_-4px_20px_rgba(0,0,0,0.4)] text-white text-[15px]">
         {/* Left: Contact Info */}
         <div className="flex items-center gap-6">
           <a

@@ -5415,6 +5415,10 @@ video {
   }
 }
 @media (min-width: 768px){
+  .md\:px-20{
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
   .md\:text-5xl{
     font-size: 3rem;
     line-height: 1;
