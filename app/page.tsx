@@ -5,9 +5,12 @@ import ContactSection from '@/components/ContactSection';
 
 export default function Home(): JSX.Element {
   useEffect(() => {
-    // Hero typing animations for title and code window
-    const titleElement = document.getElementById('typing-text');
-    const codeElement = document.getElementById('typing-code');
+    // Type-safe guards for SSR
+    if (typeof window === 'undefined') return;
+
+    // ==================== TYPING ANIMATIONS ====================
+    const titleElement = document.getElementById('typing-text') as HTMLElement | null;
+    const codeElement = document.getElementById('typing-code') as HTMLElement | null;
 
     if (titleElement) {
       const titles = [
@@ -18,7 +21,7 @@ export default function Home(): JSX.Element {
       let titleIndex = 0;
       let charIndex = 0;
 
-      const typeTitle = () => {
+      const typeTitle = (): void => {
         const current = titles[titleIndex];
         if (charIndex <= current.length) {
           titleElement.textContent = current.slice(0, charIndex);
@@ -37,7 +40,6 @@ export default function Home(): JSX.Element {
     }
 
     if (codeElement) {
-      // Code with syntax highlighting spans - exact SoftGen style
       const codeLines = [
         '<span class="keyword">class</span> <span class="class-name">AdvancedAISystem</span>:',
         '    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, model, data_source):',
@@ -56,37 +58,31 @@ export default function Home(): JSX.Element {
         '        <span class="keyword">return</span> <span class="string">"Optimized"</span>'
       ];
 
-      // Full code as single string for smooth character-by-character typing
       const fullCode = codeLines.join('\n');
       let charIndex = 0;
 
-      const typeCode = () => {
+      const typeCode = (): void => {
         if (charIndex <= fullCode.length) {
           codeElement.innerHTML = fullCode.slice(0, charIndex);
           charIndex++;
-
-          // FAST typing speed - 15ms base with natural feel
           let speed = 15;
           speed += Math.random() * 10 - 5;
-
           setTimeout(typeCode, Math.max(speed, 10));
         }
       };
 
-      // Start typing immediately
       setTimeout(typeCode, 300);
     }
 
-    // Smooth scrolling for navigation links (only for hash anchors)
+    // ==================== SMOOTH SCROLLING FOR ANCHORS ====================
     document.querySelectorAll('.nav-menu a').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        const target = e.currentTarget as HTMLAnchorElement;
-        const targetId = target.getAttribute('href');
+      const anchorElement = anchor as HTMLAnchorElement;
+      anchorElement.addEventListener('click', function (e) {
+        const targetId = anchorElement.getAttribute('href');
 
-        // Only prevent default and smooth scroll for hash anchors
         if (targetId && targetId.startsWith('#')) {
           e.preventDefault();
-          const targetSection = document.querySelector(targetId);
+          const targetSection = document.querySelector(targetId) as HTMLElement | null;
 
           if (targetSection) {
             targetSection.scrollIntoView({
@@ -95,39 +91,31 @@ export default function Home(): JSX.Element {
             });
           }
         }
-        // For full page routes (/about, /services, etc.), let them navigate normally
       });
     });
 
-    // Add scroll effect to navbar - SSR-safe with proper TypeScript types
-    if (typeof window !== 'undefined') {
-      let lastScroll = 0;
-      const navbar = document.querySelector('.navbar') as HTMLElement | null;
+    // ==================== NAVBAR HIDE ON SCROLL ====================
+    let lastScroll = 0;
+    const navbar = document.querySelector('.navbar') as HTMLElement | null;
 
-      const handleScroll = () => {
-        const currentScroll = window.pageYOffset;
+    const handleScroll = (): void => {
+      const currentScroll = window.pageYOffset;
 
-        if (navbar) {
-          if (currentScroll > lastScroll && currentScroll > 100) {
-            navbar.style.transform = 'translateY(-100%)';
-          } else {
-            navbar.style.transform = 'translateY(0)';
-          }
+      if (navbar) {
+        if (currentScroll > lastScroll && currentScroll > 100) {
+          navbar.style.transform = 'translateY(-100%)';
+        } else {
+          navbar.style.transform = 'translateY(0)';
         }
+      }
 
-        lastScroll = currentScroll;
-      };
+      lastScroll = currentScroll;
+    };
 
-      window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
-      // Cleanup function will be handled by useEffect return
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }
-
-    // Animate service cards on scroll
-    const observerOptions = {
+    // ==================== INTERSECTION OBSERVER FOR ANIMATIONS ====================
+    const observerOptions: IntersectionObserverInit = {
       threshold: 0.2,
       rootMargin: '0px 0px -100px 0px',
     };
@@ -150,22 +138,25 @@ export default function Home(): JSX.Element {
       observer.observe(cardElement);
     });
 
-    // Team avatars animation on hover
+    // ==================== AVATAR HOVER EFFECTS ====================
     document.querySelectorAll('.avatar').forEach(avatar => {
-      avatar.addEventListener('mouseenter', (e) => {
-        (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 30px rgba(0, 212, 255, 0.6)';
+      const avatarElement = avatar as HTMLElement;
+      
+      avatarElement.addEventListener('mouseenter', () => {
+        avatarElement.style.boxShadow = '0 8px 30px rgba(0, 212, 255, 0.6)';
       });
 
-      avatar.addEventListener('mouseleave', (e) => {
-        (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.3)';
+      avatarElement.addEventListener('mouseleave', () => {
+        avatarElement.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.3)';
       });
     });
 
-    // Add particle effect on service card hover
+    // ==================== SERVICE CARD PARTICLE EFFECT ====================
     document.querySelectorAll('.service-card').forEach(card => {
-      card.addEventListener('mousemove', (e: Event) => {
+      const cardElement = card as HTMLElement;
+      
+      cardElement.addEventListener('mousemove', (e: Event) => {
         const mouseEvent = e as MouseEvent;
-        const cardElement = card as HTMLElement;
         const rect = cardElement.getBoundingClientRect();
         const x = mouseEvent.clientX - rect.left;
         const y = mouseEvent.clientY - rect.top;
@@ -175,15 +166,15 @@ export default function Home(): JSX.Element {
       });
     });
 
-    // Sign up button click handler
-    const signupButton = document.querySelector('.btn-signup');
+    // ==================== SIGNUP BUTTON ====================
+    const signupButton = document.querySelector('.btn-signup') as HTMLButtonElement | null;
     if (signupButton) {
       signupButton.addEventListener('click', () => {
         alert('Sign up functionality coming soon!');
       });
     }
 
-    // Add gradient animation to section title
+    // ==================== GRADIENT ANIMATION ====================
     const sectionTitle = document.querySelector('.section-title .highlight') as HTMLElement | null;
     if (sectionTitle) {
       let hue = 0;
@@ -193,15 +184,17 @@ export default function Home(): JSX.Element {
       }, 50);
     }
 
-    // Mobile Menu Toggle Functionality
-    const mobileMenuToggle = document.getElementById('mobile-menu');
-    const navMenu = document.querySelector('.nav-menu');
+    // ==================== MOBILE MENU ====================
+    const mobileMenuToggle = document.getElementById('mobile-menu') as HTMLElement | null;
+    const navMenu = document.querySelector('.nav-menu') as HTMLElement | null;
     
     if (mobileMenuToggle && navMenu) {
-      mobileMenuToggle.addEventListener('click', () => {
+      const toggleMenu = (): void => {
         mobileMenuToggle.classList.toggle('active');
         navMenu.classList.toggle('active');
-      });
+      };
+
+      mobileMenuToggle.addEventListener('click', toggleMenu);
       
       // Close menu when clicking on a link
       navMenu.querySelectorAll('.nav-link').forEach(link => {
@@ -212,68 +205,75 @@ export default function Home(): JSX.Element {
       });
       
       // Close menu when clicking outside
-      document.addEventListener('click', (e) => {
-        if (!mobileMenuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+      const handleOutsideClick = (e: MouseEvent): void => {
+        const target = e.target as Node | null;
+        if (
+          target &&
+          !mobileMenuToggle.contains(target) &&
+          !navMenu.contains(target)
+        ) {
           mobileMenuToggle.classList.remove('active');
           navMenu.classList.remove('active');
         }
-      });
+      };
+
+      document.addEventListener('click', handleOutsideClick);
     }
 
-    // FAQ accordion functionality
+    // ==================== FAQ ACCORDION ====================
     document.querySelectorAll('.faq-item').forEach(item => {
-      const question = item.querySelector('.faq-question');
+      const question = item.querySelector('.faq-question') as HTMLElement | null;
       if (!question) return;
 
       question.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
 
-        // Close all FAQ items
         document.querySelectorAll('.faq-item').forEach(faq => {
           faq.classList.remove('active');
         });
 
-        // Open clicked item if it wasn't active
         if (!isActive) {
           item.classList.add('active');
         }
       });
     });
 
-    // Contact form submission
-    const contactForm = document.querySelector('.contact-form');
+    // ==================== CONTACT FORM ====================
+    const contactForm = document.querySelector('.contact-form') as HTMLFormElement | null;
     if (contactForm) {
-      contactForm.addEventListener('submit', e => {
+      contactForm.addEventListener('submit', (e: Event) => {
         e.preventDefault();
-        alert('Thank you for your message! We will get back to you soon.');
-        e.target.reset();
+        alert('Thank you for your message! We will get back to you soon!');
+        contactForm.reset();
       });
     }
 
-    // Parallax effect for hero section - only on desktop
-    const handleParallax = () => {
+    // ==================== PARALLAX EFFECT ====================
+    const handleParallax = (): void => {
       if (window.innerWidth > 768) {
         const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero-content');
+        const hero = document.querySelector('.hero-content') as HTMLElement | null;
         if (hero) {
           hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-          hero.style.opacity = 1 - scrolled / 500;
+          hero.style.opacity = String(1 - scrolled / 500);
         }
       }
     };
     
     window.addEventListener('scroll', handleParallax);
 
-    // Smooth reveal animation for sections
+    // ==================== REVEAL SECTIONS ====================
     const revealSections = document.querySelectorAll(
       '.projects, .technical, .process, .pricing, .testimonials, .faq, .contact'
     );
+    
     const revealObserver = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            const target = entry.target as HTMLElement;
+            target.style.opacity = '1';
+            target.style.transform = 'translateY(0)';
           }
         });
       },
@@ -283,13 +283,14 @@ export default function Home(): JSX.Element {
     );
 
     revealSections.forEach(section => {
-      section.style.opacity = '0';
-      section.style.transform = 'translateY(30px)';
-      section.style.transition = 'all 0.8s ease';
-      revealObserver.observe(section);
+      const sectionElement = section as HTMLElement;
+      sectionElement.style.opacity = '0';
+      sectionElement.style.transform = 'translateY(30px)';
+      sectionElement.style.transition = 'all 0.8s ease';
+      revealObserver.observe(sectionElement);
     });
 
-    // Animate project images with different gradients
+    // ==================== PROJECT IMAGE GRADIENTS ====================
     const projectImages = document.querySelectorAll('.project-image');
     const gradients = [
       'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
@@ -298,32 +299,41 @@ export default function Home(): JSX.Element {
     ];
 
     projectImages.forEach((img, index) => {
-      img.style.background = gradients[index % gradients.length];
+      const imgElement = img as HTMLElement;
+      imgElement.style.background = gradients[index % gradients.length];
     });
 
-    // Add hover effect to process steps
+    // ==================== PROCESS STEPS HOVER ====================
     document.querySelectorAll('.process-step').forEach(step => {
-      step.addEventListener('mouseenter', (e) => {
-        (e.currentTarget as HTMLElement).style.transform = 'translateX(10px)';
+      const stepElement = step as HTMLElement;
+      
+      stepElement.addEventListener('mouseenter', () => {
+        stepElement.style.transform = 'translateX(10px)';
       });
 
-      step.addEventListener('mouseleave', (e) => {
-        (e.currentTarget as HTMLElement).style.transform = 'translateX(0)';
+      stepElement.addEventListener('mouseleave', () => {
+        stepElement.style.transform = 'translateX(0)';
       });
     });
 
-    // Pricing card click handlers
+    // ==================== PRICING BUTTONS ====================
     document.querySelectorAll('.btn-pricing').forEach(btn => {
-      btn.addEventListener('click', (e) => {
+      btn.addEventListener('click', (e: Event) => {
         const target = e.currentTarget as HTMLElement;
-        const card = target.closest('.pricing-card');
+        const card = target.closest('.pricing-card') as HTMLElement | null;
         if (!card) return;
-        const titleElement = card.querySelector('h4');
+        const titleElement = card.querySelector('h4') as HTMLElement | null;
         if (!titleElement) return;
         const plan = titleElement.textContent;
         alert(`You selected the ${plan} plan. We'll contact you soon!`);
       });
     });
+
+    // ==================== CLEANUP ====================
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleParallax);
+    };
   }, []);
 
 
