@@ -167,7 +167,7 @@ export default function TeamPage(): JSX.Element {
                                     fontWeight: 700,
                                     letterSpacing: '-0.04em',
                                     marginBottom: 18,
-                                    color: '#f9fafb',
+                                    color: '#FFFFFF',
                                 }}
                             >
                                 Small senior team,
@@ -182,7 +182,7 @@ export default function TeamPage(): JSX.Element {
                                     color: '#9ca3af',
                                 }}
                             >
-                                SoftGen is intentionally small. Everyone on the team has shipped production systems,
+                                NovaGen is intentionally small. Everyone on the team has shipped production systems,
                                 owned incidents, and worked directly with stakeholders. You get builders who can
                                 talk strategy in the morning and merge code by the afternoon.
                             </p>

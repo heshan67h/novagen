@@ -31,8 +31,9 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="nav-container" style={{ padding: '0 2rem', height: '25px', display: 'flex', alignItems: 'center' }}>
                 <div className="nav-logo">
-                    <a href="/">
-                        <span className="logo-text" style={{ color: 'white', fontSize: '1.2rem', fontWeight: 700 }}>SoftGen</span>
+                    <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
+                        <img src="/images/logo.png" alt="NovaGen Logo" style={{ height: '32px', width: 'auto' }} />
+                        <span className="logo-text" style={{ color: 'white', fontSize: '1.2rem', fontWeight: 700 }}>NovaGen</span>
                     </a>
                 </div>
                 <ul className="nav-menu">

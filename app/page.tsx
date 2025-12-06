@@ -80,7 +80,8 @@ export default function Home(): JSX.Element {
     // Smooth scrolling for navigation links (only for hash anchors)
     document.querySelectorAll('.nav-menu a').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
-        const targetId = this.getAttribute('href');
+        const target = e.currentTarget as HTMLAnchorElement;
+        const targetId = target.getAttribute('href');
 
         // Only prevent default and smooth scroll for hash anchors
         if (targetId && targetId.startsWith('#')) {
@@ -140,12 +141,12 @@ export default function Home(): JSX.Element {
 
     // Team avatars animation on hover
     document.querySelectorAll('.avatar').forEach(avatar => {
-      avatar.addEventListener('mouseenter', function () {
-        this.style.boxShadow = '0 8px 30px rgba(0, 212, 255, 0.6)';
+      avatar.addEventListener('mouseenter', (e) => {
+        (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 30px rgba(0, 212, 255, 0.6)';
       });
 
-      avatar.addEventListener('mouseleave', function () {
-        this.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.3)';
+      avatar.addEventListener('mouseleave', (e) => {
+        (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.3)';
       });
     });
 
@@ -179,6 +180,33 @@ export default function Home(): JSX.Element {
       }, 50);
     }
 
+    // Mobile Menu Toggle Functionality
+    const mobileMenuToggle = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (mobileMenuToggle && navMenu) {
+      mobileMenuToggle.addEventListener('click', () => {
+        mobileMenuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      });
+      
+      // Close menu when clicking on a link
+      navMenu.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenuToggle.classList.remove('active');
+          navMenu.classList.remove('active');
+        });
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!mobileMenuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+          mobileMenuToggle.classList.remove('active');
+          navMenu.classList.remove('active');
+        }
+      });
+    }
+
     // FAQ accordion functionality
     document.querySelectorAll('.faq-item').forEach(item => {
       const question = item.querySelector('.faq-question');
@@ -209,15 +237,19 @@ export default function Home(): JSX.Element {
       });
     }
 
-    // Parallax effect for hero section
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const hero = document.querySelector('.hero-content');
-      if (hero) {
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-        hero.style.opacity = 1 - scrolled / 500;
+    // Parallax effect for hero section - only on desktop
+    const handleParallax = () => {
+      if (window.innerWidth > 768) {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('.hero-content');
+        if (hero) {
+          hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+          hero.style.opacity = 1 - scrolled / 500;
+        }
       }
-    });
+    };
+    
+    window.addEventListener('scroll', handleParallax);
 
     // Smooth reveal animation for sections
     const revealSections = document.querySelectorAll(
@@ -258,19 +290,20 @@ export default function Home(): JSX.Element {
 
     // Add hover effect to process steps
     document.querySelectorAll('.process-step').forEach(step => {
-      step.addEventListener('mouseenter', function () {
-        this.style.transform = 'translateX(10px)';
+      step.addEventListener('mouseenter', (e) => {
+        (e.currentTarget as HTMLElement).style.transform = 'translateX(10px)';
       });
 
-      step.addEventListener('mouseleave', function () {
-        this.style.transform = 'translateX(0)';
+      step.addEventListener('mouseleave', (e) => {
+        (e.currentTarget as HTMLElement).style.transform = 'translateX(0)';
       });
     });
 
     // Pricing card click handlers
     document.querySelectorAll('.btn-pricing').forEach(btn => {
-      btn.addEventListener('click', function () {
-        const card = this.closest('.pricing-card');
+      btn.addEventListener('click', (e) => {
+        const target = e.currentTarget as HTMLElement;
+        const card = target.closest('.pricing-card');
         if (!card) return;
         const titleElement = card.querySelector('h4');
         if (!titleElement) return;
@@ -287,8 +320,9 @@ export default function Home(): JSX.Element {
       <nav className="navbar">
         <div className="nav-container" style={{ padding: '0 2rem', height: '25px', display: 'flex', alignItems: 'center' }}>
           <div className="nav-logo">
-            <a href="#home">
-              <span className="logo-text" style={{ color: 'white', fontSize: '1.2rem', fontWeight: 700 }}>SoftGen</span>
+            <a href="#home" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
+              <img src="/images/logo.png" alt="NovaGen Logo" style={{ height: '32px', width: 'auto' }} />
+              <span className="logo-text" style={{ color: 'white', fontSize: '1.2rem', fontWeight: 700 }}>NovaGen</span>
             </a>
           </div>
           <ul className="nav-menu">
@@ -304,6 +338,8 @@ export default function Home(): JSX.Element {
             <a href="#" className="btn btn-signin">Sign Up</a>
           </div>
           <div className="nav-toggle" id="mobile-menu">
+            <span className="bar"></span>
+            <span className="bar"></span>
             <span className="bar"></span>
           </div>
         </div>
@@ -348,7 +384,7 @@ export default function Home(): JSX.Element {
               <h1
                 className="hero-title text-white leading-tight mb-8"
                 style={{
-                  fontSize: '4.8rem',
+                  fontSize: '3.5rem',
                   fontWeight: 800,
                   lineHeight: 1.05,
                   letterSpacing: '-0.03em',
@@ -378,7 +414,7 @@ export default function Home(): JSX.Element {
                   Get Started
                 </a>
                 <a
-                  href="#portfolio"
+                  href="#projects"
                   className="btn btn-secondary inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-white/95 font-semibold border border-white/30 shadow-[0_8px_24px_rgba(0,0,0,0.15)] hover:bg-white/10 hover:border-white/50 hover:-translate-y-0.5 hover:shadow-[0_14px_36px_rgba(0,0,0,0.35)] transition-all duration-250 backdrop-blur-sm"
                   style={{ fontSize: '1.05rem', letterSpacing: '0.2px', backgroundColor: 'rgba(255,255,255,0.05)' }}
                 >
@@ -592,7 +628,7 @@ export default function Home(): JSX.Element {
       {/* ==================== WHY CHOOSE US SECTION ==================== */}
       <section id="about" style={{
         background: 'linear-gradient(180deg, #0d1229 0%, #0a0f23 100%)',
-        padding: '100px 0',
+        padding: '60px 0',
         position: 'relative'
       }}>
         {/* Purple glow effect */}
@@ -610,18 +646,13 @@ export default function Home(): JSX.Element {
         <div style={{ width: '93%', maxWidth: '1800px', margin: '0 auto', padding: '0 2rem', textAlign: 'center', position: 'relative', zIndex: 1 }}>
           {/* Title */}
           <h2 style={{
-            fontSize: '3rem',
+            fontSize: '2.5rem',
             fontWeight: 800,
             color: 'white',
             marginBottom: '24px',
             letterSpacing: '-0.02em'
           }}>
-            WHY CHOOSE <span style={{
-              background: 'linear-gradient(135deg, #a78bfa 0%, #818cf8 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}>US?</span>
+            WHY CHOOSE US?
           </h2>
 
           {/* Description */}
@@ -637,6 +668,7 @@ export default function Home(): JSX.Element {
           </p>
 
           {/* Team Section Title */}
+          <div id="team" style={{ paddingTop: '60px', marginTop: '-60px' }}></div>
           <h3 style={{
             fontSize: '1.5rem',
             fontWeight: 600,
@@ -726,7 +758,7 @@ export default function Home(): JSX.Element {
       {/* ==================== FEATURED PROJECTS SECTION ==================== */}
       <section id="projects" style={{
         background: 'linear-gradient(180deg, #0d1229 0%, #070b16 50%, #0a0f23 100%)',
-        padding: '120px 0 140px 0',
+        padding: '60px 0 80px 0',
         position: 'relative',
         overflow: 'hidden'
       }}>
@@ -772,7 +804,7 @@ export default function Home(): JSX.Element {
         <div style={{ width: '93%', maxWidth: '1800px', margin: '0 auto', padding: '0 2rem', position: 'relative', zIndex: 1 }}>
 
           {/* Section Header */}
-          <div style={{ marginBottom: '70px', textAlign: 'center' }}>
+          <div style={{ marginBottom: '40px', textAlign: 'center' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '20px' }}>
               <div style={{
                 display: 'flex',
@@ -793,19 +825,14 @@ export default function Home(): JSX.Element {
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
               <div style={{ textAlign: 'center' }}>
                 <h2 style={{
-                  fontSize: 'clamp(2.5rem, 5vw, 3.8rem)',
+                  fontSize: 'clamp(2rem, 4vw, 3rem)',
                   fontWeight: 800,
                   color: 'white',
                   marginBottom: '16px',
                   letterSpacing: '-0.03em',
                   lineHeight: 1.1
                 }}>
-                  Digital Excellence <span style={{
-                    background: 'linear-gradient(135deg, #06b6d4 0%, #a78bfa 50%, #f472b6 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text'
-                  }}>Delivered</span>
+                  Digital Excellence Delivered
                 </h2>
                 <p style={{
                   color: 'rgba(255,255,255,0.5)',
@@ -818,7 +845,7 @@ export default function Home(): JSX.Element {
                 </p>
               </div>
 
-              <a href="#" style={{
+              <a href="/projects" style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '10px',
@@ -878,7 +905,7 @@ export default function Home(): JSX.Element {
               <div style={{
                 position: 'relative',
                 width: '280px',
-                minHeight: '320px',
+                minHeight: '280px',
                 background: 'linear-gradient(180deg, #1a1f35 0%, #0f1629 100%)',
                 overflow: 'hidden',
                 flexShrink: 0
@@ -963,8 +990,8 @@ export default function Home(): JSX.Element {
               </div>
 
               {/* Right - Project Info */}
-              <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '12px', flexWrap: 'wrap' }}>
+              <div style={{ padding: '20px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '8px', flexWrap: 'wrap' }}>
                   <span style={{
                     background: 'linear-gradient(135deg, #1e293b, #334155)',
                     color: 'rgba(255,255,255,0.7)',
@@ -975,8 +1002,8 @@ export default function Home(): JSX.Element {
                     textTransform: 'uppercase'
                   }}>Education</span>
                   <span style={{
-                    background: 'rgba(34, 197, 94, 0.15)',
-                    color: '#22c55e',
+                    background: 'rgba(139, 92, 246, 0.15)',
+                    color: '#a78bfa',
                     fontSize: '0.65rem',
                     fontWeight: 600,
                     padding: '4px 10px',
@@ -988,7 +1015,7 @@ export default function Home(): JSX.Element {
                   color: 'white',
                   fontSize: '1.2rem',
                   fontWeight: 700,
-                  marginBottom: '10px',
+                  marginBottom: '6px',
                   lineHeight: 1.3
                 }}>Smart Learning Management System</h3>
 
@@ -996,21 +1023,21 @@ export default function Home(): JSX.Element {
                   color: 'rgba(255,255,255,0.5)',
                   fontSize: '0.8rem',
                   lineHeight: 1.6,
-                  marginBottom: '14px'
+                  marginBottom: '10px'
                 }}>
                   Comprehensive platform for online exams, payments, and hybrid education management.
                 </p>
 
                 {/* Challenge & Solution - Compact */}
-                <div style={{ marginBottom: '14px' }}>
+                <div style={{ marginBottom: '10px' }}>
                   <div style={{ marginBottom: '8px' }}>
-                    <span style={{ color: '#f472b6', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase' }}>Challenge</span>
+                    <span style={{ color: '#a78bfa', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase' }}>Challenge</span>
                     <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', lineHeight: 1.4, marginTop: '2px' }}>
                       Managing large student base across online and physical channels.
                     </p>
                   </div>
                   <div>
-                    <span style={{ color: '#22c55e', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase' }}>Solution</span>
+                    <span style={{ color: '#06b6d4', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase' }}>Solution</span>
                     <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', lineHeight: 1.4, marginTop: '2px' }}>
                       Centralized API-driven LMS with real-time sync across all channels.
                     </p>
@@ -1018,7 +1045,7 @@ export default function Home(): JSX.Element {
                 </div>
 
                 {/* Tech Stack */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginBottom: '14px' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginBottom: '10px' }}>
                   {['React', 'Node.js', 'PostgreSQL', 'AWS', 'Stripe'].map((tech, i) => (
                     <span key={i} style={{
                       background: 'rgba(139, 92, 246, 0.1)',
@@ -1041,7 +1068,7 @@ export default function Home(): JSX.Element {
                     <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.6rem' }}>Uptime</div>
                   </div>
                   <div>
-                    <div style={{ color: '#22c55e', fontSize: '1rem', fontWeight: 700 }}>3x</div>
+                    <div style={{ color: '#a78bfa', fontSize: '1rem', fontWeight: 700 }}>3x</div>
                     <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.6rem' }}>Faster</div>
                   </div>
                 </div>
@@ -1068,7 +1095,7 @@ export default function Home(): JSX.Element {
                 inset: 0,
                 borderRadius: '20px',
                 padding: '1px',
-                background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.4) 0%, transparent 50%, rgba(34, 197, 94, 0.3) 100%)',
+                background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.4) 0%, transparent 50%, rgba(6, 182, 212, 0.3) 100%)',
                 WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
                 WebkitMaskComposite: 'xor',
                 maskComposite: 'exclude',
@@ -1079,7 +1106,7 @@ export default function Home(): JSX.Element {
               <div style={{
                 position: 'relative',
                 width: '280px',
-                minHeight: '320px',
+                minHeight: '280px',
                 background: 'linear-gradient(180deg, #0f1a2e 0%, #0a1220 100%)',
                 overflow: 'hidden',
                 flexShrink: 0
@@ -1093,9 +1120,9 @@ export default function Home(): JSX.Element {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '5px',
-                  background: 'rgba(6, 182, 212, 0.3)',
+                  background: 'rgba(139, 92, 246, 0.3)',
                   backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(6, 182, 212, 0.4)',
+                  border: '1px solid rgba(139, 92, 246, 0.4)',
                   borderRadius: '100px',
                   padding: '5px 12px'
                 }}>
@@ -1103,11 +1130,11 @@ export default function Home(): JSX.Element {
                     width: '5px',
                     height: '5px',
                     borderRadius: '50%',
-                    background: '#06b6d4',
-                    boxShadow: '0 0 8px #06b6d4',
+                    background: '#a78bfa',
+                    boxShadow: '0 0 8px #a78bfa',
                     animation: 'pulse 2s infinite 0.5s'
                   }}></div>
-                  <span style={{ color: '#06b6d4', fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Featured</span>
+                  <span style={{ color: '#a78bfa', fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Featured</span>
                 </div>
 
                 {/* Browser Mockup */}
@@ -1148,9 +1175,9 @@ export default function Home(): JSX.Element {
                   right: '12px',
                   width: '38px',
                   height: '38px',
-                  background: 'linear-gradient(135deg, #06b6d4, #0891b2)',
+                  background: 'linear-gradient(135deg, #8b5cf6, #6366f1)',
                   borderRadius: '10px',
-                  boxShadow: '0 10px 20px rgba(6, 182, 212, 0.4)',
+                  boxShadow: '0 10px 20px rgba(139, 92, 246, 0.4)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -1164,11 +1191,11 @@ export default function Home(): JSX.Element {
               </div>
 
               {/* Right - Project Info */}
-              <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '12px', flexWrap: 'wrap' }}>
+              <div style={{ padding: '20px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '8px', flexWrap: 'wrap' }}>
                   <span style={{
-                    background: 'linear-gradient(135deg, #1e293b, #334155)',
-                    color: 'rgba(255,255,255,0.7)',
+                    background: 'rgba(139, 92, 246, 0.15)',
+                    color: '#a78bfa',
                     fontSize: '0.65rem',
                     fontWeight: 600,
                     padding: '4px 10px',
@@ -1176,8 +1203,8 @@ export default function Home(): JSX.Element {
                     textTransform: 'uppercase'
                   }}>Fintech</span>
                   <span style={{
-                    background: 'rgba(6, 182, 212, 0.15)',
-                    color: '#06b6d4',
+                    background: 'rgba(139, 92, 246, 0.15)',
+                    color: '#a78bfa',
                     fontSize: '0.65rem',
                     fontWeight: 600,
                     padding: '4px 10px',
@@ -1189,7 +1216,7 @@ export default function Home(): JSX.Element {
                   color: 'white',
                   fontSize: '1.2rem',
                   fontWeight: 700,
-                  marginBottom: '10px',
+                  marginBottom: '6px',
                   lineHeight: 1.3
                 }}>Enterprise Financial Dashboard</h3>
 
@@ -1197,21 +1224,21 @@ export default function Home(): JSX.Element {
                   color: 'rgba(255,255,255,0.5)',
                   fontSize: '0.8rem',
                   lineHeight: 1.6,
-                  marginBottom: '14px'
+                  marginBottom: '10px'
                 }}>
                   Real-time analytics for wealth managers with portfolio monitoring and compliance reporting.
                 </p>
 
                 {/* Challenge & Solution - Compact */}
-                <div style={{ marginBottom: '14px' }}>
+                <div style={{ marginBottom: '10px' }}>
                   <div style={{ marginBottom: '8px' }}>
-                    <span style={{ color: '#f472b6', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase' }}>Challenge</span>
+                    <span style={{ color: '#a78bfa', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase' }}>Challenge</span>
                     <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', lineHeight: 1.4, marginTop: '2px' }}>
                       Legacy systems couldn&apos;t handle 10K+ concurrent users with millisecond latency.
                     </p>
                   </div>
                   <div>
-                    <span style={{ color: '#22c55e', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase' }}>Solution</span>
+                    <span style={{ color: '#06b6d4', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase' }}>Solution</span>
                     <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', lineHeight: 1.4, marginTop: '2px' }}>
                       Microservices with Redis caching, WebSocket streaming, and K8s auto-scaling.
                     </p>
@@ -1219,11 +1246,11 @@ export default function Home(): JSX.Element {
                 </div>
 
                 {/* Tech Stack */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginBottom: '14px' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginBottom: '10px' }}>
                   {['Next.js', 'Python', 'Redis', 'K8s', 'AWS'].map((tech, i) => (
                     <span key={i} style={{
-                      background: 'rgba(6, 182, 212, 0.1)',
-                      color: '#06b6d4',
+                      background: 'rgba(139, 92, 246, 0.1)',
+                      color: '#a78bfa',
                       fontSize: '0.65rem',
                       padding: '3px 7px',
                       borderRadius: '4px'
@@ -1238,11 +1265,11 @@ export default function Home(): JSX.Element {
                     <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.6rem' }}>Processed</div>
                   </div>
                   <div>
-                    <div style={{ color: '#22c55e', fontSize: '1rem', fontWeight: 700 }}>150+</div>
+                    <div style={{ color: '#a78bfa', fontSize: '1rem', fontWeight: 700 }}>150+</div>
                     <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.6rem' }}>Clients</div>
                   </div>
                   <div>
-                    <div style={{ color: '#f97316', fontSize: '1rem', fontWeight: 700 }}>40%</div>
+                    <div style={{ color: '#06b6d4', fontSize: '1rem', fontWeight: 700 }}>40%</div>
                     <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.6rem' }}>ROI Boost</div>
                   </div>
                 </div>
@@ -1267,18 +1294,18 @@ export default function Home(): JSX.Element {
                 top: '20px',
                 left: '20px',
                 zIndex: 10,
-                background: 'rgba(6, 182, 212, 0.2)',
+                background: 'rgba(139, 92, 246, 0.2)',
                 backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(6, 182, 212, 0.3)',
+                border: '1px solid rgba(139, 92, 246, 0.3)',
                 borderRadius: '8px',
                 padding: '6px 12px'
               }}>
-                <span style={{ color: '#06b6d4', fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px' }}>E-Commerce</span>
+                <span style={{ color: '#a78bfa', fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px' }}>E-Commerce</span>
               </div>
 
               {/* Browser mockup with real e-commerce screenshot */}
               <div style={{
-                height: '200px',
+                height: '160px',
                 background: 'linear-gradient(180deg, #1a1f35 0%, #0f1629 100%)',
                 display: 'flex',
                 justifyContent: 'center',
@@ -1324,33 +1351,33 @@ export default function Home(): JSX.Element {
                 </div>
               </div>
 
-              <div style={{ padding: '24px' }}>
-                <h3 style={{ color: 'white', fontSize: '1.2rem', fontWeight: 700, marginBottom: '10px' }}>ElectroMart Shopping Platform</h3>
-                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.85rem', lineHeight: 1.6, marginBottom: '12px' }}>
+              <div style={{ padding: '20px' }}>
+                <h3 style={{ color: 'white', fontSize: '1.2rem', fontWeight: 700, marginBottom: '6px' }}>ElectroMart Shopping Platform</h3>
+                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.85rem', lineHeight: 1.6, marginBottom: '8px' }}>
                   Enterprise-grade e-commerce platform for electronics retail with real-time inventory, multi-vendor support, and advanced analytics.
                 </p>
 
                 {/* Challenge & Solution */}
-                <div style={{ marginBottom: '14px' }}>
+                <div style={{ marginBottom: '10px' }}>
                   <div style={{ marginBottom: '10px' }}>
-                    <span style={{ color: '#f472b6', fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase' }}>Challenge</span>
+                    <span style={{ color: '#a78bfa', fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase' }}>Challenge</span>
                     <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', lineHeight: 1.5, marginTop: '3px' }}>
                       Building a scalable platform handling 10K+ products with real-time stock sync across multiple warehouses.
                     </p>
                   </div>
                   <div>
-                    <span style={{ color: '#22c55e', fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase' }}>Solution</span>
+                    <span style={{ color: '#06b6d4', fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase' }}>Solution</span>
                     <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', lineHeight: 1.5, marginTop: '3px' }}>
                       Implemented microservices architecture with Redis caching, Elasticsearch for fast search, and Stripe Connect for vendor payouts.
                     </p>
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '14px' }}>
+                <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '10px' }}>
                   {['Next.js', 'Prisma', 'Stripe', 'Redis'].map((tech, i) => (
                     <span key={i} style={{
-                      background: 'rgba(6, 182, 212, 0.1)',
-                      color: '#06b6d4',
+                      background: 'rgba(139, 92, 246, 0.1)',
+                      color: '#a78bfa',
                       fontSize: '0.7rem',
                       padding: '4px 8px',
                       borderRadius: '5px'
@@ -1365,7 +1392,7 @@ export default function Home(): JSX.Element {
                     <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.6rem' }}>Monthly GMV</div>
                   </div>
                   <div>
-                    <div style={{ color: '#22c55e', fontSize: '1rem', fontWeight: 700 }}>99.9%</div>
+                    <div style={{ color: '#a78bfa', fontSize: '1rem', fontWeight: 700 }}>99.9%</div>
                     <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.6rem' }}>Uptime</div>
                   </div>
                 </div>
@@ -1390,18 +1417,18 @@ export default function Home(): JSX.Element {
                 top: '20px',
                 left: '20px',
                 zIndex: 10,
-                background: 'rgba(34, 197, 94, 0.2)',
+                background: 'rgba(139, 92, 246, 0.2)',
                 backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(34, 197, 94, 0.3)',
+                border: '1px solid rgba(139, 92, 246, 0.3)',
                 borderRadius: '8px',
                 padding: '6px 12px'
               }}>
-                <span style={{ color: '#22c55e', fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px' }}>Health Tech</span>
+                <span style={{ color: '#a78bfa', fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px' }}>Health Tech</span>
               </div>
 
               {/* Phone mockup */}
               <div style={{
-                height: '200px',
+                height: '160px',
                 background: 'linear-gradient(180deg, #1a1f35 0%, #0f1629 100%)',
                 display: 'flex',
                 justifyContent: 'center',
@@ -1459,32 +1486,32 @@ export default function Home(): JSX.Element {
                 </div>
               </div>
 
-              <div style={{ padding: '24px' }}>
-                <h3 style={{ color: 'white', fontSize: '1.1rem', fontWeight: 700, marginBottom: '10px' }}>FemCare Health Companion</h3>
-                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem', lineHeight: 1.5, marginBottom: '12px' }}>
+              <div style={{ padding: '20px' }}>
+                <h3 style={{ color: 'white', fontSize: '1.1rem', fontWeight: 700, marginBottom: '6px' }}>FemCare Health Companion</h3>
+                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem', lineHeight: 1.5, marginBottom: '8px' }}>
                   Privacy-first health tracking with AI-powered cycle predictions and personalized wellness insights.
                 </p>
 
-                <div style={{ marginBottom: '12px' }}>
+                <div style={{ marginBottom: '8px' }}>
                   <div style={{ marginBottom: '6px' }}>
-                    <span style={{ color: '#f472b6', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase' }}>Challenge</span>
+                    <span style={{ color: '#a78bfa', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase' }}>Challenge</span>
                     <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.7rem', lineHeight: 1.4, marginTop: '2px' }}>
                       Accurate predictions while maintaining HIPAA compliance.
                     </p>
                   </div>
                   <div>
-                    <span style={{ color: '#22c55e', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase' }}>Solution</span>
+                    <span style={{ color: '#06b6d4', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase' }}>Solution</span>
                     <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.7rem', lineHeight: 1.4, marginTop: '2px' }}>
                       On-device ML with end-to-end encryption.
                     </p>
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap', marginBottom: '12px' }}>
+                <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap', marginBottom: '8px' }}>
                   {['Flutter', 'TensorFlow', 'Firebase'].map((tech, i) => (
                     <span key={i} style={{
-                      background: 'rgba(34, 197, 94, 0.1)',
-                      color: '#22c55e',
+                      background: 'rgba(6, 182, 212, 0.1)',
+                      color: '#06b6d4',
                       fontSize: '0.65rem',
                       padding: '3px 7px',
                       borderRadius: '4px'
@@ -1494,7 +1521,7 @@ export default function Home(): JSX.Element {
 
                 <div style={{ display: 'flex', gap: '16px', paddingTop: '12px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
                   <div>
-                    <div style={{ color: '#22c55e', fontSize: '1rem', fontWeight: 700 }}>100K+</div>
+                    <div style={{ color: '#a78bfa', fontSize: '1rem', fontWeight: 700 }}>100K+</div>
                     <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.6rem' }}>Downloads</div>
                   </div>
                   <div>
@@ -1523,18 +1550,18 @@ export default function Home(): JSX.Element {
                 top: '20px',
                 left: '20px',
                 zIndex: 10,
-                background: 'rgba(249, 115, 22, 0.2)',
+                background: 'rgba(6, 182, 212, 0.2)',
                 backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(249, 115, 22, 0.3)',
+                border: '1px solid rgba(6, 182, 212, 0.3)',
                 borderRadius: '8px',
                 padding: '6px 12px'
               }}>
-                <span style={{ color: '#f97316', fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px' }}>AI / SaaS</span>
+                <span style={{ color: '#06b6d4', fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px' }}>AI / SaaS</span>
               </div>
 
               {/* Browser mockup */}
               <div style={{
-                height: '200px',
+                height: '160px',
                 background: 'linear-gradient(180deg, #1a1f35 0%, #0f1629 100%)',
                 display: 'flex',
                 justifyContent: 'center',
@@ -1546,7 +1573,7 @@ export default function Home(): JSX.Element {
                   position: 'absolute',
                   width: '140px',
                   height: '100px',
-                  background: 'radial-gradient(ellipse, rgba(249, 115, 22, 0.25) 0%, transparent 70%)',
+                  background: 'radial-gradient(ellipse, rgba(6, 182, 212, 0.25) 0%, transparent 70%)',
                   filter: 'blur(25px)'
                 }}></div>
                 <div style={{
@@ -1555,7 +1582,7 @@ export default function Home(): JSX.Element {
                   background: '#1e293b',
                   borderRadius: '10px',
                   border: '1px solid rgba(255,255,255,0.1)',
-                  boxShadow: '0 30px 60px rgba(0,0,0,0.4), 0 0 30px rgba(249, 115, 22, 0.1)',
+                  boxShadow: '0 30px 60px rgba(0,0,0,0.4), 0 0 30px rgba(6, 182, 212, 0.1)',
                   overflow: 'hidden',
                   position: 'relative',
                   zIndex: 1
@@ -1583,12 +1610,12 @@ export default function Home(): JSX.Element {
                   right: '20px',
                   width: '36px',
                   height: '36px',
-                  background: 'linear-gradient(135deg, #f97316, #ea580c)',
+                  background: 'linear-gradient(135deg, #06b6d4, #0891b2)',
                   borderRadius: '10px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  boxShadow: '0 10px 20px rgba(249, 115, 22, 0.4)',
+                  boxShadow: '0 10px 20px rgba(6, 182, 212, 0.4)',
                   zIndex: 2
                 }}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
@@ -1598,21 +1625,21 @@ export default function Home(): JSX.Element {
                 </div>
               </div>
 
-              <div style={{ padding: '24px' }}>
-                <h3 style={{ color: 'white', fontSize: '1.1rem', fontWeight: 700, marginBottom: '10px' }}>SmartHire AI Recruitment</h3>
-                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem', lineHeight: 1.5, marginBottom: '12px' }}>
+              <div style={{ padding: '20px' }}>
+                <h3 style={{ color: 'white', fontSize: '1.1rem', fontWeight: 700, marginBottom: '6px' }}>SmartHire AI Recruitment</h3>
+                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem', lineHeight: 1.5, marginBottom: '8px' }}>
                   AI-powered recruitment with automated resume parsing and bias-free hiring workflows.
                 </p>
 
-                <div style={{ marginBottom: '12px' }}>
+                <div style={{ marginBottom: '8px' }}>
                   <div style={{ marginBottom: '6px' }}>
-                    <span style={{ color: '#f472b6', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase' }}>Challenge</span>
+                    <span style={{ color: '#a78bfa', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase' }}>Challenge</span>
                     <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.7rem', lineHeight: 1.4, marginTop: '2px' }}>
                       Processing 1000s of applications while eliminating bias.
                     </p>
                   </div>
                   <div>
-                    <span style={{ color: '#22c55e', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase' }}>Solution</span>
+                    <span style={{ color: '#06b6d4', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase' }}>Solution</span>
                     <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.7rem', lineHeight: 1.4, marginTop: '2px' }}>
                       GPT-4 skill extraction with blind resume mode.
                     </p>
@@ -1622,8 +1649,8 @@ export default function Home(): JSX.Element {
                 <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap', marginBottom: '12px' }}>
                   {['Python', 'FastAPI', 'GPT-4'].map((tech, i) => (
                     <span key={i} style={{
-                      background: 'rgba(249, 115, 22, 0.1)',
-                      color: '#f97316',
+                      background: 'rgba(6, 182, 212, 0.1)',
+                      color: '#06b6d4',
                       fontSize: '0.65rem',
                       padding: '3px 7px',
                       borderRadius: '4px'
@@ -1633,7 +1660,7 @@ export default function Home(): JSX.Element {
 
                 <div style={{ display: 'flex', gap: '16px', paddingTop: '12px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
                   <div>
-                    <div style={{ color: '#f97316', fontSize: '1rem', fontWeight: 700 }}>85%</div>
+                    <div style={{ color: '#a78bfa', fontSize: '1rem', fontWeight: 700 }}>85%</div>
                     <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.6rem' }}>Time Saved</div>
                   </div>
                   <div>
@@ -1743,19 +1770,14 @@ export default function Home(): JSX.Element {
             </div>
 
             <h2 style={{
-              fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+              fontSize: 'clamp(2rem, 4vw, 3.2rem)',
               fontWeight: 800,
               color: 'white',
               marginBottom: '24px',
               letterSpacing: '-0.03em',
               lineHeight: 1.1
             }}>
-              How We Build <span style={{
-                background: 'linear-gradient(135deg, #22c55e 0%, #06b6d4 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
-              }}>Excellence</span>
+              How We Build Excellence
             </h2>
             <p style={{
               color: 'rgba(255,255,255,0.5)',
@@ -2021,7 +2043,7 @@ export default function Home(): JSX.Element {
       {/* ==================== TECH STACK SECTION - ATTRACTIVE CARDS ==================== */}
       <section style={{
         position: 'relative',
-        padding: '120px 0',
+        padding: '60px 0',
         overflow: 'hidden'
       }}>
         {/* Animated Background Effects */}
@@ -2051,7 +2073,7 @@ export default function Home(): JSX.Element {
         <div style={{ width: '95%', maxWidth: '1400px', margin: '0 auto', padding: '0 2rem', position: 'relative', zIndex: 1 }}>
 
           {/* Section Header - Centered */}
-          <div style={{ textAlign: 'center', marginBottom: '70px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
             <div style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -2077,19 +2099,14 @@ export default function Home(): JSX.Element {
             </div>
 
             <h2 style={{
-              fontSize: 'clamp(2.5rem, 5vw, 3.8rem)',
+              fontSize: 'clamp(2rem, 4vw, 3rem)',
               fontWeight: 800,
               color: 'white',
               marginBottom: '24px',
               letterSpacing: '-0.02em',
               lineHeight: 1.2
             }}>
-              Technologies <span style={{
-                background: 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #06b6d4 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
-              }}>We Master</span>
+              Technologies We Master
             </h2>
             <p style={{
               color: 'rgba(255,255,255,0.5)',
@@ -2788,7 +2805,7 @@ export default function Home(): JSX.Element {
 
       {/* ==================== TESTIMONIALS SECTION ==================== */}
       <section style={{
-        padding: '120px 0',
+        padding: '60px 0',
         position: 'relative',
         overflow: 'hidden'
       }}>
@@ -2820,7 +2837,7 @@ export default function Home(): JSX.Element {
 
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           {/* Section Header */}
-          <div style={{ textAlign: 'center', marginBottom: '70px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
             <div style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -2844,18 +2861,13 @@ export default function Home(): JSX.Element {
             </div>
 
             <h2 style={{
-              fontSize: '3rem',
+              fontSize: 'clamp(2rem, 4vw, 3rem)',
               fontWeight: 800,
               color: 'white',
               marginBottom: '20px',
               lineHeight: 1.2
             }}>
-              What Our <span style={{
-                background: 'linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
-              }}>Clients Say</span>
+              What Our Clients Say
             </h2>
 
             <p style={{
@@ -3155,103 +3167,7 @@ export default function Home(): JSX.Element {
 
       <ContactSection />
 
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-content">
-            <div className="footer-section">
-              <div className="footer-logo">
-                <svg width="40" height="40" viewBox="0 0 40 40">
-                  <path
-                    d="M20 5 L35 12.5 L35 27.5 L20 35 L5 27.5 L5 12.5 Z"
-                    fill="none"
-                    stroke="white"
-                    strokeWidth="2"
-                  />
-                  <text
-                    x="20"
-                    y="25"
-                    fontSize="16"
-                    fill="white"
-                    textAnchor="middle"
-                    fontWeight="bold"
-                  >
-                    SG
-                  </text>
-                </svg>
-                <span>SoftGen</span>
-              </div>
-              <p>Building the future, one line of code at a time.</p>
-              <div className="social-links">
-                <a href="#">Twitter</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">GitHub</a>
-              </div>
-            </div>
 
-            <div className="footer-section">
-              <h4>Services</h4>
-              <ul>
-                <li>
-                  <a href="#services">Web Development</a>
-                </li>
-                <li>
-                  <a href="#services">Mobile Apps</a>
-                </li>
-                <li>
-                  <a href="#services">UI/UX Design</a>
-                </li>
-                <li>
-                  <a href="#services">Cloud Solutions</a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="footer-section">
-              <h4>Company</h4>
-              <ul>
-                <li>
-                  <a href="#about">About Us</a>
-                </li>
-                <li>
-                  <a href="#team">Our Team</a>
-                </li>
-                <li>
-                  <a href="#projects">Projects</a>
-                </li>
-                <li>
-                  <a href="#contact">Contact</a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="footer-section">
-              <h4>Resources</h4>
-              <ul>
-                <li>
-                  <a href="#blogs">Blog</a>
-                </li>
-                <li>
-                  <a href="#faq">FAQ</a>
-                </li>
-                <li>
-                  <a href="#">Documentation</a>
-                </li>
-                <li>
-                  <a href="#">Support</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="footer-bottom">
-            <p>&copy; 2025 SoftGen. All rights reserved.</p>
-            <div className="footer-links">
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms of Service</a>
-            </div>
-          </div>
-        </div>
-      </footer>
     </>
   );
 }

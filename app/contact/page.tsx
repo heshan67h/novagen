@@ -113,7 +113,7 @@ export default function ContactPage(): JSX.Element {
                                     marginBottom: 14,
                                 }}
                             >
-                                Start a project with SoftGen
+                                Start a project with NovaGen
                             </p>
                             <h1
                                 style={{
@@ -122,7 +122,7 @@ export default function ContactPage(): JSX.Element {
                                     fontWeight: 700,
                                     letterSpacing: '-0.04em',
                                     marginBottom: 18,
-                                    color: '#f9fafb',
+                                    color: '#FFFFFF',
                                 }}
                             >
                                 Share the problem,
@@ -487,7 +487,7 @@ export default function ContactPage(): JSX.Element {
                                         }}
                                     >
                                         Or email us directly at
-                                        <span style={{ color: '#38bdf8' }}> hello@softgen.studio</span>
+                                        <span style={{ color: '#38bdf8' }}> hello@novagen.studio</span>
                                     </p>
                                 </div>
                             </form>

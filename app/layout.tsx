@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import Footer from './components/Footer';
 
 export const metadata: Metadata = {
-  title: 'SoftGen - Software Development Company',
+  title: 'NovaGen - Software Development Company',
   description:
     'We build cutting-edge software solutions that drive innovation and accelerate business growth.',
 };
@@ -19,7 +20,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
       </head>
-      <body style={{ fontFamily: "'Inter', sans-serif" }}>{children}</body>
+      <body style={{ fontFamily: "'Inter', sans-serif" }}>
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

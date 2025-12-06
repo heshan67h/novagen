@@ -146,7 +146,7 @@ export default function Services() {
                 fontWeight: 700,
                 letterSpacing: "-0.04em",
                 marginBottom: "18px",
-                color: "#f9fafb",
+                color: "#FFFFFF",
               }}
             >
               Services designed
@@ -1421,7 +1421,7 @@ export default function Services() {
                 marginBottom: 6,
               }}
             >
-              The SoftGen guarantee
+              The NovaGen guarantee
             </p>
             <h2
               style={{

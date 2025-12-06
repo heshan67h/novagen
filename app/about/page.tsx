@@ -33,7 +33,7 @@ export default function AboutPage(): JSX.Element {
           width: "93%",
           maxWidth: "1800px",
           margin: "0 auto",
-          padding: "120px 0 96px 0",
+          padding: "120px 2rem 96px 2rem",
           position: "relative",
           zIndex: 1,
         }}
@@ -103,34 +103,23 @@ export default function AboutPage(): JSX.Element {
                 marginBottom: "16px",
               }}
             >
-              Inside SoftGen
+              Inside NovaGen
             </p>
             <h1
               style={{
                 fontSize: "clamp(2.4rem, 3.4vw, 3.1rem)",
                 lineHeight: 1.1,
-                  fontWeight: 700,
+                fontWeight: 700,
                 letterSpacing: "-0.04em",
                 marginBottom: "18px",
+                color: "#FFFFFF",
               }}
             >
               We are a product
               <br />
-              <span
-                style={{
-                  background:
-                    "linear-gradient(120deg,#60a5fa 0%,#38bdf8 30%,#22c55e 58%,#a855f7 100%)",
-                    WebkitBackgroundClip: "text",
-                    backgroundClip: "text",
-                    color: "#FFFFFF",
-                    display: "inline-block",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
-                engineering studio helping
-                <br />
-                teams ship faster.
-              </span>
+              engineering studio helping
+              <br />
+              teams ship faster.
             </h1>
             <p
               style={{
@@ -140,7 +129,7 @@ export default function AboutPage(): JSX.Element {
                 maxWidth: "36rem",
               }}
             >
-              SoftGen is a boutique engineering partner for teams that want fewer meetings and more
+              NovaGen is a boutique engineering partner for teams that want fewer meetings and more
               shipped releases. We blend strategy, design, and development to ship reliable
               products that your customers actually enjoy using.
             </p>
@@ -314,7 +303,7 @@ export default function AboutPage(): JSX.Element {
                 marginBottom: 16,
               }}
             >
-              SoftGen began as a small group of engineers frustrated by fragile launches, endless
+              NovaGen began as a small group of engineers frustrated by fragile launches, endless
               rewrites, and business teams left in the dark.
             </p>
             <p
