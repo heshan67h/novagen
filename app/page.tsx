@@ -359,7 +359,19 @@ export default function Home(): JSX.Element {
             <li className="nav-item mobile-signup"><a href="#" className="nav-link btn-signup-mobile">Sign Up</a></li>
           </ul>
           <div className="nav-buttons">
-            <a href="#" className="btn btn-signin">Sign Up</a>
+            <a
+              href="#contact"
+              className="btn btn-primary inline-flex items-center gap-2 px-5 py-2 rounded-xl font-semibold shadow-[0_6px_18px_rgba(10,24,82,0.12)] transition-all duration-250"
+              style={{
+                background: 'linear-gradient(90deg, #0a1852 0%, #2563eb 100%)',
+                color: '#fff',
+                border: 'none',
+                fontSize: '1rem',
+                letterSpacing: '0.1px',
+              }}
+            >
+              Get Started
+            </a>
           </div>
           <div className="nav-toggle" id="mobile-menu">
             <span className="bar"></span>
@@ -434,8 +446,15 @@ export default function Home(): JSX.Element {
               <div className="hero-buttons flex items-center gap-3 flex-wrap">
                 <a
                   href="#contact"
-                  className="btn btn-primary inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white text-[#0a0f23] font-semibold shadow-[0_10px_30px_rgba(0,0,0,0.4)] hover:bg-gray-100 hover:-translate-y-0.5 hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)] transition-all duration-250"
-                  style={{ fontSize: '1.05rem', letterSpacing: '0.2px' }}
+                  className="btn btn-primary inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold shadow-[0_10px_30px_rgba(0,0,0,0.4)] transition-all duration-250"
+                  style={{
+                    fontSize: '1.05rem',
+                    letterSpacing: '0.2px',
+                    background: 'linear-gradient(90deg, #0a1852 0%, #2563eb 100%)',
+                    color: '#fff',
+                    border: 'none',
+                    boxShadow: '0 10px 30px rgba(10,24,82,0.18)',
+                  }}
                 >
                   Get Started
                 </a>
