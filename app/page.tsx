@@ -135,17 +135,19 @@ export default function Home(): JSX.Element {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
+          const target = entry.target as HTMLElement;
+          target.style.opacity = '1';
+          target.style.transform = 'translateY(0)';
         }
       });
     }, observerOptions);
 
     document.querySelectorAll('.service-card').forEach(card => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(50px)';
-      card.style.transition = 'all 0.6s ease';
-      observer.observe(card);
+      const cardElement = card as HTMLElement;
+      cardElement.style.opacity = '0';
+      cardElement.style.transform = 'translateY(50px)';
+      cardElement.style.transition = 'all 0.6s ease';
+      observer.observe(cardElement);
     });
 
     // Team avatars animation on hover
@@ -161,13 +163,15 @@ export default function Home(): JSX.Element {
 
     // Add particle effect on service card hover
     document.querySelectorAll('.service-card').forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+      card.addEventListener('mousemove', (e: Event) => {
+        const mouseEvent = e as MouseEvent;
+        const cardElement = card as HTMLElement;
+        const rect = cardElement.getBoundingClientRect();
+        const x = mouseEvent.clientX - rect.left;
+        const y = mouseEvent.clientY - rect.top;
 
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
+        cardElement.style.setProperty('--mouse-x', `${x}px`);
+        cardElement.style.setProperty('--mouse-y', `${y}px`);
       });
     });
 
@@ -180,7 +184,7 @@ export default function Home(): JSX.Element {
     }
 
     // Add gradient animation to section title
-    const sectionTitle = document.querySelector('.section-title .highlight');
+    const sectionTitle = document.querySelector('.section-title .highlight') as HTMLElement | null;
     if (sectionTitle) {
       let hue = 0;
       setInterval(() => {
