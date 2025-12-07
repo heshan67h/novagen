@@ -31,9 +31,12 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="nav-container" style={{ padding: '0 2rem', height: '25px', display: 'flex', alignItems: 'center' }}>
                 <div className="nav-logo">
-                    <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-                        <img src="/images/logo.png" alt="NovaGen Logo" style={{ height: '32px', width: 'auto' }} />
-                        <span className="logo-text" style={{ color: 'white', fontSize: '1.2rem', fontWeight: 700 }}>NovaGen</span>
+                    <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
+                        <img src="/images/logo.png" alt="NovaGen Logo" style={{ height: '36px', width: 'auto' }} />
+                        <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.15 }}>
+                            <span className="logo-text" style={{ color: 'white', fontSize: '1.25rem', fontWeight: 700, letterSpacing: '-0.02em' }}>NovaGen</span>
+                            <span style={{ color: 'rgba(148,163,184,0.85)', fontSize: '0.65rem', fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Software Solutions</span>
+                        </div>
                     </a>
                 </div>
                 <ul className="nav-menu">
@@ -41,12 +44,26 @@ const Navbar = () => {
                     <li className="nav-item"><a {...makeProps('/about')} className="nav-link">About</a></li>
                     <li className="nav-item"><a {...makeProps('/services')} className="nav-link">Services</a></li>
                     <li className="nav-item"><a {...makeProps('/projects')} className="nav-link">Projects</a></li>
+                    <li className="nav-item"><a {...makeProps('/blog')} className="nav-link">Blog</a></li>
                     <li className="nav-item"><a {...makeProps('/team')} className="nav-link">Team</a></li>
                     <li className="nav-item"><a {...makeProps('/contact')} className="nav-link">Contact</a></li>
                     <li className="nav-item mobile-signup"><a href="#" className="nav-link btn-signup-mobile">Sign Up</a></li>
                 </ul>
                 <div className="nav-buttons">
-                    <a href="#" className="btn btn-signin">Sign Up</a>
+                    <a
+                        href="/contact"
+                        className="btn btn-primary inline-flex items-center gap-2 px-5 py-2 rounded-xl font-semibold shadow-[0_6px_18px_rgba(10,24,82,0.12)] transition-all duration-250"
+                        style={{
+                            background: 'linear-gradient(90deg, #0a1852 0%, #2563eb 100%)',
+                            color: '#fff',
+                            border: 'none',
+                            fontSize: '1rem',
+                            letterSpacing: '0.1px',
+                            textDecoration: 'none'
+                        }}
+                    >
+                        Get Started
+                    </a>
                 </div>
                 <div className="nav-toggle" id="mobile-menu">
                     <span className="bar"></span>

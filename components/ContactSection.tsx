@@ -65,8 +65,8 @@ const ContactSection = () => {
                   <div className="flex-1">
                     <h3 className="text-white font-semibold text-base mb-1">Email Us</h3>
                     <p className="text-gray-400 text-xs mb-2">Response within 24 hours</p>
-                    <a href="mailto:info@softgen.com" className="text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors flex items-center gap-2 group/link">
-                      info@softgen.com
+                    <a href="mailto:novagensoftware@gmail.com" className="text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors flex items-center gap-2 group/link">
+                      novagensoftware@gmail.com
                       <svg className="w-3 h-3 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
@@ -87,8 +87,8 @@ const ContactSection = () => {
                   <div className="flex-1">
                     <h3 className="text-white font-semibold text-base mb-1">Call Us</h3>
                     <p className="text-gray-400 text-xs mb-2">Mon-Fri 8am-6pm EST</p>
-                    <a href="tel:+1321221231" className="text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors flex items-center gap-2 group/link">
-                      +1 (321) 221-231
+                    <a href="tel:+94725137006" className="text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors flex items-center gap-2 group/link">
+                      +94 72 513 7006
                       <svg className="w-3 h-3 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
@@ -150,7 +150,7 @@ const ContactSection = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                     <div>
-                      <p className="text-white text-xs font-medium">123 Tech Blvd, Suite 500<br />San Francisco, CA 94107</p>
+                      <p className="text-white text-xs font-medium">Colombo, Sri Lanka</p>
                     </div>
                   </div>
                 </div>
@@ -241,7 +241,7 @@ const ContactSection = () => {
                       </label>
                       <input
                         type="email"
-                        placeholder="john.doe@example.com"
+                        placeholder="user@gmail.com"
                         required
                         className="w-full bg-white/5 border border-white/10 rounded-xl px-3.5 py-2.5 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all hover:bg-white/[0.07]"
                         value={formData.email}
@@ -273,7 +273,7 @@ const ContactSection = () => {
                         </div>
                         <input
                           type="tel"
-                          placeholder="(123) 456-7890"
+                          placeholder="(+94) 77 123 4567"
                           className="w-full bg-white/5 border border-white/10 rounded-xl pl-[75px] pr-3.5 py-2.5 text-white text-sm placeholder-gray-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all hover:bg-white/[0.07]"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}

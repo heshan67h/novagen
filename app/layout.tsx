@@ -77,7 +77,7 @@ export default function RootLayout({
     },
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+94-70-123-4567',
+      telephone: '+94 72 513 7006',
       contactType: 'customer service',
     },
   };

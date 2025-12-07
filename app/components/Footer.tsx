@@ -25,7 +25,7 @@ export default function Footer() {
       }}></div>
 
       <div style={{ width: '93%', maxWidth: '1800px', margin: '0 auto', padding: '0 2rem', position: 'relative', zIndex: 1 }}>
-        
+
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
@@ -94,15 +94,15 @@ export default function Footer() {
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <li style={{ display: 'flex', gap: '12px', color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: 1.6 }}>
                 <span style={{ fontSize: '1.2rem' }}>📍</span>
-                <span>123 Innovation Drive,<br />Tech Valley, CA 94043</span>
+                <span>Colombo, Sri Lanka</span>
               </li>
               <li style={{ display: 'flex', gap: '12px', color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' }}>
                 <span style={{ fontSize: '1.2rem' }}>📧</span>
-                <a href="mailto:hello@novagen.com" style={{ color: 'inherit', textDecoration: 'none' }}>hello@novagen.com</a>
+                <a href="mailto:novagensoftware@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>novagensoftware@gmail.com</a>
               </li>
               <li style={{ display: 'flex', gap: '12px', color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' }}>
                 <span style={{ fontSize: '1.2rem' }}>📞</span>
-                <a href="tel:+15551234567" style={{ color: 'inherit', textDecoration: 'none' }}>+1 (555) 123-4567</a>
+                <a href="tel:+94725137006" style={{ color: 'inherit', textDecoration: 'none' }}>+94 72 513 7006</a>
               </li>
             </ul>
           </div>

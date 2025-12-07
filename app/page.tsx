@@ -142,7 +142,7 @@ export default function Home(): JSX.Element {
     // ==================== AVATAR HOVER EFFECTS ====================
     document.querySelectorAll('.avatar').forEach(avatar => {
       const avatarElement = avatar as HTMLElement;
-      
+
       avatarElement.addEventListener('mouseenter', () => {
         avatarElement.style.boxShadow = '0 8px 30px rgba(0, 212, 255, 0.6)';
       });
@@ -155,7 +155,7 @@ export default function Home(): JSX.Element {
     // ==================== SERVICE CARD PARTICLE EFFECT ====================
     document.querySelectorAll('.service-card').forEach(card => {
       const cardElement = card as HTMLElement;
-      
+
       cardElement.addEventListener('mousemove', (e: Event) => {
         const mouseEvent = e as MouseEvent;
         const rect = cardElement.getBoundingClientRect();
@@ -188,7 +188,7 @@ export default function Home(): JSX.Element {
     // ==================== MOBILE MENU ====================
     const mobileMenuToggle = document.getElementById('mobile-menu') as HTMLElement | null;
     const navMenu = document.querySelector('.nav-menu') as HTMLElement | null;
-    
+
     if (mobileMenuToggle && navMenu) {
       const toggleMenu = (): void => {
         mobileMenuToggle.classList.toggle('active');
@@ -196,7 +196,7 @@ export default function Home(): JSX.Element {
       };
 
       mobileMenuToggle.addEventListener('click', toggleMenu);
-      
+
       // Close menu when clicking on a link
       navMenu.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
@@ -204,7 +204,7 @@ export default function Home(): JSX.Element {
           navMenu.classList.remove('active');
         });
       });
-      
+
       // Close menu when clicking outside
       const handleOutsideClick = (e: MouseEvent): void => {
         const target = e.target as Node | null;
@@ -260,14 +260,14 @@ export default function Home(): JSX.Element {
         }
       }
     };
-    
+
     window.addEventListener('scroll', handleParallax);
 
     // ==================== REVEAL SECTIONS ====================
     const revealSections = document.querySelectorAll(
       '.projects, .technical, .process, .pricing, .testimonials, .faq, .contact'
     );
-    
+
     const revealObserver = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
@@ -307,7 +307,7 @@ export default function Home(): JSX.Element {
     // ==================== PROCESS STEPS HOVER ====================
     document.querySelectorAll('.process-step').forEach(step => {
       const stepElement = step as HTMLElement;
-      
+
       stepElement.addEventListener('mouseenter', () => {
         stepElement.style.transform = 'translateX(10px)';
       });
@@ -344,9 +344,12 @@ export default function Home(): JSX.Element {
       <nav className="navbar">
         <div className="nav-container" style={{ padding: '0 2rem', height: '25px', display: 'flex', alignItems: 'center' }}>
           <div className="nav-logo">
-            <a href="#home" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-              <img src="/images/logo.png" alt="NovaGen Logo" style={{ height: '32px', width: 'auto' }} />
-              <span className="logo-text" style={{ color: 'white', fontSize: '1.2rem', fontWeight: 700 }}>NovaGen</span>
+            <a href="#home" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
+              <img src="/images/logo.png" alt="NovaGen Logo" style={{ height: '36px', width: 'auto' }} />
+              <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.15 }}>
+                <span className="logo-text" style={{ color: 'white', fontSize: '1.25rem', fontWeight: 700, letterSpacing: '-0.02em' }}>NovaGen</span>
+                <span style={{ color: 'rgba(148,163,184,0.85)', fontSize: '0.65rem', fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Software Solutions</span>
+              </div>
             </a>
           </div>
           <ul className="nav-menu">
@@ -354,6 +357,7 @@ export default function Home(): JSX.Element {
             <li className="nav-item"><a href="/about" className="nav-link">About</a></li>
             <li className="nav-item"><a href="/services" className="nav-link">Services</a></li>
             <li className="nav-item"><a href="/projects" className="nav-link">Projects</a></li>
+            <li className="nav-item"><a href="/blog" className="nav-link">Blog</a></li>
             <li className="nav-item"><a href="/team" className="nav-link">Team</a></li>
             <li className="nav-item"><a href="/contact" className="nav-link">Contact</a></li>
             <li className="nav-item mobile-signup"><a href="#" className="nav-link btn-signup-mobile">Sign Up</a></li>
@@ -393,7 +397,7 @@ export default function Home(): JSX.Element {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover z-0"
-          style={{ filter: 'brightness(0.25)', opacity: 0.9 }}
+          style={{ filter: 'brightness(0.35)', opacity: 1 }}
         >
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
@@ -696,7 +700,7 @@ export default function Home(): JSX.Element {
               marginLeft: '-12px',
               overflow: 'hidden'
             }}>
-              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Team" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/images/teamimage/2_heshan_x.png" alt="Heshan Sathyanga" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
             <div style={{
               width: '60px',
@@ -707,7 +711,7 @@ export default function Home(): JSX.Element {
               marginLeft: '-12px',
               overflow: 'hidden'
             }}>
-              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Team" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/images/teamimage/1_shehan_priyadarshana.jpg" alt="Shehan Priyadarshana" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
             <div style={{
               width: '60px',
@@ -718,7 +722,7 @@ export default function Home(): JSX.Element {
               marginLeft: '-12px',
               overflow: 'hidden'
             }}>
-              <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Team" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/images/teamimage/dewaka.jpeg" alt="Dewaka" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
             <div style={{
               width: '60px',
@@ -729,29 +733,7 @@ export default function Home(): JSX.Element {
               marginLeft: '-12px',
               overflow: 'hidden'
             }}>
-              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Team" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-            </div>
-            <div style={{
-              width: '60px',
-              height: '60px',
-              borderRadius: '50%',
-              background: 'linear-gradient(135deg, #1e293b 0%, #334155 100%)',
-              border: '3px solid #0a0f23',
-              marginLeft: '-12px',
-              overflow: 'hidden'
-            }}>
-              <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Team" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-            </div>
-            <div style={{
-              width: '60px',
-              height: '60px',
-              borderRadius: '50%',
-              background: 'linear-gradient(135deg, #1e293b 0%, #334155 100%)',
-              border: '3px solid #0a0f23',
-              marginLeft: '-12px',
-              overflow: 'hidden'
-            }}>
-              <img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Team" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/images/teamimage/rumitha.jpeg" alt="Rumitha" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
           </div>
         </div>

@@ -1,8 +1,125 @@
 "use client";
 
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 
 export default function Projects() {
+  const [activeFilter, setActiveFilter] = useState("All");
+
+  const projects = [
+    {
+      label: "01",
+      title: "Fintech Dashboard",
+      image: "/images/newprojects/Fintech Dashboard.png",
+      summary:
+        "A comprehensive dashboard for financial data visualization, enabling real-time insights and decision making.",
+      bullets: [
+        "Real-time data visualization",
+        "Secure transaction processing",
+        "Customizable reporting tools",
+      ],
+      category: "Finance",
+    },
+    {
+      label: "02",
+      title: "Health Monitor App",
+      image: "/images/newprojects/Health Monitor App.png",
+      summary:
+        "Mobile application for patient monitoring and engagement, connecting patients with healthcare providers.",
+      bullets: [
+        "Remote patient monitoring",
+        "Secure messaging system",
+        "Appointment scheduling",
+      ],
+      category: "Healthcare",
+    },
+    {
+      label: "03",
+      title: "E-commerce Platform",
+      image: "/images/newprojects/E-commerce Platform.png",
+      summary:
+        "Scalable online store with advanced inventory management and seamless checkout experience.",
+      bullets: [
+        "Advanced inventory management",
+        "Seamless checkout process",
+        "Integrated marketing tools",
+      ],
+      category: "Retail",
+    },
+    {
+      label: "04",
+      title: "AI Analytics Suite",
+      image: "/images/newprojects/AI Analytics Suite.png",
+      summary:
+        "Predictive analytics platform powered by machine learning for business intelligence and forecasting.",
+      bullets: [
+        "ML model integration",
+        "Trend forecasting",
+        "Data mining capabilities",
+      ],
+      category: "AI / ML",
+    },
+    {
+      label: "05",
+      title: "Smart Home Hub",
+      image: "/images/newprojects/Smart Home Hub.png",
+      summary:
+        "IoT control center for managing connected devices across residential properties with automation.",
+      bullets: [
+        "Device integration",
+        "Automated routines",
+        "Energy monitoring",
+      ],
+      category: "IoT",
+    },
+    {
+      label: "06",
+      title: "Logistics Tracker",
+      image: "/images/newprojects/Logistics Tracker.png",
+      summary:
+        "Real-time fleet management and supply chain visibility solution for global logistics companies.",
+      bullets: [
+        "GPS tracking",
+        "Route optimization",
+        "Delivery proof",
+      ],
+      category: "Logistics",
+    },
+    {
+      label: "07",
+      title: "Cloud Migration",
+      image: "/images/newprojects/Cloud Migration.png",
+      summary:
+        "Seamless migration of legacy systems to modern cloud infrastructure with zero downtime.",
+      bullets: [
+        "AWS/Azure migration",
+        "Microservices architecture",
+        "Cost optimization",
+      ],
+      category: "Cloud",
+    },
+    {
+      label: "08",
+      title: "Secure Vault",
+      image: "/images/newprojects/Secure Vault.png",
+      summary:
+        "Enterprise-grade security platform for protecting sensitive data and managing access controls.",
+      bullets: [
+        "End-to-end encryption",
+        "Identity management",
+        "Compliance auditing",
+      ],
+      category: "Security",
+    },
+  ];
+
+  const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
+
+  const filteredProjects =
+    activeFilter === "All"
+      ? projects
+      : projects.filter((project) => project.category === activeFilter);
+
   return (
     <div
       style={{
@@ -301,13 +418,54 @@ export default function Projects() {
             </aside>
           </section>
 
+          {/* Filter Bar */}
+          <div style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: 12,
+            marginBottom: 40,
+            paddingTop: 20,
+            borderTop: "1px solid rgba(31,41,55,1)"
+          }}>
+            {categories.map((cat) => {
+              const isActive = activeFilter === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setActiveFilter(cat)}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 8,
+                    padding: '8px 20px',
+                    borderRadius: 999,
+                    border: isActive
+                      ? '1px solid #38bdf8'
+                      : '1px solid rgba(55,65,81,0.8)',
+                    background: isActive
+                      ? 'rgba(56,189,248,0.1)'
+                      : 'rgba(15,23,42,0.6)',
+                    color: isActive ? '#f8fafc' : '#94a3b8',
+                    cursor: 'pointer',
+                    fontSize: 13,
+                    transition: 'all 0.2s ease',
+                  }}
+                >
+                  <span style={{
+                    width: 6,
+                    height: 6,
+                    borderRadius: '50%',
+                    background: isActive ? '#38bdf8' : '#64748b',
+                    boxShadow: isActive ? '0 0 8px #38bdf8' : 'none'
+                  }} />
+                  {cat}
+                </button>
+              );
+            })}
+          </div>
+
           {/* Projects grid */}
-          <section
-            style={{
-              borderTop: "1px solid rgba(31,41,55,1)",
-              paddingTop: 40,
-            }}
-          >
+          <section>
             <div
               style={{
                 display: "flex",
@@ -337,7 +495,7 @@ export default function Projects() {
                     margin: 0,
                   }}
                 >
-                  Recent projects we are proud of.
+                  {activeFilter === 'All' ? 'Recent projects we are proud of.' : `${activeFilter} Projects`}
                 </h2>
               </div>
 
@@ -361,112 +519,7 @@ export default function Projects() {
                 gap: 18,
               }}
             >
-              {[
-                {
-                  label: "01",
-                  title: "Fintech Dashboard",
-                  image: "/images/projects/Gemini_Generated_Image_6d0b786d0b786d0b.png",
-                  summary:
-                    "A comprehensive dashboard for financial data visualization, enabling real-time insights and decision making.",
-                  bullets: [
-                    "Real-time data visualization",
-                    "Secure transaction processing",
-                    "Customizable reporting tools",
-                  ],
-                  category: "Finance",
-                },
-                {
-                  label: "02",
-                  title: "Health Monitor App",
-                  image: "/images/projects/Gemini_Generated_Image_6ne8vm6ne8vm6ne8.png",
-                  summary:
-                    "Mobile application for patient monitoring and engagement, connecting patients with healthcare providers.",
-                  bullets: [
-                    "Remote patient monitoring",
-                    "Secure messaging system",
-                    "Appointment scheduling",
-                  ],
-                  category: "Healthcare",
-                },
-                {
-                  label: "03",
-                  title: "E-commerce Platform",
-                  image: "/images/projects/Gemini_Generated_Image_dlvmzidlvmzidlvm.png",
-                  summary:
-                    "Scalable online store with advanced inventory management and seamless checkout experience.",
-                  bullets: [
-                    "Advanced inventory management",
-                    "Seamless checkout process",
-                    "Integrated marketing tools",
-                  ],
-                  category: "Retail",
-                },
-                {
-                  label: "04",
-                  title: "AI Analytics Suite",
-                  image: "/images/projects/Gemini_Generated_Image_kiuq5rkiuq5rkiuq.png",
-                  summary:
-                    "Predictive analytics platform powered by machine learning for business intelligence and forecasting.",
-                  bullets: [
-                    "ML model integration",
-                    "Trend forecasting",
-                    "Data mining capabilities",
-                  ],
-                  category: "AI / ML",
-                },
-                {
-                  label: "05",
-                  title: "Smart Home Hub",
-                  image: "/images/projects/Gemini_Generated_Image_x3jcsfx3jcsfx3jc.png",
-                  summary:
-                    "IoT control center for managing connected devices across residential properties with automation.",
-                  bullets: [
-                    "Device integration",
-                    "Automated routines",
-                    "Energy monitoring",
-                  ],
-                  category: "IoT",
-                },
-                {
-                  label: "06",
-                  title: "Logistics Tracker",
-                  image: "/images/projects/Gemini_Generated_Image_ybx1xyybx1xyybx1.png",
-                  summary:
-                    "Real-time fleet management and supply chain visibility solution for global logistics companies.",
-                  bullets: [
-                    "GPS tracking",
-                    "Route optimization",
-                    "Delivery proof",
-                  ],
-                  category: "Logistics",
-                },
-                {
-                  label: "07",
-                  title: "Cloud Migration",
-                  image: "/images/projects/Gemini_Generated_Image_6d0b786d0b786d0b.png",
-                  summary:
-                    "Seamless migration of legacy systems to modern cloud infrastructure with zero downtime.",
-                  bullets: [
-                    "AWS/Azure migration",
-                    "Microservices architecture",
-                    "Cost optimization",
-                  ],
-                  category: "Cloud",
-                },
-                {
-                  label: "08",
-                  title: "Secure Vault",
-                  image: "/images/projects/Gemini_Generated_Image_kiuq5rkiuq5rkiuq.png",
-                  summary:
-                    "Enterprise-grade security platform for protecting sensitive data and managing access controls.",
-                  bullets: [
-                    "End-to-end encryption",
-                    "Identity management",
-                    "Compliance auditing",
-                  ],
-                  category: "Security",
-                },
-              ].map((project, index) => (
+              {filteredProjects.map((project, index) => (
                 <div
                   key={project.title}
                   className="project-card-hover"
@@ -786,7 +839,7 @@ export default function Projects() {
                 <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#38bdf8", boxShadow: "0 0 10px #38bdf8" }}></span>
                 Our Technology Ecosystem
               </h3>
-              
+
               <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
                 {[
                   { cat: "Frontend", techs: ["Next.js 14", "React", "TypeScript", "Tailwind CSS", "Framer Motion"] },
@@ -829,7 +882,7 @@ export default function Projects() {
               }}
             >
               <div style={{ position: "absolute", top: 0, right: 0, width: "100%", height: "100%", background: "radial-gradient(circle at top right, rgba(34,197,94,0.1), transparent 50%)", pointerEvents: "none" }}></div>
-              
+
               <h3
                 style={{
                   fontSize: 18,
@@ -847,7 +900,7 @@ export default function Projects() {
 
               <div style={{ position: "relative", paddingLeft: 20 }}>
                 <div style={{ position: "absolute", left: 7, top: 10, bottom: 10, width: 2, background: "rgba(255,255,255,0.1)" }}></div>
-                
+
                 {[
                   { step: "Code Analysis", desc: "Static analysis & security linting" },
                   { step: "Automated Testing", desc: "Unit, integration & E2E suites" },
