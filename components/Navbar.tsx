@@ -22,9 +22,20 @@ const Navbar = () => {
         border: '1px solid rgba(148,163,184,0.5)',
     };
 
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+
+    const toggleMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
+    };
+
+    const closeMenu = () => {
+        setIsMobileMenuOpen(false);
+    };
+
     const makeProps = (href: string) => ({
         href,
         style: pathname === (href === '/' ? '/' : href) ? { ...linkStyle, ...activeStyle } : linkStyle,
+        onClick: closeMenu,
     });
 
     return (
@@ -33,13 +44,13 @@ const Navbar = () => {
                 <div className="nav-logo">
                     <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
                         <img src="/images/logo.png" alt="NovaGen Logo" style={{ height: '36px', width: 'auto' }} />
-                        <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.15 }}>
-                            <span className="logo-text" style={{ color: 'white', fontSize: '1.25rem', fontWeight: 700, letterSpacing: '-0.02em' }}>NovaGen</span>
-                            <span style={{ color: 'rgba(148,163,184,0.85)', fontSize: '0.65rem', fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Software Solutions</span>
+                        <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1, gap: '5px' }}>
+                            <span className="logo-text" style={{ color: 'white', fontSize: '1.25rem', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: '1' }}>NovaGen</span>
+                            <span style={{ color: 'rgba(148,163,184,0.85)', fontSize: '0.65rem', fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block' }}>Software Solutions</span>
                         </div>
                     </a>
                 </div>
-                <ul className="nav-menu">
+                <ul className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
                     <li className="nav-item"><a {...makeProps('/')} className="nav-link">Home</a></li>
                     <li className="nav-item"><a {...makeProps('/about')} className="nav-link">About</a></li>
                     <li className="nav-item"><a {...makeProps('/services')} className="nav-link">Services</a></li>
@@ -65,7 +76,9 @@ const Navbar = () => {
                         Get Started
                     </a>
                 </div>
-                <div className="nav-toggle" id="mobile-menu">
+                <div className={`nav-toggle ${isMobileMenuOpen ? 'active' : ''}`} id="mobile-menu" onClick={toggleMenu}>
+                    <span className="bar"></span>
+                    <span className="bar"></span>
                     <span className="bar"></span>
                 </div>
             </div>

@@ -1,6 +1,13 @@
 /* Google Fonts - Inter (Original SoftGen Font) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
+html,
+body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    position: relative !important;
+}
+
 /* Legacy custom dark theme base styles */
 @import '../styles.css';
 
@@ -737,37 +744,38 @@
 
 /* TABLET (1024px and below) */
 @media (max-width: 1024px) {
+
     /* Navbar */
     .navbar {
         width: 95% !important;
         top: 15px !important;
     }
-    
+
     .nav-container {
         padding: 0 1.5rem !important;
     }
-    
+
     /* Hero */
     .hero-split-layout {
         grid-template-columns: 1fr !important;
         gap: 3rem !important;
         text-align: center !important;
     }
-    
+
     .hero-content-left {
         text-align: center !important;
         padding: 0 !important;
     }
-    
+
     .hero-buttons {
         justify-content: center !important;
     }
-    
+
     .hero-code-container {
         margin: 0 auto !important;
         max-width: 100% !important;
     }
-    
+
     .code-window {
         min-width: auto !important;
         width: 100% !important;
@@ -775,7 +783,7 @@
         margin: 0 auto !important;
         transform: none !important;
     }
-    
+
     /* Process Section Timeline */
     .process-timeline-item {
         flex-direction: column !important;
@@ -784,25 +792,46 @@
 
 /* MOBILE (768px and below) */
 @media (max-width: 768px) {
+
     /* ===== NAVBAR MOBILE ===== */
     .navbar {
-        width: 90% !important;
+        width: auto !important;
+        left: 1rem !important;
+        right: 1rem !important;
         top: 10px !important;
         border-radius: 16px !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
+        transform: none !important;
+        padding: 10px 0 !important;
+        position: fixed !important;
+        z-index: 1000 !important;
     }
-    
+
     .navbar::before,
     .navbar::after {
         display: none !important;
     }
-    
+
     .nav-container {
-        padding: 0.6rem 1rem !important;
+        padding: 0.5rem 1rem !important;
         height: auto !important;
+        min-height: 0 !important;
     }
-    
+
+    .nav-logo img {
+        height: 38px !important;
+    }
+
+    .nav-logo .logo-text {
+        font-size: 1.3rem !important;
+    }
+
+    /* Restore "Software Solutions" and style for mobile */
+    .nav-logo div span:nth-child(2) {
+        display: block !important;
+        font-size: 0.65rem !important;
+        line-height: 1 !important;
+    }
+
     .nav-menu {
         position: fixed !important;
         top: 70px !important;
@@ -820,15 +849,15 @@
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5) !important;
         z-index: 999 !important;
     }
-    
+
     .nav-menu.active {
         display: flex !important;
     }
-    
+
     .nav-menu li {
         width: 100% !important;
     }
-    
+
     .nav-menu .nav-link {
         display: block !important;
         padding: 0.9rem 1.2rem !important;
@@ -836,29 +865,29 @@
         transition: all 0.3s ease !important;
         font-size: 1rem !important;
     }
-    
+
     .nav-menu .nav-link:hover {
         background: rgba(139, 92, 246, 0.15) !important;
     }
-    
+
     .mobile-signup {
         display: block !important;
         margin-top: 0.5rem !important;
         padding-top: 0.5rem !important;
         border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
     }
-    
+
     .mobile-signup .btn-signup-mobile {
         background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%) !important;
         color: white !important;
         font-weight: 600 !important;
         text-align: center !important;
     }
-    
+
     .nav-buttons {
         display: none !important;
     }
-    
+
     .nav-toggle {
         display: flex !important;
         flex-direction: column !important;
@@ -867,7 +896,7 @@
         padding: 5px !important;
         z-index: 1001 !important;
     }
-    
+
     .nav-toggle .bar {
         width: 24px !important;
         height: 2.5px !important;
@@ -875,79 +904,79 @@
         border-radius: 2px !important;
         transition: all 0.3s ease !important;
     }
-    
+
     .nav-toggle.active .bar:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px) !important;
     }
-    
+
     .nav-toggle.active .bar:nth-child(2) {
         opacity: 0 !important;
     }
-    
+
     .nav-toggle.active .bar:nth-child(3) {
         transform: rotate(-45deg) translate(5px, -5px) !important;
     }
-    
+
     .logo-text {
         font-size: 1.1rem !important;
     }
-    
+
     /* ===== HERO SECTION MOBILE ===== */
     #home.hero {
         min-height: 100vh !important;
         padding-top: 80px !important;
         padding-bottom: 40px !important;
     }
-    
+
     .hero-container {
         width: 100% !important;
         padding: 0 1rem !important;
     }
-    
+
     .hero-split-layout {
         display: flex !important;
         flex-direction: column !important;
         gap: 2rem !important;
         padding: 0 !important;
     }
-    
+
     .hero-content-left {
         order: 1 !important;
         text-align: center !important;
         padding: 0 0.5rem !important;
     }
-    
+
     .hero-content-left .hero-title {
         font-size: 2rem !important;
         line-height: 1.2 !important;
         margin-bottom: 1rem !important;
     }
-    
+
     .hero-content-left .hero-subtitle {
         font-size: 1.1rem !important;
         margin-bottom: 1rem !important;
     }
-    
+
     .hero-content-left .hero-description {
         font-size: 0.95rem !important;
         line-height: 1.7 !important;
         max-width: 100% !important;
         margin-bottom: 1.5rem !important;
     }
-    
+
     .hero-buttons {
         flex-direction: column !important;
         gap: 0.8rem !important;
         width: 100% !important;
     }
-    
+
     .hero-buttons .btn {
         width: 100% !important;
         justify-content: center !important;
         padding: 0.9rem 1.5rem !important;
         font-size: 0.95rem !important;
     }
-    
+
     .hero-code-container {
         order: 2 !important;
         width: 100% !important;
@@ -955,148 +984,148 @@
         margin: 0 !important;
         padding: 0 0.5rem !important;
     }
-    
+
     .code-window {
         min-width: 100% !important;
         width: 100% !important;
         transform: none !important;
         border-radius: 12px !important;
     }
-    
+
     .code-content {
         padding: 1rem !important;
         max-height: 280px !important;
     }
-    
+
     .code-content pre {
         font-size: 0.7rem !important;
         line-height: 1.5 !important;
     }
-    
+
     .code-header {
         padding: 0.6rem 0.8rem !important;
     }
-    
+
     .code-dots .dot {
         width: 10px !important;
         height: 10px !important;
     }
-    
+
     .code-title {
         font-size: 0.75rem !important;
     }
-    
+
     .scroll-indicator {
         bottom: 30px !important;
     }
-    
+
     .scroll-indicator .mouse-icon {
         width: 24px !important;
         height: 40px !important;
     }
-    
+
     .scroll-indicator span {
         font-size: 11px !important;
     }
-    
+
     /* ===== SERVICES SECTION MOBILE ===== */
     #services {
         padding: 40px 0 !important;
         margin-top: 0 !important;
     }
-    
-    #services > div {
+
+    #services>div {
         padding: 0 1rem !important;
     }
-    
-    #services > div > div {
+
+    #services>div>div {
         grid-template-columns: 1fr !important;
         gap: 16px !important;
     }
-    
+
     .service-card-hover {
         padding: 20px 18px !important;
         border-radius: 14px !important;
     }
-    
-    .service-card-hover > div:first-child {
+
+    .service-card-hover>div:first-child {
         width: 42px !important;
         height: 42px !important;
         margin-bottom: 14px !important;
     }
-    
+
     .service-card-hover h3 {
         font-size: 1rem !important;
         margin-bottom: 8px !important;
     }
-    
+
     .service-card-hover p {
         font-size: 0.85rem !important;
     }
-    
+
     /* ===== WHY CHOOSE US SECTION MOBILE ===== */
     #about {
         padding: 50px 0 !important;
     }
-    
-    #about > div {
+
+    #about>div {
         padding: 0 1rem !important;
     }
-    
+
     #about h2 {
         font-size: 1.8rem !important;
         margin-bottom: 16px !important;
     }
-    
-    #about > div > p {
+
+    #about>div>p {
         font-size: 0.95rem !important;
         margin-bottom: 40px !important;
     }
-    
+
     #about h3 {
         font-size: 1.2rem !important;
         margin-bottom: 20px !important;
     }
-    
+
     /* Team Avatars */
-    #about > div > div:last-child {
+    #about>div>div:last-child {
         gap: 0 !important;
     }
-    
-    #about > div > div:last-child > div {
+
+    #about>div>div:last-child>div {
         width: 50px !important;
         height: 50px !important;
         margin-left: -10px !important;
     }
-    
+
     /* ===== PROJECTS SECTION MOBILE ===== */
     #projects {
         padding: 50px 0 !important;
     }
-    
-    #projects > div {
+
+    #projects>div {
         padding: 0 1rem !important;
     }
-    
+
     /* Projects Header */
-    #projects > div > div:first-child {
+    #projects>div>div:first-child {
         margin-bottom: 30px !important;
     }
-    
+
     #projects h2 {
         font-size: 1.8rem !important;
     }
-    
-    #projects > div > div:first-child p {
+
+    #projects>div>div:first-child p {
         font-size: 0.95rem !important;
     }
-    
+
     /* Projects Bento Grid - Stack everything */
-    #projects > div > div:nth-child(2) {
+    #projects>div>div:nth-child(2) {
         grid-template-columns: 1fr !important;
         gap: 16px !important;
     }
-    
+
     /* All project cards take full width */
     .project-card,
     .project-card-main {
@@ -1104,89 +1133,89 @@
         flex-direction: column !important;
         border-radius: 16px !important;
     }
-    
+
     /* Horizontal cards become vertical on mobile */
     .project-card-main {
         flex-direction: column !important;
     }
-    
-    .project-card-main > div:first-child {
+
+    .project-card-main>div:first-child {
         width: 100% !important;
         min-height: 200px !important;
         height: 200px !important;
     }
-    
-    .project-card-main > div:last-child {
+
+    .project-card-main>div:last-child {
         padding: 16px !important;
     }
-    
-    .project-card > div {
+
+    .project-card>div {
         padding: 16px !important;
     }
-    
+
     /* Project card content adjustments */
     .project-card h3,
     .project-card-main h3 {
         font-size: 1.05rem !important;
     }
-    
+
     .project-card p,
     .project-card-main p {
         font-size: 0.8rem !important;
     }
-    
+
     /* Tech badges in project cards */
     .project-card span[style*="fontSize: '0.65rem'"],
     .project-card-main span[style*="fontSize: '0.65rem'"] {
         font-size: 0.6rem !important;
         padding: 2px 6px !important;
     }
-    
+
     /* Project CTA */
-    #projects > div > div:last-child {
+    #projects>div>div:last-child {
         margin-top: 40px !important;
     }
-    
-    #projects > div > div:last-child > div {
+
+    #projects>div>div:last-child>div {
         flex-direction: column !important;
         gap: 16px !important;
         padding: 20px !important;
         text-align: center !important;
     }
-    
-    #projects > div > div:last-child > div p {
+
+    #projects>div>div:last-child>div p {
         font-size: 0.9rem !important;
     }
-    
-    #projects > div > div:last-child > div a {
+
+    #projects>div>div:last-child>div a {
         width: 100% !important;
         justify-content: center !important;
     }
-    
+
     /* ===== PROCESS SECTION MOBILE ===== */
     section:has(h2:contains("How We Build")) {
         padding: 50px 0 !important;
     }
-    
+
     /* Process Timeline - Complete redesign for mobile */
     .process-timeline,
-    section > div > div:has(> div[style*="position: 'absolute'"]) {
+    section>div>div:has(> div[style*="position: 'absolute'"]) {
         display: flex !important;
         flex-direction: column !important;
     }
-    
+
     /* Hide the center vertical line on mobile */
     div[style*="position: 'absolute'"][style*="left: '50%'"][style*="width: '3px'"] {
         display: none !important;
     }
-    
+
     /* Process steps - stack vertically */
     div[style*="display: 'flex'"][style*="alignItems: 'stretch'"] {
         flex-direction: column !important;
         text-align: center !important;
         margin-bottom: 40px !important;
     }
-    
+
     /* Center the step number circles */
     div[style*="width: '80px'"][style*="height: '80px'"][style*="borderRadius: '50%'"] {
         width: 60px !important;
@@ -1194,97 +1223,97 @@
         margin: 0 auto 20px auto !important;
         order: -1 !important;
     }
-    
+
     div[style*="width: '80px'"][style*="height: '80px'"] span {
         font-size: 1.3rem !important;
     }
-    
+
     /* Process content sections */
     div[style*="flex: 1"][style*="paddingLeft: '40px'"],
     div[style*="flex: 1"][style*="paddingRight: '40px'"] {
         padding: 0 1rem !important;
         text-align: center !important;
     }
-    
+
     /* Process step titles */
     div[style*="flex: 1"] h3 {
         font-size: 1.4rem !important;
     }
-    
+
     div[style*="flex: 1"] p {
         font-size: 0.9rem !important;
     }
-    
+
     /* Process tags */
     div[style*="display: 'flex'"][style*="gap: '16px'"][style*="flexWrap: 'wrap'"] {
         justify-content: center !important;
         gap: 8px !important;
     }
-    
+
     div[style*="display: 'flex'"][style*="gap: '16px'"] span {
         font-size: 0.8rem !important;
         padding: 5px 10px !important;
     }
-    
+
     /* Process stats */
     div[style*="display: 'flex'"][style*="flexDirection: 'row'"][style*="gap: '40px'"] {
         flex-direction: column !important;
         gap: 20px !important;
         margin-top: 20px !important;
     }
-    
+
     div[style*="fontSize: '2.5rem'"] {
         font-size: 2rem !important;
     }
-    
+
     /* ===== TECH STACK SECTION MOBILE ===== */
     section:has(span:contains("Our Technology Arsenal")) {
         padding: 50px 0 !important;
     }
-    
-    section:has(span:contains("Our Technology Arsenal")) > div {
+
+    section:has(span:contains("Our Technology Arsenal"))>div {
         padding: 0 1rem !important;
     }
-    
+
     section:has(span:contains("Our Technology Arsenal")) h2 {
         font-size: 1.8rem !important;
     }
-    
+
     /* Tech cards grid */
     div[style*="display: 'grid'"][style*="gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))'"] {
         grid-template-columns: 1fr !important;
         gap: 16px !important;
     }
-    
+
     /* Tech category cards */
     div[style*="borderRadius: '20px'"][style*="padding: '25px'"] {
         padding: 20px !important;
         border-radius: 16px !important;
     }
-    
+
     /* Tech card header */
     div[style*="width: '45px'"][style*="height: '45px'"] {
         width: 40px !important;
         height: 40px !important;
     }
-    
-    div[style*="width: '45px'"] + div h3 {
+
+    div[style*="width: '45px'"]+div h3 {
         font-size: 1.1rem !important;
     }
-    
+
     /* Tech badges */
     div[style*="display: 'flex'"][style*="flexWrap: 'wrap'"][style*="gap: '10px'"] {
         gap: 8px !important;
     }
-    
+
     div[style*="padding: '10px 16px'"][style*="borderRadius: '10px'"] {
         padding: 8px 12px !important;
     }
-    
+
     div[style*="padding: '10px 16px'"] span:last-child {
         font-size: 0.8rem !important;
     }
-    
+
     /* Tech stats bottom */
     div[style*="gridTemplateColumns: 'repeat(4, 1fr)'"] {
         grid-template-columns: repeat(2, 1fr) !important;
@@ -1292,126 +1321,126 @@
         margin-top: 50px !important;
         padding-top: 30px !important;
     }
-    
-    div[style*="gridTemplateColumns: 'repeat(4, 1fr)'"] > div > div:first-child {
+
+    div[style*="gridTemplateColumns: 'repeat(4, 1fr)'"]>div>div:first-child {
         font-size: 2.2rem !important;
     }
-    
+
     /* ===== TESTIMONIALS SECTION MOBILE ===== */
     section:has(span:contains("CLIENT TESTIMONIALS")) {
         padding: 50px 0 !important;
     }
-    
+
     section:has(span:contains("CLIENT TESTIMONIALS")) h2 {
         font-size: 1.8rem !important;
     }
-    
+
     /* Hide carousel arrows on mobile */
     #testimonial-prev,
     #testimonial-next {
         display: none !important;
     }
-    
+
     /* Testimonials container */
     #testimonials-container {
         padding: 0 1rem !important;
         -webkit-overflow-scrolling: touch !important;
     }
-    
-    #testimonials-container > div {
+
+    #testimonials-container>div {
         gap: 16px !important;
     }
-    
+
     /* Testimonial cards */
-    #testimonials-container > div > div {
+    #testimonials-container>div>div {
         min-width: 85vw !important;
         width: 85vw !important;
         padding: 24px 20px !important;
         border-radius: 16px !important;
     }
-    
-    #testimonials-container > div > div p {
+
+    #testimonials-container>div>div p {
         font-size: 0.9rem !important;
         line-height: 1.7 !important;
     }
-    
+
     /* Author info */
-    #testimonials-container > div > div > div:last-child > div:first-child {
+    #testimonials-container>div>div>div:last-child>div:first-child {
         width: 45px !important;
         height: 45px !important;
     }
-    
+
     /* Testimonials stats */
     div[style*="gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))'"] {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 30px !important;
         margin-top: 50px !important;
     }
-    
-    div[style*="gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))'"] > div > div:first-child {
+
+    div[style*="gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))'"]>div>div:first-child {
         font-size: 2.2rem !important;
     }
-    
+
     /* ===== CONTACT SECTION MOBILE ===== */
     .contact-section {
         padding: 50px 0 !important;
     }
-    
+
     .contact-section h2 {
         font-size: 1.8rem !important;
     }
-    
+
     .contact-section form {
         padding: 0 1rem !important;
     }
-    
+
     .contact-section input,
     .contact-section textarea {
         padding: 14px 16px !important;
         font-size: 0.95rem !important;
     }
-    
+
     .contact-section button {
         width: 100% !important;
         padding: 14px !important;
     }
-    
+
     /* ===== FOOTER MOBILE ===== */
     footer {
         padding: 50px 0 30px 0 !important;
     }
-    
-    footer > div {
+
+    footer>div {
         padding: 0 1rem !important;
     }
-    
+
     /* Footer grid */
-    footer > div > div:first-child {
+    footer>div>div:first-child {
         grid-template-columns: 1fr !important;
         gap: 30px !important;
         text-align: center !important;
     }
-    
+
     footer h4 {
         font-size: 1rem !important;
         margin-bottom: 16px !important;
     }
-    
+
     footer ul {
         gap: 10px !important;
     }
-    
+
     footer a {
         font-size: 0.9rem !important;
     }
-    
+
     /* Footer social icons */
-    footer > div > div:first-child > div:first-child > div {
+    footer>div>div:first-child>div:first-child>div {
         justify-content: center !important;
     }
-    
+
     /* Footer bottom */
-    footer > div > div:last-child {
+    footer>div>div:last-child {
         flex-direction: column !important;
         gap: 16px !important;
         text-align: center !important;
@@ -1421,47 +1450,45 @@
 
 /* SMALL MOBILE (480px and below) */
 @media (max-width: 480px) {
-    .navbar {
-        width: 68% !important;
-    }
-    
+
+
     .hero-content-left .hero-title {
         font-size: 1.7rem !important;
     }
-    
+
     .hero-content-left .hero-subtitle {
         font-size: 1rem !important;
     }
-    
+
     .code-content pre {
         font-size: 0.6rem !important;
     }
-    
+
     #projects h2,
     #about h2,
     section h2 {
         font-size: 1.5rem !important;
     }
-    
+
     /* Tech stats - single column on very small screens */
     div[style*="gridTemplateColumns: 'repeat(4, 1fr)'"],
     div[style*="gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))'"] {
         grid-template-columns: repeat(2, 1fr) !important;
     }
-    
+
     /* Testimonial cards even smaller */
-    #testimonials-container > div > div {
+    #testimonials-container>div>div {
         min-width: 90vw !important;
         width: 90vw !important;
         padding: 20px 16px !important;
     }
-    
+
     /* Process step circles smaller */
     div[style*="width: '80px'"][style*="height: '80px'"][style*="borderRadius: '50%'"] {
         width: 50px !important;
         height: 50px !important;
     }
-    
+
     div[style*="width: '80px'"][style*="height: '80px'"] span {
         font-size: 1.1rem !important;
     }
@@ -1469,19 +1496,20 @@
 
 /* Touch device optimizations */
 @media (hover: none) and (pointer: coarse) {
+
     .service-card-hover:hover,
     .project-card:hover,
     .project-card-main:hover {
         transform: none !important;
     }
-    
+
     /* Increase tap targets */
     .nav-menu .nav-link {
         min-height: 48px !important;
         display: flex !important;
         align-items: center !important;
     }
-    
+
     .hero-buttons .btn {
         min-height: 48px !important;
     }
@@ -1493,100 +1521,101 @@
         padding-top: 40px !important;
         padding-bottom: 25px !important;
     }
-    
-    footer > div {
+
+    footer>div {
         padding: 0 1.2rem !important;
     }
-    
-    footer > div > div:first-child {
+
+    footer>div>div:first-child {
         grid-template-columns: 1fr !important;
         gap: 35px !important;
         margin-bottom: 35px !important;
     }
-    
+
     /* Brand section center on mobile */
-    footer > div > div:first-child > div:first-child {
+    footer>div>div:first-child>div:first-child {
         text-align: center !important;
     }
-    
-    footer > div > div:first-child > div:first-child > div:first-child {
+
+    footer>div>div:first-child>div:first-child>div:first-child {
         justify-content: center !important;
     }
-    
-    footer > div > div:first-child > div:first-child > p {
+
+    footer>div>div:first-child>div:first-child>p {
         max-width: 300px !important;
         margin: 0 auto 20px auto !important;
     }
-    
+
     /* Social icons center */
-    footer > div > div:first-child > div:first-child > div:last-child {
+    footer>div>div:first-child>div:first-child>div:last-child {
         justify-content: center !important;
     }
-    
+
     /* Services, Company, Contact columns */
-    footer > div > div:first-child > div:not(:first-child) {
+    footer>div>div:first-child>div:not(:first-child) {
         text-align: center !important;
     }
-    
-    footer > div > div:first-child > div:not(:first-child) ul {
+
+    footer>div>div:first-child>div:not(:first-child) ul {
         align-items: center !important;
     }
-    
+
     /* Contact items */
-    footer > div > div:first-child > div:last-child ul li {
+    footer>div>div:first-child>div:last-child ul li {
         justify-content: center !important;
         text-align: center !important;
     }
-    
+
     /* Footer bottom */
-    footer > div > div:last-child {
+    footer>div>div:last-child {
         flex-direction: column !important;
         text-align: center !important;
         gap: 15px !important;
     }
-    
-    footer > div > div:last-child > div {
+
+    footer>div>div:last-child>div {
         flex-wrap: wrap !important;
         justify-content: center !important;
         gap: 15px !important;
     }
-    
-    footer > div > div:last-child > div a {
+
+    footer>div>div:last-child>div a {
         font-size: 0.85rem !important;
     }
 }
 
 /* ===== CONTACT SECTION MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
+
     .contact-section,
     section:has(form) {
         padding: 50px 0 !important;
     }
-    
-    .contact-section > div,
-    section:has(form) > div {
+
+    .contact-section>div,
+    section:has(form)>div {
         padding: 0 1.2rem !important;
     }
-    
+
     .contact-section h2,
     section:has(form) h2 {
         font-size: 1.8rem !important;
         margin-bottom: 16px !important;
     }
-    
+
     .contact-section p,
-    section:has(form) > div > p {
+    section:has(form)>div>p {
         font-size: 0.95rem !important;
         margin-bottom: 30px !important;
     }
-    
+
     /* Contact form grid */
-    .contact-section form > div,
-    section:has(form) form > div {
+    .contact-section form>div,
+    section:has(form) form>div {
         grid-template-columns: 1fr !important;
         gap: 16px !important;
     }
-    
+
     .contact-section input,
     .contact-section textarea,
     section:has(form) input,
@@ -1595,7 +1624,7 @@
         font-size: 0.95rem !important;
         border-radius: 12px !important;
     }
-    
+
     .contact-section button,
     section:has(form) button[type="submit"] {
         width: 100% !important;
@@ -1604,65 +1633,65 @@
         border-radius: 12px !important;
         margin-top: 10px !important;
     }
-    
+
     /* Contact info cards */
-    .contact-section > div > div:last-child,
-    section:has(form) > div > div:has(a[href^="mailto"]) {
+    .contact-section>div>div:last-child,
+    section:has(form)>div>div:has(a[href^="mailto"]) {
         flex-direction: column !important;
         gap: 16px !important;
     }
-    
+
     /* Contact Section - Tailwind overrides for mobile */
     #contact {
         min-height: auto !important;
         padding: 60px 0 !important;
     }
-    
+
     #contact .max-w-\[1600px\] {
         padding-left: 1rem !important;
         padding-right: 1rem !important;
     }
-    
+
     #contact h2 {
         font-size: 1.8rem !important;
         line-height: 1.2 !important;
     }
-    
+
     #contact .text-5xl {
         font-size: 1.8rem !important;
     }
-    
+
     #contact .text-lg {
         font-size: 0.95rem !important;
     }
-    
+
     /* Contact grid - stack on mobile */
     #contact .lg\:col-span-4 {
         order: 2 !important;
     }
-    
+
     #contact .lg\:col-span-8 {
         order: 1 !important;
     }
-    
+
     /* Contact cards */
     #contact .rounded-2xl {
         border-radius: 14px !important;
     }
-    
+
     #contact .p-5 {
         padding: 16px !important;
     }
-    
+
     #contact .p-8 {
         padding: 20px !important;
     }
-    
+
     /* Form spacing */
-    #contact form .space-y-4 > * + * {
+    #contact form .space-y-4>*+* {
         margin-top: 12px !important;
     }
-    
+
     /* Submit button */
     #contact button[type="submit"] {
         padding: 14px 20px !important;
@@ -1671,6 +1700,7 @@
 
 /* ===== GENERAL MOBILE UTILITIES ===== */
 @media (max-width: 768px) {
+
     /* Container padding adjustments */
     .container,
     [style*="width: '93%'"],
@@ -1679,38 +1709,38 @@
         padding-left: 1rem !important;
         padding-right: 1rem !important;
     }
-    
+
     /* Section padding adjustments */
     section {
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
-    
+
     /* Heading sizes */
     h1 {
         font-size: 2rem !important;
     }
-    
+
     h2 {
         font-size: 1.8rem !important;
     }
-    
+
     h3 {
         font-size: 1.3rem !important;
     }
-    
+
     /* Hide decorative elements that may overflow */
     [style*="position: 'absolute'"][style*="width: '400px'"],
     [style*="position: 'absolute'"][style*="width: '500px'"],
     [style*="position: 'absolute'"][style*="width: '600px'"] {
         display: none !important;
     }
-    
+
     /* Smooth scroll behavior */
     html {
         scroll-behavior: smooth !important;
     }
-    
+
     /* Prevent horizontal overflow */
     body {
         overflow-x: hidden !important;
