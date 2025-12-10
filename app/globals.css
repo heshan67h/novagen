@@ -760,11 +760,17 @@ body {
         grid-template-columns: 1fr !important;
         gap: 3rem !important;
         text-align: center !important;
+        padding-top: 140px !important;
     }
 
     .hero-content-left {
         text-align: center !important;
         padding: 0 !important;
+        margin-top: 140px !important;
+    }
+
+    .hero-title {
+        font-size: 13vw !important;
     }
 
     .hero-buttons {
@@ -831,6 +837,8 @@ body {
         font-size: 0.65rem !important;
         line-height: 1 !important;
     }
+
+
 
     .nav-menu {
         position: fixed !important;
@@ -978,11 +986,7 @@ body {
     }
 
     .hero-code-container {
-        order: 2 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        padding: 0 0.5rem !important;
+        display: none !important;
     }
 
     .code-window {
@@ -993,26 +997,32 @@ body {
     }
 
     .code-content {
-        padding: 1rem !important;
-        max-height: 280px !important;
+        padding: 1.5rem !important;
+        max-height: 320px !important;
+        min-height: 200px !important;
     }
 
     .code-content pre {
-        font-size: 0.7rem !important;
-        line-height: 1.5 !important;
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        font-family: 'Fira Code', 'Roboto Mono', monospace !important;
     }
 
     .code-header {
-        padding: 0.6rem 0.8rem !important;
+        padding: 0.8rem 1rem !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
     }
 
     .code-dots .dot {
-        width: 10px !important;
-        height: 10px !important;
+        width: 11px !important;
+        height: 11px !important;
+        margin-right: 6px !important;
     }
 
     .code-title {
-        font-size: 0.75rem !important;
+        font-size: 0.9rem !important;
+        letter-spacing: 0.5px !important;
+        color: rgba(255, 255, 255, 0.9) !important;
     }
 
     .scroll-indicator {
