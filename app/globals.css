@@ -798,12 +798,15 @@ body {
 
 /* MOBILE (768px and below) */
 @media (max-width: 768px) {
+    .mobile-hidden {
+        display: none !important;
+    }
 
     /* ===== NAVBAR MOBILE ===== */
     .navbar {
         width: auto !important;
-        left: 1rem !important;
-        right: 1rem !important;
+        left: 0.5rem !important;
+        right: 0.5rem !important;
         top: 10px !important;
         border-radius: 16px !important;
         transform: none !important;
@@ -818,7 +821,7 @@ body {
     }
 
     .nav-container {
-        padding: 0.5rem 1rem !important;
+        padding: 0.5rem 0.5rem !important;
         height: auto !important;
         min-height: 0 !important;
     }
@@ -845,7 +848,7 @@ body {
         top: 70px !important;
         left: 50% !important;
         transform: translateX(-50%) !important;
-        width: 92% !important;
+        width: calc(100% - 1rem) !important;
         background: linear-gradient(180deg, rgba(10, 15, 35, 0.98) 0%, rgba(15, 20, 45, 0.98) 100%) !important;
         border-radius: 16px !important;
         border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -938,7 +941,7 @@ body {
 
     .hero-container {
         width: 100% !important;
-        padding: 0 1rem !important;
+        padding: 0 !important;
     }
 
     .hero-split-layout {
@@ -951,7 +954,7 @@ body {
     .hero-content-left {
         order: 1 !important;
         text-align: center !important;
-        padding: 0 0.5rem !important;
+        padding: 0 10px !important;
     }
 
     .hero-content-left .hero-title {
@@ -1045,7 +1048,9 @@ body {
     }
 
     #services>div {
-        padding: 0 1rem !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
     }
 
     #services>div>div {
@@ -1079,7 +1084,9 @@ body {
     }
 
     #about>div {
-        padding: 0 1rem !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
     }
 
     #about h2 {
@@ -1114,7 +1121,9 @@ body {
     }
 
     #projects>div {
-        padding: 0 1rem !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
     }
 
     /* Projects Header */
@@ -1203,77 +1212,138 @@ body {
     }
 
     /* ===== PROCESS SECTION MOBILE ===== */
-    section:has(h2:contains("How We Build")) {
+    /* ===== PROCESS SECTION MOBILE ===== */
+    .process-section {
         padding: 50px 0 !important;
     }
 
+    /* Process Section Container - Reduce side padding */
+    .process-content-wrapper {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+    }
+
     /* Process Timeline - Complete redesign for mobile */
-    .process-timeline,
-    section>div>div:has(> div[style*="position: 'absolute'"]) {
+    /* Process Timeline - Card Stack Redesign */
+    .process-step {
         display: flex !important;
         flex-direction: column !important;
+        background: rgba(255, 255, 255, 0.03) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 20px !important;
+        padding: 24px 15px !important;
+        /* Reduced from 20px */
+        margin-bottom: 20px !important;
+        position: relative !important;
+        overflow: hidden !important;
+        text-align: center !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 0 !important;
     }
 
     /* Hide the center vertical line on mobile */
-    div[style*="position: 'absolute'"][style*="left: '50%'"][style*="width: '3px'"] {
+    /* Hide the center vertical line on mobile */
+    .process-vertical-line {
         display: none !important;
     }
 
-    /* Process steps - stack vertically */
-    div[style*="display: 'flex'"][style*="alignItems: 'stretch'"] {
-        flex-direction: column !important;
-        text-align: center !important;
-        margin-bottom: 40px !important;
+
+
+    /* Process Step Number Circle (Watermark Style) */
+    .process-circle {
+        position: absolute !important;
+        top: 20px !important;
+        right: 20px !important;
+        width: 40px !important;
+        height: 40px !important;
+        margin: 0 !important;
+        order: 0 !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: none !important;
     }
 
-    /* Center the step number circles */
-    div[style*="width: '80px'"][style*="height: '80px'"][style*="borderRadius: '50%'"] {
-        width: 60px !important;
-        height: 60px !important;
-        margin: 0 auto 20px auto !important;
-        order: -1 !important;
-    }
-
-    div[style*="width: '80px'"][style*="height: '80px'"] span {
-        font-size: 1.3rem !important;
-    }
-
-    /* Process content sections */
-    div[style*="flex: 1"][style*="paddingLeft: '40px'"],
-    div[style*="flex: 1"][style*="paddingRight: '40px'"] {
-        padding: 0 1rem !important;
-        text-align: center !important;
-    }
-
-    /* Process step titles */
-    div[style*="flex: 1"] h3 {
-        font-size: 1.4rem !important;
-    }
-
-    div[style*="flex: 1"] p {
+    .process-circle span {
         font-size: 0.9rem !important;
+        font-weight: 700 !important;
+        color: rgba(255, 255, 255, 0.8) !important;
     }
 
-    /* Process tags */
-    div[style*="display: 'flex'"][style*="gap: '16px'"][style*="flexWrap: 'wrap'"] {
+    /* Content Reset */
+    /* Content Reset */
+    .process-content-left,
+    .process-content-right {
+        padding: 0 !important;
+        text-align: center !important;
+        flex: 0 0 auto !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    /* Titles */
+    /* Titles */
+    .process-content-left h3,
+    .process-content-right h3 {
+        font-size: 1.5rem !important;
+        margin-top: 10px !important;
+        padding-right: 0px !important;
+        text-align: center !important;
+    }
+
+    /* Description */
+    /* Description */
+    .process-content-left p,
+    .process-content-right p {
+        font-size: 0.95rem !important;
+        color: rgba(255, 255, 255, 0.7) !important;
+        margin-bottom: 12px !important;
+    }
+
+    /* Tags container */
+    /* Tags container */
+    .process-tags {
         justify-content: center !important;
         gap: 8px !important;
+        margin-top: 16px !important;
     }
 
-    div[style*="display: 'flex'"][style*="gap: '16px'"] span {
-        font-size: 0.8rem !important;
-        padding: 5px 10px !important;
+    .process-tags span {
+        font-size: 0.75rem !important;
+        padding: 4px 10px !important;
+        background: rgba(255, 255, 255, 0.05) !important;
     }
 
-    /* Process stats */
-    div[style*="display: 'flex'"][style*="flexDirection: 'row'"][style*="gap: '40px'"] {
-        flex-direction: column !important;
-        gap: 20px !important;
-        margin-top: 20px !important;
+    /* Stats Container */
+    /* Stats Container */
+    /* Stats Container */
+    .process-stats {
+        display: none !important;
     }
 
-    div[style*="fontSize: '2.5rem'"] {
-        font-size: 2rem !important;
+    .process-stats>div {
+        width: 100% !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        gap: 16px !important;
+    }
+
+    .process-stats>div>div {
+        text-align: left !important;
+    }
+
+    /* Stats typography */
+    .process-stats div[style*="fontSize: '2.5rem'"] {
+        font-size: 1.8rem !important;
+        color: #fff !important;
+    }
+
+    div[style*="fontSize: '2.5rem'"]+div {
+        font-size: 0.75rem !important;
     }
 
     /* ===== TECH STACK SECTION MOBILE ===== */
@@ -1282,7 +1352,9 @@ body {
     }
 
     section:has(span:contains("Our Technology Arsenal"))>div {
-        padding: 0 1rem !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
     }
 
     section:has(span:contains("Our Technology Arsenal")) h2 {
@@ -1326,14 +1398,7 @@ body {
 
     /* Tech stats bottom */
     div[style*="gridTemplateColumns: 'repeat(4, 1fr)'"] {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 24px !important;
-        margin-top: 50px !important;
-        padding-top: 30px !important;
-    }
-
-    div[style*="gridTemplateColumns: 'repeat(4, 1fr)'"]>div>div:first-child {
-        font-size: 2.2rem !important;
+        display: none !important;
     }
 
     /* ===== TESTIMONIALS SECTION MOBILE ===== */
@@ -1353,7 +1418,9 @@ body {
 
     /* Testimonials container */
     #testimonials-container {
-        padding: 0 1rem !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
         -webkit-overflow-scrolling: touch !important;
     }
 
@@ -1363,8 +1430,8 @@ body {
 
     /* Testimonial cards */
     #testimonials-container>div>div {
-        min-width: 85vw !important;
-        width: 85vw !important;
+        min-width: 92vw !important;
+        width: 92vw !important;
         padding: 24px 20px !important;
         border-radius: 16px !important;
     }
@@ -1382,13 +1449,7 @@ body {
 
     /* Testimonials stats */
     div[style*="gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))'"] {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 30px !important;
-        margin-top: 50px !important;
-    }
-
-    div[style*="gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))'"]>div>div:first-child {
-        font-size: 2.2rem !important;
+        display: none !important;
     }
 
     /* ===== CONTACT SECTION MOBILE ===== */
@@ -1401,7 +1462,8 @@ body {
     }
 
     .contact-section form {
-        padding: 0 1rem !important;
+        padding: 0 !important;
+        width: 100% !important;
     }
 
     .contact-section input,

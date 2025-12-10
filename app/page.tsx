@@ -1703,7 +1703,7 @@ export default function Home(): JSX.Element {
       {/* ==================== END FEATURED PROJECTS ==================== */}
 
       {/* ==================== PROCESS / HOW WE WORK SECTION ==================== */}
-      <section style={{
+      <section className="process-section" style={{
         position: 'relative',
         padding: '40px 0',
         overflow: 'hidden'
@@ -1743,7 +1743,7 @@ export default function Home(): JSX.Element {
           }}></div>
         </div>
 
-        <div style={{ width: '95%', maxWidth: '1400px', margin: '0 auto', padding: '0 2rem', position: 'relative', zIndex: 1 }}>
+        <div className="process-content-wrapper" style={{ width: '95%', maxWidth: '1400px', margin: '0 auto', padding: '0 2rem', position: 'relative', zIndex: 1 }}>
 
           {/* Section Header */}
           <div style={{ textAlign: 'center', marginBottom: '15px' }}>
@@ -1779,7 +1779,7 @@ export default function Home(): JSX.Element {
           <div style={{ position: 'relative' }}>
 
             {/* Vertical Line - Center */}
-            <div style={{
+            <div className="process-vertical-line" style={{
               position: 'absolute',
               left: '50%',
               top: '0',
@@ -1792,9 +1792,9 @@ export default function Home(): JSX.Element {
             }}></div>
 
             {/* Step 1 - Discovery */}
-            <div style={{ display: 'flex', alignItems: 'stretch', marginBottom: '0px', position: 'relative' }}>
+            <div className="process-step" style={{ display: 'flex', alignItems: 'stretch', marginBottom: '0px', position: 'relative' }}>
               {/* Left Content */}
-              <div style={{ flex: 1, paddingRight: '40px', textAlign: 'right', paddingTop: '0px' }}>
+              <div className="process-content-left" style={{ flex: 1, paddingRight: '40px', textAlign: 'right', paddingTop: '0px' }}>
                 <div style={{ display: 'inline-block', background: 'rgba(139, 92, 246, 0.15)', border: '1px solid rgba(139, 92, 246, 0.3)', borderRadius: '6px', padding: '6px 14px', marginBottom: '14px' }}>
                   <span style={{ color: '#a78bfa', fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Week 1-2</span>
                 </div>
@@ -1805,7 +1805,7 @@ export default function Home(): JSX.Element {
                 <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '20px' }}>
                   We map out the complete project scope, define key milestones, identify potential risks, and create a detailed roadmap with clear deliverables and timelines.
                 </p>
-                <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '16px', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '16px', flexWrap: 'wrap' }} className="process-tags">
                   {['Requirements Analysis', 'User Research', 'Tech Stack Planning', 'Competitive Analysis', 'Risk Assessment'].map((item, i) => (
                     <span key={i} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(139, 92, 246, 0.08)', padding: '6px 12px', borderRadius: '20px', border: '1px solid rgba(139, 92, 246, 0.15)' }}>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2"><polyline points="20 6 9 17 4 12" /></svg>
@@ -1816,7 +1816,7 @@ export default function Home(): JSX.Element {
               </div>
 
               {/* Center Circle */}
-              <div style={{
+              <div className="process-circle" style={{
                 width: '80px',
                 height: '80px',
                 background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)',
@@ -1834,7 +1834,7 @@ export default function Home(): JSX.Element {
               </div>
 
               {/* Right - Stats */}
-              <div style={{ flex: 1, paddingLeft: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px' }}>
+              <div className="process-stats mobile-hidden" style={{ flex: 1, paddingLeft: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px' }}>
                 <div style={{ display: 'flex', flexDirection: 'row', gap: '40px', alignItems: 'center' }}>
                   <div style={{ textAlign: 'center' }}>
                     <div style={{ color: 'white', fontSize: '2.5rem', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1 }}>50+</div>
@@ -1849,9 +1849,9 @@ export default function Home(): JSX.Element {
             </div>
 
             {/* Step 2 - Design */}
-            <div style={{ display: 'flex', alignItems: 'stretch', marginBottom: '0px', position: 'relative' }}>
+            <div className="process-step" style={{ display: 'flex', alignItems: 'stretch', marginBottom: '0px', position: 'relative' }}>
               {/* Left - Stats */}
-              <div style={{ flex: 1, paddingRight: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px' }}>
+              <div className="process-stats mobile-hidden" style={{ flex: 1, paddingRight: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px' }}>
                 <div style={{ display: 'flex', flexDirection: 'row', gap: '40px', alignItems: 'center' }}>
                   <div style={{ textAlign: 'center' }}>
                     <div style={{ color: 'white', fontSize: '2.5rem', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1 }}>99.9%</div>
@@ -1865,7 +1865,7 @@ export default function Home(): JSX.Element {
               </div>
 
               {/* Center Circle */}
-              <div style={{
+              <div className="process-circle" style={{
                 width: '80px',
                 height: '80px',
                 background: 'linear-gradient(135deg, #ec4899, #db2777)',
@@ -1883,7 +1883,7 @@ export default function Home(): JSX.Element {
               </div>
 
               {/* Right Content */}
-              <div style={{ flex: 1, paddingLeft: '40px', paddingTop: '0px' }}>
+              <div className="process-content-right" style={{ flex: 1, paddingLeft: '40px', paddingTop: '0px' }}>
                 <div style={{ display: 'inline-block', background: 'rgba(236, 72, 153, 0.15)', border: '1px solid rgba(236, 72, 153, 0.3)', borderRadius: '6px', padding: '6px 14px', marginBottom: '14px' }}>
                   <span style={{ color: '#f472b6', fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Week 2-4</span>
                 </div>
@@ -1894,7 +1894,7 @@ export default function Home(): JSX.Element {
                 <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '20px' }}>
                   Every design decision is backed by UX research and usability testing. We create comprehensive design systems that ensure consistency across all touchpoints and make future updates seamless.
                 </p>
-                <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }} className="process-tags">
                   {['User Journey Mapping', 'Wireframes', 'UI Design', 'Interactive Prototypes', 'Design System', 'Usability Testing'].map((item, i) => (
                     <span key={i} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(236, 72, 153, 0.08)', padding: '6px 12px', borderRadius: '20px', border: '1px solid rgba(236, 72, 153, 0.15)' }}>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f472b6" strokeWidth="2"><polyline points="20 6 9 17 4 12" /></svg>
@@ -1906,9 +1906,9 @@ export default function Home(): JSX.Element {
             </div>
 
             {/* Step 3 - Development */}
-            <div style={{ display: 'flex', alignItems: 'stretch', marginBottom: '0px', position: 'relative' }}>
+            <div className="process-step" style={{ display: 'flex', alignItems: 'stretch', marginBottom: '0px', position: 'relative' }}>
               {/* Left Content */}
-              <div style={{ flex: 1, paddingRight: '40px', textAlign: 'right', paddingTop: '0px' }}>
+              <div className="process-content-left" style={{ flex: 1, paddingRight: '40px', textAlign: 'right', paddingTop: '0px' }}>
                 <div style={{ display: 'inline-block', background: 'rgba(6, 182, 212, 0.15)', border: '1px solid rgba(6, 182, 212, 0.3)', borderRadius: '6px', padding: '6px 14px', marginBottom: '14px' }}>
                   <span style={{ color: '#06b6d4', fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Week 4-10</span>
                 </div>
@@ -1919,7 +1919,7 @@ export default function Home(): JSX.Element {
                 <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '20px' }}>
                   Every feature undergoes rigorous code review, automated testing, and security audits. We implement CI/CD pipelines for continuous integration and seamless deployments. Performance optimization is built into every stage.
                 </p>
-                <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '16px', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '16px', flexWrap: 'wrap' }} className="process-tags">
                   {['Frontend Development', 'Backend APIs', 'Database Design', 'Unit Testing', 'Code Review', 'CI/CD Pipeline', 'Security Audits'].map((item, i) => (
                     <span key={i} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(6, 182, 212, 0.08)', padding: '6px 12px', borderRadius: '20px', border: '1px solid rgba(6, 182, 212, 0.15)' }}>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" strokeWidth="2"><polyline points="20 6 9 17 4 12" /></svg>
@@ -1930,7 +1930,7 @@ export default function Home(): JSX.Element {
               </div>
 
               {/* Center Circle */}
-              <div style={{
+              <div className="process-circle" style={{
                 width: '80px',
                 height: '80px',
                 background: 'linear-gradient(135deg, #06b6d4, #0891b2)',
@@ -1948,7 +1948,7 @@ export default function Home(): JSX.Element {
               </div>
 
               {/* Right - Stats */}
-              <div style={{ flex: 1, paddingLeft: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px' }}>
+              <div className="mobile-hidden" style={{ flex: 1, paddingLeft: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px' }}>
                 <div style={{ display: 'flex', flexDirection: 'row', gap: '40px', alignItems: 'center' }}>
                   <div style={{ textAlign: 'center' }}>
                     <div style={{ color: 'white', fontSize: '2.5rem', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1 }}>&lt;2h</div>
@@ -1963,9 +1963,9 @@ export default function Home(): JSX.Element {
             </div>
 
             {/* Step 4 - Launch */}
-            <div style={{ display: 'flex', alignItems: 'stretch', position: 'relative' }}>
+            <div className="process-step" style={{ display: 'flex', alignItems: 'stretch', position: 'relative' }}>
               {/* Left - Stats */}
-              <div style={{ flex: 1, paddingRight: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px' }}>
+              <div className="process-stats mobile-hidden" style={{ flex: 1, paddingRight: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px' }}>
                 <div style={{ display: 'flex', flexDirection: 'row', gap: '40px', alignItems: 'center' }}>
                   <div style={{ textAlign: 'center' }}>
                     <div style={{ color: 'white', fontSize: '2.5rem', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1 }}>Zero</div>
@@ -1979,7 +1979,7 @@ export default function Home(): JSX.Element {
               </div>
 
               {/* Center Circle */}
-              <div style={{
+              <div className="process-circle" style={{
                 width: '80px',
                 height: '80px',
                 background: 'linear-gradient(135deg, #22c55e, #16a34a)',
@@ -1997,7 +1997,7 @@ export default function Home(): JSX.Element {
               </div>
 
               {/* Right Content */}
-              <div style={{ flex: 1, paddingLeft: '40px', paddingTop: '0px' }}>
+              <div className="process-content-right" style={{ flex: 1, paddingLeft: '40px', paddingTop: '0px' }}>
                 <div style={{ display: 'inline-block', background: 'rgba(34, 197, 94, 0.15)', border: '1px solid rgba(34, 197, 94, 0.3)', borderRadius: '6px', padding: '6px 14px', marginBottom: '14px' }}>
                   <span style={{ color: '#22c55e', fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Ongoing Partnership</span>
                 </div>
@@ -2008,7 +2008,7 @@ export default function Home(): JSX.Element {
                 <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '20px' }}>
                   Post-launch, we provide ongoing maintenance, performance optimization, security patches, and feature enhancements. We monitor application health, track user analytics, and proactively identify opportunities for improvement.
                 </p>
-                <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }} className="process-tags">
                   {['Zero-Downtime Deploy', 'Real-time Monitoring', '24/7 Support', 'Performance Analytics', 'Security Updates', 'Feature Enhancements'].map((item, i) => (
                     <span key={i} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(34, 197, 94, 0.08)', padding: '6px 12px', borderRadius: '20px', border: '1px solid rgba(34, 197, 94, 0.15)' }}>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2"><polyline points="20 6 9 17 4 12" /></svg>
@@ -2756,7 +2756,7 @@ export default function Home(): JSX.Element {
           </div>
 
           {/* Bottom Stats */}
-          <div style={{
+          <div className="mobile-hidden" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
             gap: '30px',
@@ -3117,7 +3117,7 @@ export default function Home(): JSX.Element {
           </div>
 
           {/* Bottom Stats */}
-          <div style={{
+          <div className="mobile-hidden" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
             gap: '40px',

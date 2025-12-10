@@ -264,7 +264,7 @@ export default function TeamPage(): JSX.Element {
                                 </span>
                             </header>
 
-                            <div
+                            <div className="mobile-hidden"
                                 style={{
                                     display: 'grid',
                                     gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
