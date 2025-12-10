@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import ContactSection from '@/components/ContactSection';
 import SocialBar from '@/components/SocialBar';
+import HorizontalProjectsSection from '@/components/HorizontalProjectsSection';
 
 export default function Home(): JSX.Element {
   useEffect(() => {
@@ -339,7 +340,18 @@ export default function Home(): JSX.Element {
 
 
   return (
-    <>
+    <main style={{ background: 'radial-gradient(circle at top, #020617 0%, #020617 45%, #000 100%)', position: 'relative' }}>
+      {/* Global Gradient Overlay (Matches About Page) */}
+      <div
+        style={{
+          position: 'fixed',
+          inset: 0,
+          pointerEvents: 'none',
+          backgroundImage: 'radial-gradient(circle at 0% 0%, rgba(56,189,248,0.14) 0, transparent 45%), radial-gradient(circle at 100% 0%, rgba(129,140,248,0.16) 0, transparent 50%)',
+          opacity: 0.9,
+          zIndex: 1,
+        }}
+      />
       {/* Navigation - Exact SoftGen Structure */}
       <nav className="navbar">
         <div className="nav-container" style={{ padding: '0 2rem', height: '25px', display: 'flex', alignItems: 'center' }}>
@@ -442,7 +454,7 @@ export default function Home(): JSX.Element {
                 Premier Software Development Company
               </p>
 
-              <p className="hero-description text-[#cbd5e1] mb-10" style={{ fontSize: '1.25rem', lineHeight: 1.8, maxWidth: '90%' }}>
+              <p className="hero-description text-[rgba(148,163,184,0.95)] mb-10" style={{ fontSize: '1.25rem', lineHeight: 1.8, maxWidth: '90%' }}>
                 We craft cutting-edge software solutions that transform businesses and drive innovation.
                 From concept to deployment, we deliver excellence in every line of code.
               </p>
@@ -494,7 +506,6 @@ export default function Home(): JSX.Element {
       </section>
 
       <section id="services" className="services" style={{
-        background: 'linear-gradient(180deg, #0a0f23 0%, #0d1229 100%)',
         padding: '0 0 0px 0',
         position: 'relative',
         marginTop: '-50px'
@@ -507,9 +518,10 @@ export default function Home(): JSX.Element {
           }}>
             {/* Mobile App Card */}
             <div style={{
-              background: 'rgba(15, 23, 42, 0.8)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '16px',
+              background: 'radial-gradient(circle at 0% 0%, rgba(56,189,248,0.1) 0, transparent 50%), radial-gradient(circle at 100% 0%, rgba(129,140,248,0.1) 0, transparent 50%), rgba(10,15,35,0.95)',
+              border: '1px solid rgba(148,163,184,0.5)',
+              borderRadius: '24px',
+              boxShadow: '0 18px 45px rgba(15,23,42,0.9), 0 0 0 1px rgba(15,23,42,1)',
               padding: '28px 24px',
               transition: 'all 0.3s ease',
               cursor: 'pointer',
@@ -520,7 +532,8 @@ export default function Home(): JSX.Element {
                 width: '48px',
                 height: '48px',
                 borderRadius: '12px',
-                background: 'linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%)',
+                background: 'linear-gradient(135deg, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0.6) 100%)',
+                border: '1px solid rgba(148,163,184,0.3)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -532,14 +545,15 @@ export default function Home(): JSX.Element {
                 </svg>
               </div>
               <h3 style={{ color: 'white', fontSize: '1.1rem', fontWeight: 600, marginBottom: '10px' }}>Mobile Application Development</h3>
-              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem', lineHeight: 1.6 }}>High-performance mobile apps for iOS and Android.</p>
+              <p style={{ color: 'rgba(148,163,184,0.95)', fontSize: '0.9rem', lineHeight: 1.6 }}>High-performance mobile apps for iOS and Android.</p>
             </div>
 
             {/* Web App Card */}
             <div style={{
-              background: 'rgba(15, 23, 42, 0.8)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '16px',
+              background: 'radial-gradient(circle at 0% 0%, rgba(56,189,248,0.1) 0, transparent 50%), radial-gradient(circle at 100% 0%, rgba(129,140,248,0.1) 0, transparent 50%), rgba(10,15,35,0.95)',
+              border: '1px solid rgba(148,163,184,0.5)',
+              borderRadius: '24px',
+              boxShadow: '0 18px 45px rgba(15,23,42,0.9), 0 0 0 1px rgba(15,23,42,1)',
               padding: '28px 24px',
               transition: 'all 0.3s ease',
               cursor: 'pointer',
@@ -550,7 +564,8 @@ export default function Home(): JSX.Element {
                 width: '48px',
                 height: '48px',
                 borderRadius: '12px',
-                background: 'linear-gradient(135deg, #ec4899 0%, #f43f5e 100%)',
+                background: 'linear-gradient(135deg, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0.6) 100%)',
+                border: '1px solid rgba(148,163,184,0.3)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -568,9 +583,10 @@ export default function Home(): JSX.Element {
 
             {/* Website Card */}
             <div style={{
-              background: 'rgba(15, 23, 42, 0.8)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '16px',
+              background: 'radial-gradient(circle at 0% 0%, rgba(56,189,248,0.1) 0, transparent 50%), radial-gradient(circle at 100% 0%, rgba(129,140,248,0.1) 0, transparent 50%), rgba(10,15,35,0.95)',
+              border: '1px solid rgba(148,163,184,0.5)',
+              borderRadius: '24px',
+              boxShadow: '0 18px 45px rgba(15,23,42,0.9), 0 0 0 1px rgba(15,23,42,1)',
               padding: '28px 24px',
               transition: 'all 0.3s ease',
               cursor: 'pointer',
@@ -581,7 +597,8 @@ export default function Home(): JSX.Element {
                 width: '48px',
                 height: '48px',
                 borderRadius: '12px',
-                background: 'linear-gradient(135deg, #f97316 0%, #fb923c 100%)',
+                background: 'linear-gradient(135deg, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0.6) 100%)',
+                border: '1px solid rgba(148,163,184,0.3)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -599,9 +616,10 @@ export default function Home(): JSX.Element {
 
             {/* UI/UX Card */}
             <div style={{
-              background: 'rgba(15, 23, 42, 0.8)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '16px',
+              background: 'radial-gradient(circle at 0% 0%, rgba(56,189,248,0.1) 0, transparent 50%), radial-gradient(circle at 100% 0%, rgba(129,140,248,0.1) 0, transparent 50%), rgba(10,15,35,0.95)',
+              border: '1px solid rgba(148,163,184,0.5)',
+              borderRadius: '24px',
+              boxShadow: '0 18px 45px rgba(15,23,42,0.9), 0 0 0 1px rgba(15,23,42,1)',
               padding: '28px 24px',
               transition: 'all 0.3s ease',
               cursor: 'pointer',
@@ -612,7 +630,8 @@ export default function Home(): JSX.Element {
                 width: '48px',
                 height: '48px',
                 borderRadius: '12px',
-                background: 'linear-gradient(135deg, #f43f5e 0%, #f97316 100%)',
+                background: 'linear-gradient(135deg, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0.6) 100%)',
+                border: '1px solid rgba(148,163,184,0.3)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -634,7 +653,6 @@ export default function Home(): JSX.Element {
 
       {/* ==================== WHY CHOOSE US SECTION ==================== */}
       <section id="about" style={{
-        background: 'linear-gradient(180deg, #0d1229 0%, #0a0f23 100%)',
         padding: '60px 0',
         position: 'relative'
       }}>
@@ -664,7 +682,7 @@ export default function Home(): JSX.Element {
 
           {/* Description */}
           <p style={{
-            color: 'rgba(255,255,255,0.6)',
+            color: 'rgba(148,163,184,0.95)',
             fontSize: '1.1rem',
             lineHeight: 1.8,
             maxWidth: '700px',
@@ -741,971 +759,12 @@ export default function Home(): JSX.Element {
       {/* ==================== END WHY CHOOSE US ==================== */}
 
       {/* ==================== FEATURED PROJECTS SECTION ==================== */}
-      <section id="projects" style={{
-        background: 'linear-gradient(180deg, #0d1229 0%, #070b16 50%, #0a0f23 100%)',
-        padding: '60px 0 80px 0',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        {/* Animated background elements */}
-        <div style={{
-          position: 'absolute',
-          top: '10%',
-          left: '-5%',
-          width: '400px',
-          height: '400px',
-          background: 'radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%)',
-          borderRadius: '50%',
-          filter: 'blur(60px)',
-          animation: 'pulse 8s ease-in-out infinite'
-        }}></div>
-        <div style={{
-          position: 'absolute',
-          bottom: '10%',
-          right: '-5%',
-          width: '500px',
-          height: '500px',
-          background: 'radial-gradient(circle, rgba(6, 182, 212, 0.06) 0%, transparent 70%)',
-          borderRadius: '50%',
-          filter: 'blur(80px)',
-          animation: 'pulse 10s ease-in-out infinite reverse'
-        }}></div>
-
-        {/* Grid pattern overlay */}
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)
-          `,
-          backgroundSize: '60px 60px',
-          opacity: 0.5
-        }}></div>
-
-        <div style={{ width: '93%', maxWidth: '1800px', margin: '0 auto', padding: '0 2rem', position: 'relative', zIndex: 1 }}>
-
-          {/* Section Header */}
-          <div style={{ marginBottom: '40px', textAlign: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '20px' }}>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(6, 182, 212, 0.1) 100%)',
-                border: '1px solid rgba(139, 92, 246, 0.3)',
-                borderRadius: '100px',
-                padding: '8px 18px'
-              }}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                </svg>
-                <span style={{ color: '#a78bfa', fontSize: '0.85rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px' }}>Case Studies</span>
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
-              <div style={{ textAlign: 'center' }}>
-                <h2 style={{
-                  fontSize: 'clamp(2rem, 4vw, 3rem)',
-                  fontWeight: 800,
-                  color: 'white',
-                  marginBottom: '16px',
-                  letterSpacing: '-0.03em',
-                  lineHeight: 1.1
-                }}>
-                  Digital Excellence Delivered
-                </h2>
-                <p style={{
-                  color: 'rgba(255,255,255,0.5)',
-                  fontSize: '1.1rem',
-                  maxWidth: '650px',
-                  lineHeight: 1.7,
-                  margin: '0 auto'
-                }}>
-                  Transforming ambitious ideas into production-ready solutions. Every project crafted for scale, security, and seamless experience.
-                </p>
-              </div>
-
-              <a href="/projects" style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '10px',
-                color: '#06b6d4',
-                fontSize: '0.95rem',
-                fontWeight: 600,
-                textDecoration: 'none',
-                padding: '12px 24px',
-                border: '1px solid rgba(6, 182, 212, 0.3)',
-                borderRadius: '100px',
-                background: 'rgba(6, 182, 212, 0.05)',
-                transition: 'all 0.3s ease'
-              }}>
-                View All Projects
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M7 17L17 7M17 7H7M17 7V17" />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          {/* Bento Grid Projects Layout */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(12, 1fr)',
-            gap: '20px'
-          }}>
-
-            {/* ===== FEATURED PROJECT 1 - Horizontal Card ===== */}
-            <div style={{
-              gridColumn: 'span 6',
-              background: 'linear-gradient(145deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 100%)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '20px',
-              padding: '0',
-              position: 'relative',
-              overflow: 'hidden',
-              transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-              cursor: 'pointer',
-              display: 'flex',
-              flexDirection: 'row'
-            }} className="project-card-main">
-              {/* Gradient border effect */}
-              <div style={{
-                position: 'absolute',
-                inset: 0,
-                borderRadius: '20px',
-                padding: '1px',
-                background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.4) 0%, transparent 50%, rgba(6, 182, 212, 0.3) 100%)',
-                WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                WebkitMaskComposite: 'xor',
-                maskComposite: 'exclude',
-                pointerEvents: 'none'
-              }}></div>
-
-              {/* Left - Project Image Area */}
-              <div style={{
-                position: 'relative',
-                width: '280px',
-                minHeight: '280px',
-                background: 'linear-gradient(180deg, #1a1f35 0%, #0f1629 100%)',
-                overflow: 'hidden',
-                flexShrink: 0
-              }}>
-                {/* Featured badge */}
-                <div style={{
-                  position: 'absolute',
-                  top: '16px',
-                  left: '16px',
-                  zIndex: 10,
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '5px',
-                  background: 'rgba(139, 92, 246, 0.3)',
-                  backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(139, 92, 246, 0.4)',
-                  borderRadius: '100px',
-                  padding: '5px 12px'
-                }}>
-                  <div style={{
-                    width: '5px',
-                    height: '5px',
-                    borderRadius: '50%',
-                    background: '#a78bfa',
-                    boxShadow: '0 0 8px #a78bfa',
-                    animation: 'pulse 2s infinite'
-                  }}></div>
-                  <span style={{ color: '#a78bfa', fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Featured</span>
-                </div>
-
-                {/* Browser Mockup */}
-                <div style={{
-                  position: 'absolute',
-                  top: '55%',
-                  left: '50%',
-                  transform: 'translate(-50%, -50%) perspective(600px) rotateX(5deg) rotateY(-5deg)',
-                  width: '85%',
-                  height: '200px',
-                  background: 'linear-gradient(145deg, #1e293b 0%, #0f172a 100%)',
-                  borderRadius: '10px',
-                  border: '1px solid rgba(255,255,255,0.12)',
-                  boxShadow: '0 30px 60px rgba(0,0,0,0.5), 0 0 30px rgba(139, 92, 246, 0.15)',
-                  overflow: 'hidden'
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '4px', padding: '6px 10px', background: 'rgba(0,0,0,0.4)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                    <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#ef4444' }}></div>
-                    <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#eab308' }}></div>
-                    <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#22c55e' }}></div>
-                  </div>
-                  <img
-                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80"
-                    alt="Learning Platform"
-                    style={{
-                      width: '100%',
-                      height: 'calc(100% - 26px)',
-                      objectFit: 'cover',
-                      objectPosition: 'top center'
-                    }}
-                  />
-                </div>
-
-                {/* Floating Icon */}
-                <div style={{
-                  position: 'absolute',
-                  bottom: '12px',
-                  right: '12px',
-                  width: '38px',
-                  height: '38px',
-                  background: 'linear-gradient(135deg, #8b5cf6, #6366f1)',
-                  borderRadius: '10px',
-                  boxShadow: '0 10px 20px rgba(139, 92, 246, 0.4)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  animation: 'float 3s ease-in-out infinite',
-                  zIndex: 5
-                }}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                    <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
-                </div>
-              </div>
-
-              {/* Right - Project Info */}
-              <div style={{ padding: '20px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '8px', flexWrap: 'wrap' }}>
-                  <span style={{
-                    background: 'linear-gradient(135deg, #1e293b, #334155)',
-                    color: 'rgba(255,255,255,0.7)',
-                    fontSize: '0.65rem',
-                    fontWeight: 600,
-                    padding: '4px 10px',
-                    borderRadius: '100px',
-                    textTransform: 'uppercase'
-                  }}>Education</span>
-                  <span style={{
-                    background: 'rgba(139, 92, 246, 0.15)',
-                    color: '#a78bfa',
-                    fontSize: '0.65rem',
-                    fontWeight: 600,
-                    padding: '4px 10px',
-                    borderRadius: '100px'
-                  }}>★ 4.9</span>
-                </div>
-
-                <h3 style={{
-                  color: 'white',
-                  fontSize: '1.2rem',
-                  fontWeight: 700,
-                  marginBottom: '6px',
-                  lineHeight: 1.3
-                }}>Smart Learning Management System</h3>
-
-                <p style={{
-                  color: 'rgba(255,255,255,0.5)',
-                  fontSize: '0.8rem',
-                  lineHeight: 1.6,
-                  marginBottom: '10px'
-                }}>
-                  Comprehensive platform for online exams, payments, and hybrid education management.
-                </p>
-
-                {/* Challenge & Solution - Compact */}
-                <div style={{ marginBottom: '10px' }}>
-                  <div style={{ marginBottom: '8px' }}>
-                    <span style={{ color: '#a78bfa', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase' }}>Challenge</span>
-                    <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', lineHeight: 1.4, marginTop: '2px' }}>
-                      Managing large student base across online and physical channels.
-                    </p>
-                  </div>
-                  <div>
-                    <span style={{ color: '#06b6d4', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase' }}>Solution</span>
-                    <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', lineHeight: 1.4, marginTop: '2px' }}>
-                      Centralized API-driven LMS with real-time sync across all channels.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Tech Stack */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginBottom: '10px' }}>
-                  {['React', 'Node.js', 'PostgreSQL', 'AWS', 'Stripe'].map((tech, i) => (
-                    <span key={i} style={{
-                      background: 'rgba(139, 92, 246, 0.1)',
-                      color: '#a78bfa',
-                      fontSize: '0.65rem',
-                      padding: '3px 7px',
-                      borderRadius: '4px'
-                    }}>{tech}</span>
-                  ))}
-                </div>
-
-                {/* Stats */}
-                <div style={{ display: 'flex', gap: '20px', paddingTop: '12px', borderTop: '1px solid rgba(255,255,255,0.08)', marginTop: 'auto' }}>
-                  <div>
-                    <div style={{ color: '#06b6d4', fontSize: '1rem', fontWeight: 700 }}>50K+</div>
-                    <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.6rem' }}>Users</div>
-                  </div>
-                  <div>
-                    <div style={{ color: '#a78bfa', fontSize: '1rem', fontWeight: 700 }}>99.9%</div>
-                    <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.6rem' }}>Uptime</div>
-                  </div>
-                  <div>
-                    <div style={{ color: '#a78bfa', fontSize: '1rem', fontWeight: 700 }}>3x</div>
-                    <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.6rem' }}>Faster</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* ===== FEATURED PROJECT 2 - Horizontal Card ===== */}
-            <div style={{
-              gridColumn: 'span 6',
-              background: 'linear-gradient(145deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.7) 100%)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '20px',
-              padding: '0',
-              position: 'relative',
-              overflow: 'hidden',
-              transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-              cursor: 'pointer',
-              display: 'flex',
-              flexDirection: 'row'
-            }} className="project-card-main">
-              {/* Gradient border effect */}
-              <div style={{
-                position: 'absolute',
-                inset: 0,
-                borderRadius: '20px',
-                padding: '1px',
-                background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.4) 0%, transparent 50%, rgba(6, 182, 212, 0.3) 100%)',
-                WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                WebkitMaskComposite: 'xor',
-                maskComposite: 'exclude',
-                pointerEvents: 'none'
-              }}></div>
-
-              {/* Left - Project Image Area */}
-              <div style={{
-                position: 'relative',
-                width: '280px',
-                minHeight: '280px',
-                background: 'linear-gradient(180deg, #0f1a2e 0%, #0a1220 100%)',
-                overflow: 'hidden',
-                flexShrink: 0
-              }}>
-                {/* Featured badge */}
-                <div style={{
-                  position: 'absolute',
-                  top: '16px',
-                  left: '16px',
-                  zIndex: 10,
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '5px',
-                  background: 'rgba(139, 92, 246, 0.3)',
-                  backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(139, 92, 246, 0.4)',
-                  borderRadius: '100px',
-                  padding: '5px 12px'
-                }}>
-                  <div style={{
-                    width: '5px',
-                    height: '5px',
-                    borderRadius: '50%',
-                    background: '#a78bfa',
-                    boxShadow: '0 0 8px #a78bfa',
-                    animation: 'pulse 2s infinite 0.5s'
-                  }}></div>
-                  <span style={{ color: '#a78bfa', fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Featured</span>
-                </div>
-
-                {/* Browser Mockup */}
-                <div style={{
-                  position: 'absolute',
-                  top: '55%',
-                  left: '50%',
-                  transform: 'translate(-50%, -50%) perspective(600px) rotateX(5deg) rotateY(5deg)',
-                  width: '85%',
-                  height: '200px',
-                  background: 'linear-gradient(145deg, #1e293b 0%, #0f172a 100%)',
-                  borderRadius: '10px',
-                  border: '1px solid rgba(255,255,255,0.12)',
-                  boxShadow: '0 30px 60px rgba(0,0,0,0.5), 0 0 30px rgba(6, 182, 212, 0.15)',
-                  overflow: 'hidden'
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '4px', padding: '6px 10px', background: 'rgba(0,0,0,0.4)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                    <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#ef4444' }}></div>
-                    <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#eab308' }}></div>
-                    <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#22c55e' }}></div>
-                  </div>
-                  <img
-                    src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&q=80"
-                    alt="Fintech Dashboard"
-                    style={{
-                      width: '100%',
-                      height: 'calc(100% - 26px)',
-                      objectFit: 'cover',
-                      objectPosition: 'center'
-                    }}
-                  />
-                </div>
-
-                {/* Floating Icon */}
-                <div style={{
-                  position: 'absolute',
-                  bottom: '12px',
-                  right: '12px',
-                  width: '38px',
-                  height: '38px',
-                  background: 'linear-gradient(135deg, #8b5cf6, #6366f1)',
-                  borderRadius: '10px',
-                  boxShadow: '0 10px 20px rgba(139, 92, 246, 0.4)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  animation: 'float 3s ease-in-out infinite 0.5s',
-                  zIndex: 5
-                }}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                  </svg>
-                </div>
-              </div>
-
-              {/* Right - Project Info */}
-              <div style={{ padding: '20px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '8px', flexWrap: 'wrap' }}>
-                  <span style={{
-                    background: 'rgba(139, 92, 246, 0.15)',
-                    color: '#a78bfa',
-                    fontSize: '0.65rem',
-                    fontWeight: 600,
-                    padding: '4px 10px',
-                    borderRadius: '100px',
-                    textTransform: 'uppercase'
-                  }}>Fintech</span>
-                  <span style={{
-                    background: 'rgba(139, 92, 246, 0.15)',
-                    color: '#a78bfa',
-                    fontSize: '0.65rem',
-                    fontWeight: 600,
-                    padding: '4px 10px',
-                    borderRadius: '100px'
-                  }}>★ 4.8</span>
-                </div>
-
-                <h3 style={{
-                  color: 'white',
-                  fontSize: '1.2rem',
-                  fontWeight: 700,
-                  marginBottom: '6px',
-                  lineHeight: 1.3
-                }}>Enterprise Financial Dashboard</h3>
-
-                <p style={{
-                  color: 'rgba(255,255,255,0.5)',
-                  fontSize: '0.8rem',
-                  lineHeight: 1.6,
-                  marginBottom: '10px'
-                }}>
-                  Real-time analytics for wealth managers with portfolio monitoring and compliance reporting.
-                </p>
-
-                {/* Challenge & Solution - Compact */}
-                <div style={{ marginBottom: '10px' }}>
-                  <div style={{ marginBottom: '8px' }}>
-                    <span style={{ color: '#a78bfa', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase' }}>Challenge</span>
-                    <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', lineHeight: 1.4, marginTop: '2px' }}>
-                      Legacy systems couldn&apos;t handle 10K+ concurrent users with millisecond latency.
-                    </p>
-                  </div>
-                  <div>
-                    <span style={{ color: '#06b6d4', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase' }}>Solution</span>
-                    <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', lineHeight: 1.4, marginTop: '2px' }}>
-                      Microservices with Redis caching, WebSocket streaming, and K8s auto-scaling.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Tech Stack */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', marginBottom: '10px' }}>
-                  {['Next.js', 'Python', 'Redis', 'K8s', 'AWS'].map((tech, i) => (
-                    <span key={i} style={{
-                      background: 'rgba(139, 92, 246, 0.1)',
-                      color: '#a78bfa',
-                      fontSize: '0.65rem',
-                      padding: '3px 7px',
-                      borderRadius: '4px'
-                    }}>{tech}</span>
-                  ))}
-                </div>
-
-                {/* Stats */}
-                <div style={{ display: 'flex', gap: '20px', paddingTop: '12px', borderTop: '1px solid rgba(255,255,255,0.08)', marginTop: 'auto' }}>
-                  <div>
-                    <div style={{ color: '#06b6d4', fontSize: '1rem', fontWeight: 700 }}>$2B+</div>
-                    <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.6rem' }}>Processed</div>
-                  </div>
-                  <div>
-                    <div style={{ color: '#a78bfa', fontSize: '1rem', fontWeight: 700 }}>150+</div>
-                    <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.6rem' }}>Clients</div>
-                  </div>
-                  <div>
-                    <div style={{ color: '#06b6d4', fontSize: '1rem', fontWeight: 700 }}>40%</div>
-                    <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.6rem' }}>ROI Boost</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* ===== PROJECT 2 - E-Commerce ===== */}
-            <div style={{
-              gridColumn: 'span 4',
-              background: 'linear-gradient(145deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.6) 100%)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '20px',
-              padding: '0',
-              position: 'relative',
-              overflow: 'hidden',
-              transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-              cursor: 'pointer'
-            }} className="project-card">
-              {/* Category ribbon */}
-              <div style={{
-                position: 'absolute',
-                top: '20px',
-                left: '20px',
-                zIndex: 10,
-                background: 'rgba(139, 92, 246, 0.2)',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(139, 92, 246, 0.3)',
-                borderRadius: '8px',
-                padding: '6px 12px'
-              }}>
-                <span style={{ color: '#a78bfa', fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px' }}>E-Commerce</span>
-              </div>
-
-              {/* Browser mockup with real e-commerce screenshot */}
-              <div style={{
-                height: '160px',
-                background: 'linear-gradient(180deg, #1a1f35 0%, #0f1629 100%)',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                position: 'relative',
-                padding: '15px'
-              }}>
-                {/* Glow effect */}
-                <div style={{
-                  position: 'absolute',
-                  width: '200px',
-                  height: '100px',
-                  background: 'radial-gradient(ellipse, rgba(6, 182, 212, 0.25) 0%, transparent 70%)',
-                  filter: 'blur(25px)'
-                }}></div>
-                <div style={{
-                  width: '90%',
-                  height: '160px',
-                  background: '#1e293b',
-                  borderRadius: '10px',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  boxShadow: '0 30px 60px rgba(0,0,0,0.4), 0 0 30px rgba(6, 182, 212, 0.1)',
-                  overflow: 'hidden',
-                  position: 'relative',
-                  zIndex: 1
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '5px', padding: '8px 12px', background: 'rgba(0,0,0,0.3)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ef4444' }}></div>
-                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#eab308' }}></div>
-                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#22c55e' }}></div>
-                    <div style={{ flex: 1, marginLeft: '12px', height: '16px', background: 'rgba(255,255,255,0.08)', borderRadius: '4px' }}></div>
-                  </div>
-                  <img
-                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80"
-                    alt="E-Commerce Dashboard"
-                    style={{
-                      width: '100%',
-                      height: 'calc(100% - 32px)',
-                      objectFit: 'cover',
-                      objectPosition: 'top center'
-                    }}
-                  />
-                </div>
-              </div>
-
-              <div style={{ padding: '20px' }}>
-                <h3 style={{ color: 'white', fontSize: '1.2rem', fontWeight: 700, marginBottom: '6px' }}>ElectroMart Shopping Platform</h3>
-                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.85rem', lineHeight: 1.6, marginBottom: '8px' }}>
-                  Enterprise-grade e-commerce platform for electronics retail with real-time inventory, multi-vendor support, and advanced analytics.
-                </p>
-
-                {/* Challenge & Solution */}
-                <div style={{ marginBottom: '10px' }}>
-                  <div style={{ marginBottom: '10px' }}>
-                    <span style={{ color: '#a78bfa', fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase' }}>Challenge</span>
-                    <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', lineHeight: 1.5, marginTop: '3px' }}>
-                      Building a scalable platform handling 10K+ products with real-time stock sync across multiple warehouses.
-                    </p>
-                  </div>
-                  <div>
-                    <span style={{ color: '#06b6d4', fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase' }}>Solution</span>
-                    <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', lineHeight: 1.5, marginTop: '3px' }}>
-                      Implemented microservices architecture with Redis caching, Elasticsearch for fast search, and Stripe Connect for vendor payouts.
-                    </p>
-                  </div>
-                </div>
-
-                <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '10px' }}>
-                  {['Next.js', 'Prisma', 'Stripe', 'Redis'].map((tech, i) => (
-                    <span key={i} style={{
-                      background: 'rgba(139, 92, 246, 0.1)',
-                      color: '#a78bfa',
-                      fontSize: '0.7rem',
-                      padding: '4px 8px',
-                      borderRadius: '5px'
-                    }}>{tech}</span>
-                  ))}
-                </div>
-
-                {/* Stats */}
-                <div style={{ display: 'flex', gap: '16px', paddingTop: '12px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-                  <div>
-                    <div style={{ color: '#06b6d4', fontSize: '1rem', fontWeight: 700 }}>$2M+</div>
-                    <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.6rem' }}>Monthly GMV</div>
-                  </div>
-                  <div>
-                    <div style={{ color: '#a78bfa', fontSize: '1rem', fontWeight: 700 }}>99.9%</div>
-                    <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.6rem' }}>Uptime</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* ===== PROJECT 3 - HealthTech ===== */}
-            <div style={{
-              gridColumn: 'span 4',
-              background: 'linear-gradient(145deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.6) 100%)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '20px',
-              padding: '0',
-              position: 'relative',
-              overflow: 'hidden',
-              transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-              cursor: 'pointer'
-            }} className="project-card">
-              {/* Category ribbon */}
-              <div style={{
-                position: 'absolute',
-                top: '20px',
-                left: '20px',
-                zIndex: 10,
-                background: 'rgba(139, 92, 246, 0.2)',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(139, 92, 246, 0.3)',
-                borderRadius: '8px',
-                padding: '6px 12px'
-              }}>
-                <span style={{ color: '#a78bfa', fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px' }}>Health Tech</span>
-              </div>
-
-              {/* Phone mockup */}
-              <div style={{
-                height: '160px',
-                background: 'linear-gradient(180deg, #1a1f35 0%, #0f1629 100%)',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                position: 'relative',
-                padding: '20px 0'
-              }}>
-                <div style={{
-                  position: 'absolute',
-                  width: '120px',
-                  height: '120px',
-                  background: 'radial-gradient(circle, rgba(34, 197, 94, 0.25) 0%, transparent 70%)',
-                  borderRadius: '50%',
-                  filter: 'blur(20px)'
-                }}></div>
-                <div style={{
-                  width: '100px',
-                  height: '170px',
-                  background: '#0f0f0f',
-                  borderRadius: '22px',
-                  border: '3px solid #2a2a2a',
-                  overflow: 'hidden',
-                  position: 'relative',
-                  zIndex: 1,
-                  boxShadow: '0 25px 50px rgba(0,0,0,0.4), 0 0 30px rgba(34, 197, 94, 0.15)'
-                }}>
-                  <div style={{ position: 'absolute', top: '6px', left: '50%', transform: 'translateX(-50%)', width: '45px', height: '16px', background: '#0f0f0f', borderRadius: '8px', zIndex: 10 }}></div>
-                  <img
-                    src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&q=80"
-                    alt="Health App"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      borderRadius: '18px'
-                    }}
-                  />
-                  <div style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    height: '50px',
-                    background: 'linear-gradient(transparent, rgba(34, 197, 94, 0.8))',
-                    borderRadius: '0 0 18px 18px',
-                    display: 'flex',
-                    alignItems: 'flex-end',
-                    justifyContent: 'center',
-                    paddingBottom: '8px'
-                  }}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
-              <div style={{ padding: '20px' }}>
-                <h3 style={{ color: 'white', fontSize: '1.1rem', fontWeight: 700, marginBottom: '6px' }}>FemCare Health Companion</h3>
-                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem', lineHeight: 1.5, marginBottom: '8px' }}>
-                  Privacy-first health tracking with AI-powered cycle predictions and personalized wellness insights.
-                </p>
-
-                <div style={{ marginBottom: '8px' }}>
-                  <div style={{ marginBottom: '6px' }}>
-                    <span style={{ color: '#a78bfa', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase' }}>Challenge</span>
-                    <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.7rem', lineHeight: 1.4, marginTop: '2px' }}>
-                      Accurate predictions while maintaining HIPAA compliance.
-                    </p>
-                  </div>
-                  <div>
-                    <span style={{ color: '#06b6d4', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase' }}>Solution</span>
-                    <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.7rem', lineHeight: 1.4, marginTop: '2px' }}>
-                      On-device ML with end-to-end encryption.
-                    </p>
-                  </div>
-                </div>
-
-                <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap', marginBottom: '8px' }}>
-                  {['Flutter', 'TensorFlow', 'Firebase'].map((tech, i) => (
-                    <span key={i} style={{
-                      background: 'rgba(6, 182, 212, 0.1)',
-                      color: '#06b6d4',
-                      fontSize: '0.65rem',
-                      padding: '3px 7px',
-                      borderRadius: '4px'
-                    }}>{tech}</span>
-                  ))}
-                </div>
-
-                <div style={{ display: 'flex', gap: '16px', paddingTop: '12px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-                  <div>
-                    <div style={{ color: '#a78bfa', fontSize: '1rem', fontWeight: 700 }}>100K+</div>
-                    <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.6rem' }}>Downloads</div>
-                  </div>
-                  <div>
-                    <div style={{ color: '#06b6d4', fontSize: '1rem', fontWeight: 700 }}>4.8★</div>
-                    <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.6rem' }}>Rating</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* ===== PROJECT 4 - AI/SaaS ===== */}
-            <div style={{
-              gridColumn: 'span 4',
-              background: 'linear-gradient(145deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.6) 100%)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              borderRadius: '20px',
-              padding: '0',
-              position: 'relative',
-              overflow: 'hidden',
-              transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-              cursor: 'pointer'
-            }} className="project-card">
-              {/* Category ribbon */}
-              <div style={{
-                position: 'absolute',
-                top: '20px',
-                left: '20px',
-                zIndex: 10,
-                background: 'rgba(6, 182, 212, 0.2)',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(6, 182, 212, 0.3)',
-                borderRadius: '8px',
-                padding: '6px 12px'
-              }}>
-                <span style={{ color: '#06b6d4', fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px' }}>AI / SaaS</span>
-              </div>
-
-              {/* Browser mockup */}
-              <div style={{
-                height: '160px',
-                background: 'linear-gradient(180deg, #1a1f35 0%, #0f1629 100%)',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                position: 'relative',
-                padding: '15px'
-              }}>
-                <div style={{
-                  position: 'absolute',
-                  width: '140px',
-                  height: '100px',
-                  background: 'radial-gradient(ellipse, rgba(6, 182, 212, 0.25) 0%, transparent 70%)',
-                  filter: 'blur(25px)'
-                }}></div>
-                <div style={{
-                  width: '90%',
-                  height: '160px',
-                  background: '#1e293b',
-                  borderRadius: '10px',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  boxShadow: '0 30px 60px rgba(0,0,0,0.4), 0 0 30px rgba(6, 182, 212, 0.1)',
-                  overflow: 'hidden',
-                  position: 'relative',
-                  zIndex: 1
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '5px', padding: '8px 12px', background: 'rgba(0,0,0,0.3)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ef4444' }}></div>
-                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#eab308' }}></div>
-                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#22c55e' }}></div>
-                  </div>
-                  <img
-                    src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=500&q=80"
-                    alt="AI Dashboard"
-                    style={{
-                      width: '100%',
-                      height: 'calc(100% - 32px)',
-                      objectFit: 'cover',
-                      objectPosition: 'center'
-                    }}
-                  />
-                </div>
-                {/* Floating AI badge */}
-                <div style={{
-                  position: 'absolute',
-                  bottom: '15px',
-                  right: '20px',
-                  width: '36px',
-                  height: '36px',
-                  background: 'linear-gradient(135deg, #06b6d4, #0891b2)',
-                  borderRadius: '10px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  boxShadow: '0 10px 20px rgba(6, 182, 212, 0.4)',
-                  zIndex: 2
-                }}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                    <path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z" />
-                    <path d="M12 12a8 8 0 0 0-8 8h16a8 8 0 0 0-8-8z" />
-                  </svg>
-                </div>
-              </div>
-
-              <div style={{ padding: '20px' }}>
-                <h3 style={{ color: 'white', fontSize: '1.1rem', fontWeight: 700, marginBottom: '6px' }}>SmartHire AI Recruitment</h3>
-                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem', lineHeight: 1.5, marginBottom: '8px' }}>
-                  AI-powered recruitment with automated resume parsing and bias-free hiring workflows.
-                </p>
-
-                <div style={{ marginBottom: '8px' }}>
-                  <div style={{ marginBottom: '6px' }}>
-                    <span style={{ color: '#a78bfa', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase' }}>Challenge</span>
-                    <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.7rem', lineHeight: 1.4, marginTop: '2px' }}>
-                      Processing 1000s of applications while eliminating bias.
-                    </p>
-                  </div>
-                  <div>
-                    <span style={{ color: '#06b6d4', fontSize: '0.6rem', fontWeight: 700, textTransform: 'uppercase' }}>Solution</span>
-                    <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.7rem', lineHeight: 1.4, marginTop: '2px' }}>
-                      GPT-4 skill extraction with blind resume mode.
-                    </p>
-                  </div>
-                </div>
-
-                <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap', marginBottom: '12px' }}>
-                  {['Python', 'FastAPI', 'GPT-4'].map((tech, i) => (
-                    <span key={i} style={{
-                      background: 'rgba(6, 182, 212, 0.1)',
-                      color: '#06b6d4',
-                      fontSize: '0.65rem',
-                      padding: '3px 7px',
-                      borderRadius: '4px'
-                    }}>{tech}</span>
-                  ))}
-                </div>
-
-                <div style={{ display: 'flex', gap: '16px', paddingTop: '12px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-                  <div>
-                    <div style={{ color: '#a78bfa', fontSize: '1rem', fontWeight: 700 }}>85%</div>
-                    <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.6rem' }}>Time Saved</div>
-                  </div>
-                  <div>
-                    <div style={{ color: '#06b6d4', fontSize: '1rem', fontWeight: 700 }}>200+</div>
-                    <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.6rem' }}>Companies</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Bottom CTA */}
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            marginTop: '60px'
-          }}>
-            <div style={{
-              background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.7) 100%)',
-              border: '1px solid rgba(255,255,255,0.1)',
-              borderRadius: '16px',
-              padding: '24px 40px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '20px'
-            }}>
-              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' }}>
-                We&apos;ve delivered <span style={{ color: 'white', fontWeight: 600 }}>50+ projects</span> across fintech, healthcare, education & retail
-              </p>
-              <a href="#contact" style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                background: 'linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%)',
-                color: 'white',
-                fontSize: '0.9rem',
-                fontWeight: 600,
-                padding: '12px 24px',
-                borderRadius: '10px',
-                textDecoration: 'none',
-                transition: 'all 0.3s ease',
-                boxShadow: '0 4px 20px rgba(139, 92, 246, 0.3)'
-              }}>
-                Start Your Project
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </section>
-      {/* ==================== END FEATURED PROJECTS ==================== */}
+      <HorizontalProjectsSection />
 
       {/* ==================== PROCESS / HOW WE WORK SECTION ==================== */}
       <section className="process-section" style={{
         position: 'relative',
-        padding: '40px 0',
+        padding: '60px 0',
         overflow: 'hidden'
       }}>
         {/* Background Elements */}
@@ -1716,7 +775,7 @@ export default function Home(): JSX.Element {
             left: '5%',
             width: '500px',
             height: '500px',
-            background: 'radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%)',
             borderRadius: '50%',
             filter: 'blur(60px)'
           }}></div>
@@ -1726,7 +785,7 @@ export default function Home(): JSX.Element {
             right: '5%',
             width: '600px',
             height: '600px',
-            background: 'radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%)',
             borderRadius: '50%',
             filter: 'blur(80px)'
           }}></div>
@@ -1737,7 +796,7 @@ export default function Home(): JSX.Element {
             transform: 'translate(-50%, -50%)',
             width: '800px',
             height: '800px',
-            background: 'radial-gradient(circle, rgba(236, 72, 153, 0.04) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(30, 41, 59, 0.1) 0%, transparent 70%)',
             borderRadius: '50%',
             filter: 'blur(100px)'
           }}></div>
@@ -1747,11 +806,11 @@ export default function Home(): JSX.Element {
 
           {/* Section Header */}
           <div style={{ textAlign: 'center', marginBottom: '15px' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(34, 197, 94, 0.1)', border: '1px solid rgba(34, 197, 94, 0.25)', borderRadius: '100px', padding: '8px 20px', marginBottom: '28px' }}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2">
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(56, 189, 248, 0.1)', border: '1px solid rgba(56, 189, 248, 0.25)', borderRadius: '100px', padding: '8px 20px', marginBottom: '28px' }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" strokeWidth="2">
                 <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
               </svg>
-              <span style={{ color: '#22c55e', fontSize: '0.85rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px' }}>Our Process</span>
+              <span style={{ color: '#38bdf8', fontSize: '0.85rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px' }}>Our Process</span>
             </div>
 
             <h2 style={{
@@ -1785,7 +844,7 @@ export default function Home(): JSX.Element {
               top: '0',
               bottom: '0',
               width: '3px',
-              background: 'linear-gradient(180deg, #8b5cf6 0%, #ec4899 25%, #06b6d4 50%, #22c55e 75%, #22c55e 100%)',
+              background: 'linear-gradient(180deg, #38bdf8 0%, #818cf8 50%, #38bdf8 100%)',
               transform: 'translateX(-50%)',
               opacity: 0.5,
               borderRadius: '2px'
@@ -1795,20 +854,20 @@ export default function Home(): JSX.Element {
             <div className="process-step" style={{ display: 'flex', alignItems: 'stretch', marginBottom: '0px', position: 'relative' }}>
               {/* Left Content */}
               <div className="process-content-left" style={{ flex: 1, paddingRight: '40px', textAlign: 'right', paddingTop: '0px' }}>
-                <div style={{ display: 'inline-block', background: 'rgba(139, 92, 246, 0.15)', border: '1px solid rgba(139, 92, 246, 0.3)', borderRadius: '6px', padding: '6px 14px', marginBottom: '14px' }}>
-                  <span style={{ color: '#a78bfa', fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Week 1-2</span>
+                <div style={{ display: 'inline-block', background: 'rgba(56, 189, 248, 0.15)', border: '1px solid rgba(56, 189, 248, 0.3)', borderRadius: '6px', padding: '6px 14px', marginBottom: '14px' }}>
+                  <span style={{ color: '#38bdf8', fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Week 1-2</span>
                 </div>
                 <h3 style={{ color: 'white', fontSize: '1.85rem', fontWeight: 700, marginBottom: '12px' }}>Discovery & Strategy</h3>
-                <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', lineHeight: 1.75, marginBottom: '18px' }}>
+                <p style={{ color: 'rgba(148,163,184,0.95)', fontSize: '1.05rem', lineHeight: 1.75, marginBottom: '18px' }}>
                   We begin with an in-depth analysis of your business objectives, target audience demographics, and technical requirements. Our team conducts comprehensive stakeholder interviews, competitive analysis, and market research to understand your unique position.
                 </p>
-                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '20px' }}>
+                <p style={{ color: 'rgba(148,163,184,0.8)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '20px' }}>
                   We map out the complete project scope, define key milestones, identify potential risks, and create a detailed roadmap with clear deliverables and timelines.
                 </p>
                 <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '16px', flexWrap: 'wrap' }} className="process-tags">
                   {['Requirements Analysis', 'User Research', 'Tech Stack Planning', 'Competitive Analysis', 'Risk Assessment'].map((item, i) => (
-                    <span key={i} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(139, 92, 246, 0.08)', padding: '6px 12px', borderRadius: '20px', border: '1px solid rgba(139, 92, 246, 0.15)' }}>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth="2"><polyline points="20 6 9 17 4 12" /></svg>
+                    <span key={i} style={{ color: 'rgba(226,232,240,0.9)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(56, 189, 248, 0.08)', padding: '6px 12px', borderRadius: '20px', border: '1px solid rgba(56, 189, 248, 0.15)' }}>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" strokeWidth="2"><polyline points="20 6 9 17 4 12" /></svg>
                       {item}
                     </span>
                   ))}
@@ -1819,16 +878,16 @@ export default function Home(): JSX.Element {
               <div className="process-circle" style={{
                 width: '80px',
                 height: '80px',
-                background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)',
+                background: 'linear-gradient(135deg, #38bdf8, #2563eb)',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                boxShadow: '0 0 50px rgba(139, 92, 246, 0.5), 0 0 100px rgba(139, 92, 246, 0.2)',
+                boxShadow: '0 0 50px rgba(56, 189, 248, 0.5), 0 0 100px rgba(56, 189, 248, 0.2)',
                 position: 'relative',
                 zIndex: 2,
                 flexShrink: 0,
-                border: '3px solid rgba(255,255,255,0.1)'
+                border: '3px solid rgba(30, 41, 59, 0.8)'
               }}>
                 <span style={{ color: 'white', fontSize: '1.6rem', fontWeight: 800 }}>01</span>
               </div>
@@ -1838,11 +897,11 @@ export default function Home(): JSX.Element {
                 <div style={{ display: 'flex', flexDirection: 'row', gap: '40px', alignItems: 'center' }}>
                   <div style={{ textAlign: 'center' }}>
                     <div style={{ color: 'white', fontSize: '2.5rem', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1 }}>50+</div>
-                    <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem', fontWeight: 500, marginTop: '4px' }}>Projects Delivered</div>
+                    <div style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.9rem', fontWeight: 500, marginTop: '4px' }}>Projects Delivered</div>
                   </div>
                   <div style={{ textAlign: 'center' }}>
                     <div style={{ color: 'white', fontSize: '2.5rem', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1 }}>100%</div>
-                    <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem', fontWeight: 500, marginTop: '4px' }}>Client Satisfaction</div>
+                    <div style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.9rem', fontWeight: 500, marginTop: '4px' }}>Client Satisfaction</div>
                   </div>
                 </div>
               </div>
@@ -1855,11 +914,11 @@ export default function Home(): JSX.Element {
                 <div style={{ display: 'flex', flexDirection: 'row', gap: '40px', alignItems: 'center' }}>
                   <div style={{ textAlign: 'center' }}>
                     <div style={{ color: 'white', fontSize: '2.5rem', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1 }}>99.9%</div>
-                    <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem', fontWeight: 500, marginTop: '4px' }}>Uptime Guaranteed</div>
+                    <div style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.9rem', fontWeight: 500, marginTop: '4px' }}>Uptime Guaranteed</div>
                   </div>
                   <div style={{ textAlign: 'center' }}>
                     <div style={{ color: 'white', fontSize: '2.5rem', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1 }}>15+</div>
-                    <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem', fontWeight: 500, marginTop: '4px' }}>Expert Engineers</div>
+                    <div style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.9rem', fontWeight: 500, marginTop: '4px' }}>Expert Engineers</div>
                   </div>
                 </div>
               </div>
@@ -1868,36 +927,36 @@ export default function Home(): JSX.Element {
               <div className="process-circle" style={{
                 width: '80px',
                 height: '80px',
-                background: 'linear-gradient(135deg, #ec4899, #db2777)',
+                background: 'linear-gradient(135deg, #2563eb, #1d4ed8)',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                boxShadow: '0 0 50px rgba(236, 72, 153, 0.5), 0 0 100px rgba(236, 72, 153, 0.2)',
+                boxShadow: '0 0 50px rgba(37, 99, 235, 0.5), 0 0 100px rgba(37, 99, 235, 0.2)',
                 position: 'relative',
                 zIndex: 2,
                 flexShrink: 0,
-                border: '3px solid rgba(255,255,255,0.1)'
+                border: '3px solid rgba(30, 41, 59, 0.8)'
               }}>
                 <span style={{ color: 'white', fontSize: '1.6rem', fontWeight: 800 }}>02</span>
               </div>
 
               {/* Right Content */}
               <div className="process-content-right" style={{ flex: 1, paddingLeft: '40px', paddingTop: '0px' }}>
-                <div style={{ display: 'inline-block', background: 'rgba(236, 72, 153, 0.15)', border: '1px solid rgba(236, 72, 153, 0.3)', borderRadius: '6px', padding: '6px 14px', marginBottom: '14px' }}>
-                  <span style={{ color: '#f472b6', fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Week 2-4</span>
+                <div style={{ display: 'inline-block', background: 'rgba(56, 189, 248, 0.15)', border: '1px solid rgba(56, 189, 248, 0.3)', borderRadius: '6px', padding: '6px 14px', marginBottom: '14px' }}>
+                  <span style={{ color: '#38bdf8', fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Week 2-4</span>
                 </div>
                 <h3 style={{ color: 'white', fontSize: '1.85rem', fontWeight: 700, marginBottom: '12px' }}>UI/UX Design</h3>
-                <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', lineHeight: 1.75, marginBottom: '18px' }}>
+                <p style={{ color: 'rgba(148,163,184,0.95)', fontSize: '1.05rem', lineHeight: 1.75, marginBottom: '18px' }}>
                   Our design team crafts intuitive, pixel-perfect interfaces that not only look stunning but convert. We start with user journey mapping and information architecture, then move to wireframes and finally high-fidelity prototypes.
                 </p>
-                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '20px' }}>
+                <p style={{ color: 'rgba(148,163,184,0.8)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '20px' }}>
                   Every design decision is backed by UX research and usability testing. We create comprehensive design systems that ensure consistency across all touchpoints and make future updates seamless.
                 </p>
                 <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }} className="process-tags">
                   {['User Journey Mapping', 'Wireframes', 'UI Design', 'Interactive Prototypes', 'Design System', 'Usability Testing'].map((item, i) => (
-                    <span key={i} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(236, 72, 153, 0.08)', padding: '6px 12px', borderRadius: '20px', border: '1px solid rgba(236, 72, 153, 0.15)' }}>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f472b6" strokeWidth="2"><polyline points="20 6 9 17 4 12" /></svg>
+                    <span key={i} style={{ color: 'rgba(226,232,240,0.9)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(56, 189, 248, 0.08)', padding: '6px 12px', borderRadius: '20px', border: '1px solid rgba(56, 189, 248, 0.15)' }}>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" strokeWidth="2"><polyline points="20 6 9 17 4 12" /></svg>
                       {item}
                     </span>
                   ))}
@@ -1909,20 +968,20 @@ export default function Home(): JSX.Element {
             <div className="process-step" style={{ display: 'flex', alignItems: 'stretch', marginBottom: '0px', position: 'relative' }}>
               {/* Left Content */}
               <div className="process-content-left" style={{ flex: 1, paddingRight: '40px', textAlign: 'right', paddingTop: '0px' }}>
-                <div style={{ display: 'inline-block', background: 'rgba(6, 182, 212, 0.15)', border: '1px solid rgba(6, 182, 212, 0.3)', borderRadius: '6px', padding: '6px 14px', marginBottom: '14px' }}>
-                  <span style={{ color: '#06b6d4', fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Week 4-10</span>
+                <div style={{ display: 'inline-block', background: 'rgba(129, 140, 248, 0.15)', border: '1px solid rgba(129, 140, 248, 0.3)', borderRadius: '6px', padding: '6px 14px', marginBottom: '14px' }}>
+                  <span style={{ color: '#818cf8', fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Week 4-10</span>
                 </div>
                 <h3 style={{ color: 'white', fontSize: '1.85rem', fontWeight: 700, marginBottom: '12px' }}>Development & Engineering</h3>
-                <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', lineHeight: 1.75, marginBottom: '18px' }}>
+                <p style={{ color: 'rgba(148,163,184,0.95)', fontSize: '1.05rem', lineHeight: 1.75, marginBottom: '18px' }}>
                   Our engineers build clean, scalable, and maintainable code using cutting-edge technologies and industry best practices. We follow Agile methodology with 2-week sprints, daily standups, and weekly demo sessions to keep you in the loop.
                 </p>
-                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '20px' }}>
+                <p style={{ color: 'rgba(148,163,184,0.8)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '20px' }}>
                   Every feature undergoes rigorous code review, automated testing, and security audits. We implement CI/CD pipelines for continuous integration and seamless deployments. Performance optimization is built into every stage.
                 </p>
                 <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '16px', flexWrap: 'wrap' }} className="process-tags">
                   {['Frontend Development', 'Backend APIs', 'Database Design', 'Unit Testing', 'Code Review', 'CI/CD Pipeline', 'Security Audits'].map((item, i) => (
-                    <span key={i} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(6, 182, 212, 0.08)', padding: '6px 12px', borderRadius: '20px', border: '1px solid rgba(6, 182, 212, 0.15)' }}>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" strokeWidth="2"><polyline points="20 6 9 17 4 12" /></svg>
+                    <span key={i} style={{ color: 'rgba(226,232,240,0.9)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(129, 140, 248, 0.08)', padding: '6px 12px', borderRadius: '20px', border: '1px solid rgba(129, 140, 248, 0.15)' }}>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="2"><polyline points="20 6 9 17 4 12" /></svg>
                       {item}
                     </span>
                   ))}
@@ -1933,16 +992,16 @@ export default function Home(): JSX.Element {
               <div className="process-circle" style={{
                 width: '80px',
                 height: '80px',
-                background: 'linear-gradient(135deg, #06b6d4, #0891b2)',
+                background: 'linear-gradient(135deg, #1d4ed8, #1e40af)',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                boxShadow: '0 0 50px rgba(6, 182, 212, 0.5), 0 0 100px rgba(6, 182, 212, 0.2)',
+                boxShadow: '0 0 50px rgba(29, 78, 216, 0.5), 0 0 100px rgba(29, 78, 216, 0.2)',
                 position: 'relative',
                 zIndex: 2,
                 flexShrink: 0,
-                border: '3px solid rgba(255,255,255,0.1)'
+                border: '3px solid rgba(30, 41, 59, 0.8)'
               }}>
                 <span style={{ color: 'white', fontSize: '1.6rem', fontWeight: 800 }}>03</span>
               </div>
@@ -1952,11 +1011,11 @@ export default function Home(): JSX.Element {
                 <div style={{ display: 'flex', flexDirection: 'row', gap: '40px', alignItems: 'center' }}>
                   <div style={{ textAlign: 'center' }}>
                     <div style={{ color: 'white', fontSize: '2.5rem', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1 }}>&lt;2h</div>
-                    <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem', fontWeight: 500, marginTop: '4px' }}>Response Time</div>
+                    <div style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.9rem', fontWeight: 500, marginTop: '4px' }}>Response Time</div>
                   </div>
                   <div style={{ textAlign: 'center' }}>
                     <div style={{ color: 'white', fontSize: '2.5rem', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1 }}>24/7</div>
-                    <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem', fontWeight: 500, marginTop: '4px' }}>Support Available</div>
+                    <div style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.9rem', fontWeight: 500, marginTop: '4px' }}>Support Available</div>
                   </div>
                 </div>
               </div>
@@ -1969,11 +1028,11 @@ export default function Home(): JSX.Element {
                 <div style={{ display: 'flex', flexDirection: 'row', gap: '40px', alignItems: 'center' }}>
                   <div style={{ textAlign: 'center' }}>
                     <div style={{ color: 'white', fontSize: '2.5rem', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1 }}>Zero</div>
-                    <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem', fontWeight: 500, marginTop: '4px' }}>Downtime Deployments</div>
+                    <div style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.9rem', fontWeight: 500, marginTop: '4px' }}>Downtime Deployments</div>
                   </div>
                   <div style={{ textAlign: 'center' }}>
                     <div style={{ color: 'white', fontSize: '2.5rem', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1 }}>5★</div>
-                    <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem', fontWeight: 500, marginTop: '4px' }}>Average Rating</div>
+                    <div style={{ color: 'rgba(148,163,184,0.7)', fontSize: '0.9rem', fontWeight: 500, marginTop: '4px' }}>Average Rating</div>
                   </div>
                 </div>
               </div>
@@ -1982,36 +1041,36 @@ export default function Home(): JSX.Element {
               <div className="process-circle" style={{
                 width: '80px',
                 height: '80px',
-                background: 'linear-gradient(135deg, #22c55e, #16a34a)',
+                background: 'linear-gradient(135deg, #1e40af, #1e3a8a)',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                boxShadow: '0 0 50px rgba(34, 197, 94, 0.5), 0 0 100px rgba(34, 197, 94, 0.2)',
+                boxShadow: '0 0 50px rgba(30, 58, 138, 0.5), 0 0 100px rgba(30, 58, 138, 0.2)',
                 position: 'relative',
                 zIndex: 2,
                 flexShrink: 0,
-                border: '3px solid rgba(255,255,255,0.1)'
+                border: '3px solid rgba(30, 41, 59, 0.8)'
               }}>
                 <span style={{ color: 'white', fontSize: '1.6rem', fontWeight: 800 }}>04</span>
               </div>
 
               {/* Right Content */}
               <div className="process-content-right" style={{ flex: 1, paddingLeft: '40px', paddingTop: '0px' }}>
-                <div style={{ display: 'inline-block', background: 'rgba(34, 197, 94, 0.15)', border: '1px solid rgba(34, 197, 94, 0.3)', borderRadius: '6px', padding: '6px 14px', marginBottom: '14px' }}>
-                  <span style={{ color: '#22c55e', fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Ongoing Partnership</span>
+                <div style={{ display: 'inline-block', background: 'rgba(56, 189, 248, 0.15)', border: '1px solid rgba(56, 189, 248, 0.3)', borderRadius: '6px', padding: '6px 14px', marginBottom: '14px' }}>
+                  <span style={{ color: '#38bdf8', fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Ongoing Partnership</span>
                 </div>
                 <h3 style={{ color: 'white', fontSize: '1.85rem', fontWeight: 700, marginBottom: '12px' }}>Launch & Continuous Support</h3>
-                <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.05rem', lineHeight: 1.75, marginBottom: '18px' }}>
+                <p style={{ color: 'rgba(148,163,184,0.95)', fontSize: '1.05rem', lineHeight: 1.75, marginBottom: '18px' }}>
                   We execute seamless deployments with zero-downtime strategies, comprehensive monitoring, and instant rollback capabilities. Your launch is backed by our 24/7 support team ready to handle any issues.
                 </p>
-                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '20px' }}>
+                <p style={{ color: 'rgba(148,163,184,0.8)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '20px' }}>
                   Post-launch, we provide ongoing maintenance, performance optimization, security patches, and feature enhancements. We monitor application health, track user analytics, and proactively identify opportunities for improvement.
                 </p>
                 <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }} className="process-tags">
                   {['Zero-Downtime Deploy', 'Real-time Monitoring', '24/7 Support', 'Performance Analytics', 'Security Updates', 'Feature Enhancements'].map((item, i) => (
-                    <span key={i} style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(34, 197, 94, 0.08)', padding: '6px 12px', borderRadius: '20px', border: '1px solid rgba(34, 197, 94, 0.15)' }}>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2"><polyline points="20 6 9 17 4 12" /></svg>
+                    <span key={i} style={{ color: 'rgba(226,232,240,0.9)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(56, 189, 248, 0.08)', padding: '6px 12px', borderRadius: '20px', border: '1px solid rgba(56, 189, 248, 0.15)' }}>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" strokeWidth="2"><polyline points="20 6 9 17 4 12" /></svg>
                       {item}
                     </span>
                   ))}
@@ -2109,24 +1168,25 @@ export default function Home(): JSX.Element {
 
             {/* Frontend Development Card */}
             <div style={{
-              background: 'linear-gradient(145deg, rgba(139, 92, 246, 0.05) 0%, rgba(20, 20, 40, 0.4) 100%)',
-              border: '1px solid rgba(139, 92, 246, 0.2)',
-              borderRadius: '20px',
-              padding: '25px',
+              background: 'radial-gradient(circle at 0% 0%, rgba(56,189,248,0.1) 0, transparent 50%), radial-gradient(circle at 100% 0%, rgba(129,140,248,0.1) 0, transparent 50%), rgba(10,15,35,0.95)',
+              border: '1px solid rgba(148,163,184,0.5)',
+              borderRadius: '24px',
+              padding: '28px',
               position: 'relative',
               overflow: 'hidden',
               transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              boxShadow: '0 18px 45px rgba(15,23,42,0.9), 0 0 0 1px rgba(15,23,42,1)'
             }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-8px)';
-                e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(139, 92, 246, 0.3)';
-                e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.5)';
+                e.currentTarget.style.transform = 'translateY(-5px)';
+                e.currentTarget.style.borderColor = 'rgba(148,163,184,0.8)';
+                e.currentTarget.style.boxShadow = '0 25px 60px rgba(15,23,42,0.95)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-                e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
+                e.currentTarget.style.borderColor = 'rgba(148,163,184,0.5)';
+                e.currentTarget.style.boxShadow = '0 18px 45px rgba(15,23,42,0.9), 0 0 0 1px rgba(15,23,42,1)';
               }}>
               {/* Glow Effect */}
               <div style={{
@@ -2219,24 +1279,25 @@ export default function Home(): JSX.Element {
 
             {/* Backend & APIs Card */}
             <div style={{
-              background: 'linear-gradient(145deg, rgba(34, 197, 94, 0.05) 0%, rgba(20, 20, 40, 0.4) 100%)',
-              border: '1px solid rgba(34, 197, 94, 0.2)',
-              borderRadius: '20px',
-              padding: '25px',
+              background: 'radial-gradient(circle at 0% 0%, rgba(56,189,248,0.1) 0, transparent 50%), radial-gradient(circle at 100% 0%, rgba(129,140,248,0.1) 0, transparent 50%), rgba(10,15,35,0.95)',
+              border: '1px solid rgba(148,163,184,0.5)',
+              borderRadius: '24px',
+              padding: '28px',
               position: 'relative',
               overflow: 'hidden',
               transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              boxShadow: '0 18px 45px rgba(15,23,42,0.9), 0 0 0 1px rgba(15,23,42,1)'
             }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-8px)';
-                e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(34, 197, 94, 0.3)';
-                e.currentTarget.style.borderColor = 'rgba(34, 197, 94, 0.5)';
+                e.currentTarget.style.transform = 'translateY(-5px)';
+                e.currentTarget.style.borderColor = 'rgba(148,163,184,0.8)';
+                e.currentTarget.style.boxShadow = '0 25px 60px rgba(15,23,42,0.95)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-                e.currentTarget.style.borderColor = 'rgba(34, 197, 94, 0.2)';
+                e.currentTarget.style.borderColor = 'rgba(148,163,184,0.5)';
+                e.currentTarget.style.boxShadow = '0 18px 45px rgba(15,23,42,0.9), 0 0 0 1px rgba(15,23,42,1)';
               }}>
               <div style={{
                 position: 'absolute',
@@ -2328,24 +1389,25 @@ export default function Home(): JSX.Element {
 
             {/* Database & Storage Card */}
             <div style={{
-              background: 'linear-gradient(145deg, rgba(6, 182, 212, 0.05) 0%, rgba(20, 20, 40, 0.4) 100%)',
-              border: '1px solid rgba(6, 182, 212, 0.2)',
-              borderRadius: '20px',
-              padding: '25px',
+              background: 'radial-gradient(circle at 0% 0%, rgba(56,189,248,0.1) 0, transparent 50%), radial-gradient(circle at 100% 0%, rgba(129,140,248,0.1) 0, transparent 50%), rgba(10,15,35,0.95)',
+              border: '1px solid rgba(148,163,184,0.5)',
+              borderRadius: '24px',
+              padding: '28px',
               position: 'relative',
               overflow: 'hidden',
               transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              boxShadow: '0 18px 45px rgba(15,23,42,0.9), 0 0 0 1px rgba(15,23,42,1)'
             }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-8px)';
-                e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(6, 182, 212, 0.3)';
-                e.currentTarget.style.borderColor = 'rgba(6, 182, 212, 0.5)';
+                e.currentTarget.style.transform = 'translateY(-5px)';
+                e.currentTarget.style.borderColor = 'rgba(148,163,184,0.8)';
+                e.currentTarget.style.boxShadow = '0 25px 60px rgba(15,23,42,0.95)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-                e.currentTarget.style.borderColor = 'rgba(6, 182, 212, 0.2)';
+                e.currentTarget.style.borderColor = 'rgba(148,163,184,0.5)';
+                e.currentTarget.style.boxShadow = '0 18px 45px rgba(15,23,42,0.9), 0 0 0 1px rgba(15,23,42,1)';
               }}>
               <div style={{
                 position: 'absolute',
@@ -2437,24 +1499,25 @@ export default function Home(): JSX.Element {
 
             {/* Cloud & DevOps */}
             <div style={{
-              background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.05) 0%, rgba(249, 115, 22, 0.02) 100%)',
-              border: '1px solid rgba(249, 115, 22, 0.2)',
-              borderRadius: '20px',
-              padding: '25px',
+              background: 'radial-gradient(circle at 0% 0%, rgba(56,189,248,0.1) 0, transparent 50%), radial-gradient(circle at 100% 0%, rgba(129,140,248,0.1) 0, transparent 50%), rgba(10,15,35,0.95)',
+              border: '1px solid rgba(148,163,184,0.5)',
+              borderRadius: '24px',
+              padding: '28px',
               cursor: 'pointer',
               transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
               position: 'relative',
-              overflow: 'hidden'
+              overflow: 'hidden',
+              boxShadow: '0 18px 45px rgba(15,23,42,0.9), 0 0 0 1px rgba(15,23,42,1)'
             }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-8px)';
-                e.currentTarget.style.boxShadow = '0 20px 60px rgba(249, 115, 22, 0.3)';
-                e.currentTarget.style.borderColor = 'rgba(249, 115, 22, 0.4)';
+                e.currentTarget.style.transform = 'translateY(-5px)';
+                e.currentTarget.style.borderColor = 'rgba(148,163,184,0.8)';
+                e.currentTarget.style.boxShadow = '0 25px 60px rgba(15,23,42,0.95)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-                e.currentTarget.style.borderColor = 'rgba(249, 115, 22, 0.2)';
+                e.currentTarget.style.borderColor = 'rgba(148,163,184,0.5)';
+                e.currentTarget.style.boxShadow = '0 18px 45px rgba(15,23,42,0.9), 0 0 0 1px rgba(15,23,42,1)';
               }}>
               <div style={{
                 width: '45px',
@@ -2543,24 +1606,25 @@ export default function Home(): JSX.Element {
 
             {/* Mobile Development */}
             <div style={{
-              background: 'linear-gradient(135deg, rgba(236, 72, 153, 0.05) 0%, rgba(236, 72, 153, 0.02) 100%)',
-              border: '1px solid rgba(236, 72, 153, 0.2)',
-              borderRadius: '20px',
-              padding: '25px',
+              background: 'radial-gradient(circle at 0% 0%, rgba(56,189,248,0.1) 0, transparent 50%), radial-gradient(circle at 100% 0%, rgba(129,140,248,0.1) 0, transparent 50%), rgba(10,15,35,0.95)',
+              border: '1px solid rgba(148,163,184,0.5)',
+              borderRadius: '24px',
+              padding: '28px',
               cursor: 'pointer',
               transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
               position: 'relative',
-              overflow: 'hidden'
+              overflow: 'hidden',
+              boxShadow: '0 18px 45px rgba(15,23,42,0.9), 0 0 0 1px rgba(15,23,42,1)'
             }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-8px)';
-                e.currentTarget.style.boxShadow = '0 20px 60px rgba(236, 72, 153, 0.3)';
-                e.currentTarget.style.borderColor = 'rgba(236, 72, 153, 0.4)';
+                e.currentTarget.style.transform = 'translateY(-5px)';
+                e.currentTarget.style.borderColor = 'rgba(148,163,184,0.8)';
+                e.currentTarget.style.boxShadow = '0 25px 60px rgba(15,23,42,0.95)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-                e.currentTarget.style.borderColor = 'rgba(236, 72, 153, 0.2)';
+                e.currentTarget.style.borderColor = 'rgba(148,163,184,0.5)';
+                e.currentTarget.style.boxShadow = '0 18px 45px rgba(15,23,42,0.9), 0 0 0 1px rgba(15,23,42,1)';
               }}>
               <div style={{
                 width: '45px',
@@ -2649,24 +1713,25 @@ export default function Home(): JSX.Element {
 
             {/* Design & Prototyping */}
             <div style={{
-              background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.05) 0%, rgba(168, 85, 247, 0.02) 100%)',
-              border: '1px solid rgba(168, 85, 247, 0.2)',
-              borderRadius: '20px',
-              padding: '25px',
+              background: 'radial-gradient(circle at 0% 0%, rgba(56,189,248,0.1) 0, transparent 50%), radial-gradient(circle at 100% 0%, rgba(129,140,248,0.1) 0, transparent 50%), rgba(10,15,35,0.95)',
+              border: '1px solid rgba(148,163,184,0.5)',
+              borderRadius: '24px',
+              padding: '28px',
               cursor: 'pointer',
               transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
               position: 'relative',
-              overflow: 'hidden'
+              overflow: 'hidden',
+              boxShadow: '0 18px 45px rgba(15,23,42,0.9), 0 0 0 1px rgba(15,23,42,1)'
             }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-8px)';
-                e.currentTarget.style.boxShadow = '0 20px 60px rgba(168, 85, 247, 0.3)';
-                e.currentTarget.style.borderColor = 'rgba(168, 85, 247, 0.4)';
+                e.currentTarget.style.transform = 'translateY(-5px)';
+                e.currentTarget.style.borderColor = 'rgba(148,163,184,0.8)';
+                e.currentTarget.style.boxShadow = '0 25px 60px rgba(15,23,42,0.95)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-                e.currentTarget.style.borderColor = 'rgba(168, 85, 247, 0.2)';
+                e.currentTarget.style.borderColor = 'rgba(148,163,184,0.5)';
+                e.currentTarget.style.boxShadow = '0 18px 45px rgba(15,23,42,0.9), 0 0 0 1px rgba(15,23,42,1)';
               }}>
               <div style={{
                 width: '45px',
@@ -3028,25 +2093,26 @@ export default function Home(): JSX.Element {
                   <div key={i} style={{
                     minWidth: 'calc(25% - 22.5px)',
                     width: 'calc(25% - 22.5px)',
-                    background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.01) 100%)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    borderRadius: '20px',
+                    background: 'radial-gradient(circle at 0% 0%, rgba(56,189,248,0.1) 0, transparent 50%), radial-gradient(circle at 100% 0%, rgba(129,140,248,0.1) 0, transparent 50%), rgba(10,15,35,0.95)',
+                    border: '1px solid rgba(148,163,184,0.5)',
+                    borderRadius: '24px',
                     padding: '30px',
                     position: 'relative',
                     overflow: 'hidden',
                     transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                     cursor: 'pointer',
-                    flexShrink: 0
+                    flexShrink: 0,
+                    boxShadow: '0 18px 45px rgba(15,23,42,0.9), 0 0 0 1px rgba(15,23,42,1)'
                   }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'translateY(-8px)';
-                      e.currentTarget.style.borderColor = `${testimonial.color}40`;
-                      e.currentTarget.style.boxShadow = `0 20px 60px ${testimonial.color}30`;
+                      e.currentTarget.style.transform = 'translateY(-5px)';
+                      e.currentTarget.style.borderColor = 'rgba(148,163,184,0.8)';
+                      e.currentTarget.style.boxShadow = '0 25px 60px rgba(15,23,42,0.95)';
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                      e.currentTarget.style.boxShadow = 'none';
+                      e.currentTarget.style.borderColor = 'rgba(148,163,184,0.5)';
+                      e.currentTarget.style.boxShadow = '0 18px 45px rgba(15,23,42,0.9), 0 0 0 1px rgba(15,23,42,1)';
                     }}>
                     {/* Quote Icon */}
                     <div style={{
@@ -3153,6 +2219,6 @@ export default function Home(): JSX.Element {
       <ContactSection />
 
 
-    </>
+    </main>
   );
 }

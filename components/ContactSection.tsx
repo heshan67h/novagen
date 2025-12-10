@@ -39,7 +39,7 @@ const ContactSection = () => {
             </span>
           </div>
           <h2 className="text-5xl font-bold text-white mb-4 tracking-tight">
-            Let's Start a <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">Conversation</span>
+            Let's Start a <span>Conversation</span>
           </h2>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
             Whether you have a question, a project idea, or just want to say hello, we're here to help.
@@ -54,7 +54,12 @@ const ContactSection = () => {
             {/* Quick Contact Methods */}
             <div className="grid grid-cols-1 gap-4">
               {/* Email Card */}
-              <div className="group relative bg-gradient-to-br from-white/[0.07] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-5 hover:border-blue-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 hover:-translate-y-1">
+              <div className="group relative backdrop-blur-xl rounded-2xl p-5 hover:border-slate-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-slate-500/10 hover:-translate-y-1"
+                style={{
+                  background: 'radial-gradient(circle at 0% 0%, rgba(56,189,248,0.1) 0, transparent 50%), radial-gradient(circle at 100% 0%, rgba(129,140,248,0.1) 0, transparent 50%), rgba(10,15,35,0.95)',
+                  border: '1px solid rgba(148,163,184,0.5)',
+                  boxShadow: '0 18px 45px rgba(15,23,42,0.9), 0 0 0 1px rgba(15,23,42,1)'
+                }}>
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="relative flex items-start gap-4">
                   <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 border border-blue-500/30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -76,7 +81,12 @@ const ContactSection = () => {
               </div>
 
               {/* Phone Card */}
-              <div className="group relative bg-gradient-to-br from-white/[0.07] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-5 hover:border-purple-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 hover:-translate-y-1">
+              <div className="group relative backdrop-blur-xl rounded-2xl p-5 hover:border-slate-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-slate-500/10 hover:-translate-y-1"
+                style={{
+                  background: 'radial-gradient(circle at 0% 0%, rgba(56,189,248,0.1) 0, transparent 50%), radial-gradient(circle at 100% 0%, rgba(129,140,248,0.1) 0, transparent 50%), rgba(10,15,35,0.95)',
+                  border: '1px solid rgba(148,163,184,0.5)',
+                  boxShadow: '0 18px 45px rgba(15,23,42,0.9), 0 0 0 1px rgba(15,23,42,1)'
+                }}>
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="relative flex items-start gap-4">
                   <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-600/20 to-pink-600/20 border border-purple-500/30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -98,7 +108,12 @@ const ContactSection = () => {
               </div>
 
               {/* Live Chat Card */}
-              <div className="group relative bg-gradient-to-br from-white/[0.07] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-5 hover:border-cyan-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10 hover:-translate-y-1">
+              <div className="group relative backdrop-blur-xl rounded-2xl p-5 hover:border-slate-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-slate-500/10 hover:-translate-y-1"
+                style={{
+                  background: 'radial-gradient(circle at 0% 0%, rgba(56,189,248,0.1) 0, transparent 50%), radial-gradient(circle at 100% 0%, rgba(129,140,248,0.1) 0, transparent 50%), rgba(10,15,35,0.95)',
+                  border: '1px solid rgba(148,163,184,0.5)',
+                  boxShadow: '0 18px 45px rgba(15,23,42,0.9), 0 0 0 1px rgba(15,23,42,1)'
+                }}>
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="relative flex items-start gap-4">
                   <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-cyan-600/20 to-teal-600/20 border border-cyan-500/30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -127,7 +142,12 @@ const ContactSection = () => {
             </div>
 
             {/* Office Hours & Location - Compact */}
-            <div className="bg-gradient-to-br from-white/[0.05] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-5">
+            <div className="backdrop-blur-xl rounded-2xl p-5"
+              style={{
+                background: 'radial-gradient(circle at 0% 0%, rgba(56,189,248,0.1) 0, transparent 50%), radial-gradient(circle at 100% 0%, rgba(129,140,248,0.1) 0, transparent 50%), rgba(10,15,35,0.95)',
+                border: '1px solid rgba(148,163,184,0.5)',
+                boxShadow: '0 18px 45px rgba(15,23,42,0.9), 0 0 0 1px rgba(15,23,42,1)'
+              }}>
               <h3 className="text-white font-semibold text-base mb-3 flex items-center gap-2">
                 <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -158,7 +178,12 @@ const ContactSection = () => {
             </div>
 
             {/* Social Media Links */}
-            <div className="bg-gradient-to-br from-white/[0.05] to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-5">
+            <div className="backdrop-blur-xl rounded-2xl p-5"
+              style={{
+                background: 'radial-gradient(circle at 0% 0%, rgba(56,189,248,0.1) 0, transparent 50%), radial-gradient(circle at 100% 0%, rgba(129,140,248,0.1) 0, transparent 50%), rgba(10,15,35,0.95)',
+                border: '1px solid rgba(148,163,184,0.5)',
+                boxShadow: '0 18px 45px rgba(15,23,42,0.9), 0 0 0 1px rgba(15,23,42,1)'
+              }}>
               <h3 className="text-white font-semibold text-base mb-3">Connect With Us</h3>
               <div className="grid grid-cols-4 gap-2">
                 {[
@@ -189,7 +214,12 @@ const ContactSection = () => {
               {/* Glow Effect on Hover */}
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-cyan-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <div className="relative bg-gradient-to-br from-[#0f172a]/90 to-[#1e293b]/80 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 shadow-2xl h-full flex flex-col">
+              <div className="relative backdrop-blur-2xl rounded-3xl p-8 shadow-2xl h-full flex flex-col"
+                style={{
+                  background: 'radial-gradient(circle at 0% 0%, rgba(56,189,248,0.1) 0, transparent 50%), radial-gradient(circle at 100% 0%, rgba(129,140,248,0.1) 0, transparent 50%), rgba(10,15,35,0.95)',
+                  border: '1px solid rgba(148,163,184,0.5)',
+                  boxShadow: '0 18px 45px rgba(15,23,42,0.9), 0 0 0 1px rgba(15,23,42,1)'
+                }}>
                 <div className="mb-6">
                   <h3 className="text-2xl font-bold text-white mb-2 flex items-center gap-2">
                     Send Us a Message
@@ -351,7 +381,7 @@ const ContactSection = () => {
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="group w-full relative bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 hover:from-blue-500 hover:via-purple-500 hover:to-cyan-500 text-white font-bold py-3 rounded-xl shadow-lg shadow-blue-600/20 transition-all transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-600/30 overflow-hidden"
+                    className="group w-full relative bg-gradient-to-r from-slate-900 to-blue-900 hover:from-slate-800 hover:to-blue-800 text-white font-bold py-3 rounded-xl shadow-lg shadow-blue-900/20 transition-all transform hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-900/30 overflow-hidden border border-white/10"
                   >
                     <span className="relative z-10 flex items-center justify-center gap-2 text-sm">
                       Send Message
@@ -381,7 +411,7 @@ const ContactSection = () => {
         </div>
 
       </div>
-    </section>
+    </section >
   );
 };
 
