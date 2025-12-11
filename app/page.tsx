@@ -4,6 +4,10 @@ import { useEffect } from 'react';
 import ContactSection from '@/components/ContactSection';
 import SocialBar from '@/components/SocialBar';
 import HorizontalProjectsSection from '@/components/HorizontalProjectsSection';
+import TrustedBy from '@/components/TrustedBy';
+import SuccessStats from '@/components/SuccessStats';
+import ProcessSection from '@/components/ProcessSection';
+import Testimonials from '@/components/Testimonials';
 
 export default function Home(): JSX.Element {
   useEffect(() => {
@@ -409,7 +413,7 @@ export default function Home(): JSX.Element {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover z-0"
-          style={{ filter: 'brightness(0.35)', opacity: 1 }}
+          style={{ filter: 'brightness(0.35)', opacity: 0.6 }}
         >
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
@@ -505,10 +509,13 @@ export default function Home(): JSX.Element {
         </div>
       </section>
 
+      {/* ==================== TRUSTED BY SECTION ==================== */}
+
+
       <section id="services" className="services" style={{
         padding: '0 0 0px 0',
         position: 'relative',
-        marginTop: '-50px'
+        marginTop: '0'
       }}>
         <div className="home-services-container" style={{ width: '93%', maxWidth: '1800px', margin: '0 auto', padding: '0 2rem' }}>
           <div className="home-services-grid" style={{
@@ -651,6 +658,9 @@ export default function Home(): JSX.Element {
         </div>
       </section>
 
+      {/* ==================== SUCCESS STATS SECTION ==================== */}
+      <SuccessStats />
+
       {/* ==================== WHY CHOOSE US SECTION ==================== */}
       <section id="about" style={{
         padding: '60px 0',
@@ -760,9 +770,13 @@ export default function Home(): JSX.Element {
 
       {/* ==================== FEATURED PROJECTS SECTION ==================== */}
       <HorizontalProjectsSection />
+      <TrustedBy />
 
-      {/* ==================== PROCESS / HOW WE WORK SECTION ==================== */}
+      {/* ==================== PROCESS SECTION ==================== */}
+      <ProcessSection />
+      {/* ==================== PROCESS / HOW WE WORK SECTION (HIDDEN) ==================== */}
       <section className="process-section" style={{
+        display: 'none',
         position: 'relative',
         padding: '60px 0',
         overflow: 'hidden'
@@ -1853,8 +1867,9 @@ export default function Home(): JSX.Element {
       </section>
       {/* ==================== END TECH STACK SECTION ==================== */}
 
-      {/* ==================== TESTIMONIALS SECTION ==================== */}
+      {/* ==================== LEGACY TESTIMONIALS (HIDDEN) ==================== */}
       <section style={{
+        display: 'none',
         padding: '60px 0',
         position: 'relative',
         overflow: 'hidden'
@@ -2215,6 +2230,8 @@ export default function Home(): JSX.Element {
         </div>
       </section>
       {/* ==================== END TESTIMONIALS SECTION ==================== */}
+
+      <Testimonials />
 
       <ContactSection />
 
