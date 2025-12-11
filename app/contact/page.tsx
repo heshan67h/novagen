@@ -43,6 +43,7 @@ export default function ContactPage(): JSX.Element {
                 </div>
 
                 <div
+                    className="contact-main-container"
                     style={{
                         position: 'relative',
                         width: '93%',
@@ -98,6 +99,7 @@ export default function ContactPage(): JSX.Element {
 
                     {/* Hero + form layout */}
                     <section
+                        className="contact-hero-grid"
                         style={{
                             display: 'grid',
                             gridTemplateColumns: 'minmax(0, 1.8fr) minmax(0, 1.6fr)',
@@ -119,6 +121,7 @@ export default function ContactPage(): JSX.Element {
                                 Start a project with NovaGen
                             </p>
                             <h1
+                                className="contact-hero-title"
                                 style={{
                                     fontSize: 'clamp(2.2rem, 3vw, 2.8rem)',
                                     lineHeight: 1.1,
@@ -148,6 +151,7 @@ export default function ContactPage(): JSX.Element {
 
                             {/* Contact meta cards */}
                             <div
+                                className="contact-meta-grid"
                                 style={{
                                     display: 'grid',
                                     gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
@@ -228,6 +232,7 @@ export default function ContactPage(): JSX.Element {
 
                         {/* Right: contact form card */}
                         <aside
+                            className="contact-form-aside"
                             style={{
                                 borderRadius: 24,
                                 padding: 20,
@@ -284,7 +289,7 @@ export default function ContactPage(): JSX.Element {
                                     alert('Thank you for reaching out! We will reply shortly.');
                                 }}
                             >
-                                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 10 }}>
+                                <div className="contact-form-row" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 10 }}>
                                     <div>
                                         <label
                                             style={{
@@ -394,6 +399,7 @@ export default function ContactPage(): JSX.Element {
                                 </div>
 
                                 <div
+                                    className="contact-form-row"
                                     style={{
                                         display: 'grid',
                                         gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
@@ -509,7 +515,7 @@ export default function ContactPage(): JSX.Element {
                             </h2>
                         </div>
 
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24 }}>
+                        <div className="contact-engagement-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24 }}>
                             {[
                                 {
                                     icon: <FaRocket size={24} color="#38bdf8" />,
@@ -594,14 +600,14 @@ export default function ContactPage(): JSX.Element {
                             </h2>
                         </div>
 
-                        <div style={{
+                        <div className="contact-roadmap-grid" style={{
                             display: 'grid',
                             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
                             gap: 40,
                             position: 'relative'
                         }}>
                             {/* Connector Line (Desktop only hack - hidden on mobile via overflow usually but keeping simple) */}
-                            <div style={{
+                            <div className="contact-roadmap-connector" style={{
                                 position: 'absolute',
                                 top: 24,
                                 left: 50,
@@ -648,13 +654,13 @@ export default function ContactPage(): JSX.Element {
                     </section>
 
                     {/* SECTION 3: FAQ */}
-                    <section style={{
+                    <section className="contact-faq-section" style={{
                         background: 'linear-gradient(145deg, rgba(30,41,59,0.2), rgba(15,23,42,0.4))',
                         borderRadius: 32,
                         padding: '60px 40px',
                         border: '1px solid rgba(55,65,81,0.3)'
                     }}>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1.5fr)', gap: 60 }}>
+                        <div className="contact-faq-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1.5fr)', gap: 60 }}>
                             <div>
                                 <h2 style={{ fontSize: 28, fontWeight: 700, color: '#FFFFFF', marginBottom: 16 }}>
                                     Common Questions

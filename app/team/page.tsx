@@ -77,6 +77,7 @@ export default function TeamPage(): JSX.Element {
             <Navbar />
 
             <main
+                className="team-main-wrapper"
                 style={{
                     padding: '120px 0 88px',
                 }}
@@ -101,6 +102,7 @@ export default function TeamPage(): JSX.Element {
                 </div>
 
                 <div
+                    className="team-main-container"
                     style={{
                         position: 'relative',
                         width: '93%',
@@ -112,6 +114,7 @@ export default function TeamPage(): JSX.Element {
                 >
                     {/* Crumb + badge */}
                     <div
+                        className="team-breadcrumb"
                         style={{
                             display: 'flex',
                             alignItems: 'center',
@@ -156,6 +159,7 @@ export default function TeamPage(): JSX.Element {
 
                     {/* Hero row */}
                     <section
+                        className="team-hero-grid"
                         style={{
                             display: 'grid',
                             gridTemplateColumns: 'minmax(0, 2.1fr) minmax(0, 1.4fr)',
@@ -177,6 +181,7 @@ export default function TeamPage(): JSX.Element {
                                 Meet the operators
                             </p>
                             <h1
+                                className="team-hero-title"
                                 style={{
                                     fontSize: 'clamp(2.3rem, 3.1vw, 3rem)',
                                     lineHeight: 1.1,
@@ -206,6 +211,7 @@ export default function TeamPage(): JSX.Element {
 
                         {/* Snapshot card */}
                         <aside
+                            className="team-snapshot-card"
                             style={{
                                 borderRadius: 24,
                                 padding: 22,
@@ -217,6 +223,7 @@ export default function TeamPage(): JSX.Element {
                             }}
                         >
                             <header
+                                className="team-snapshot-header"
                                 style={{
                                     display: 'flex',
                                     justifyContent: 'space-between',
@@ -303,6 +310,7 @@ export default function TeamPage(): JSX.Element {
 
                     {/* Core team grid */}
                     <section
+                        className="team-core-grid"
                         style={{
                             display: 'grid',
                             gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
@@ -494,7 +502,7 @@ export default function TeamPage(): JSX.Element {
                             </h2>
                         </div>
 
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24 }}>
+                        <div className="team-values-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24 }}>
                             {[
                                 {
                                     icon: <FaRocket size={24} color="#38bdf8" />,
@@ -548,7 +556,7 @@ export default function TeamPage(): JSX.Element {
                             </h2>
                         </div>
 
-                        <div style={{
+                        <div className="team-tech-grid" style={{
                             display: 'grid',
                             gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
                             gap: 24
@@ -613,7 +621,7 @@ export default function TeamPage(): JSX.Element {
                     </section>
 
                     {/* SECTION 3: Global Impact */}
-                    <section style={{
+                    <section className="team-global-section" style={{
                         borderRadius: 24,
                         overflow: 'hidden',
                         position: 'relative',
@@ -632,7 +640,7 @@ export default function TeamPage(): JSX.Element {
                             pointerEvents: 'none'
                         }} />
 
-                        <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 32 }}>
+                        <div className="team-global-content" style={{ position: 'relative', zIndex: 10, display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 32 }}>
                             <div style={{ maxWidth: 500 }}>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
                                     <BiWorld size={20} color="#38bdf8" />
@@ -642,7 +650,7 @@ export default function TeamPage(): JSX.Element {
                                 <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>We team up with founders across the globe. Our distributed structure ensures 24/7 overlap and continuous shipping, no matter your timezone.</p>
                             </div>
 
-                            <div style={{ display: 'flex', gap: 40, borderLeft: '1px solid rgba(148,163,184,0.2)', paddingLeft: 40 }}>
+                            <div className="team-global-stats" style={{ display: 'flex', gap: 40, borderLeft: '1px solid rgba(148,163,184,0.2)', paddingLeft: 40 }}>
                                 <div>
                                     <div style={{ fontSize: 36, fontWeight: 700, color: '#fff' }}>12+</div>
                                     <div style={{ fontSize: 13, color: '#94a3b8' }}>Countries Served</div>
@@ -672,6 +680,7 @@ export default function TeamPage(): JSX.Element {
                         }}
                     >
                         <div
+                            className="team-working-header"
                             style={{
                                 display: 'flex',
                                 alignItems: 'center',
@@ -790,6 +799,7 @@ export default function TeamPage(): JSX.Element {
 
                     {/* CTA band */}
                     <section
+                        className="team-cta-band"
                         style={{
                             borderRadius: 22,
                             padding: 18,
@@ -847,6 +857,7 @@ export default function TeamPage(): JSX.Element {
                         </div>
 
                         <div
+                            className="team-cta-actions"
                             style={{
                                 display: 'flex',
                                 alignItems: 'center',

@@ -2046,7 +2046,7 @@ body::after {
     }
 
     .hero-title {
-        font-size: 36px;
+        /* font-size: 36px; - Removed to allow globals.css override */
     }
 
     .hero-subtitle {

@@ -114,7 +114,7 @@ export default function ProjectsSection() {
             }}
         >
 
-            <div style={{
+            <div className="home-projects-container" style={{
                 width: '93%',
                 maxWidth: '1800px',
                 margin: '0 auto',
@@ -181,7 +181,7 @@ export default function ProjectsSection() {
                 </div>
 
                 {/* Cards Grid */}
-                <div style={{
+                <div className="home-projects-card-grid" style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
                     gap: '24px',

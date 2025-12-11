@@ -29,6 +29,7 @@ export default function AboutPage(): JSX.Element {
         />
 
         <div
+          className="about-main-container"
           style={{
             width: "93%",
             maxWidth: "1800px",
@@ -40,6 +41,7 @@ export default function AboutPage(): JSX.Element {
         >
           {/* Crumb + badge */}
           <div
+            className="about-breadcrumb"
             style={{
               display: "flex",
               alignItems: "center",
@@ -53,6 +55,7 @@ export default function AboutPage(): JSX.Element {
             <span style={{ opacity: 0.4 }}>/</span>
             <span style={{ opacity: 1 }}>About</span>
             <span
+              className="about-breadcrumb-badge"
               style={{
                 marginLeft: "auto",
                 padding: "6px 14px",
@@ -84,6 +87,7 @@ export default function AboutPage(): JSX.Element {
 
           {/* Hero row */}
           <section
+            className="about-hero-grid"
             style={{
               display: "grid",
               gridTemplateColumns: "minmax(0, 2.1fr) minmax(0, 1.4fr)",
@@ -106,6 +110,7 @@ export default function AboutPage(): JSX.Element {
                 Inside NovaGen
               </p>
               <h1
+                className="about-hero-title"
                 style={{
                   fontSize: "clamp(2.4rem, 3.4vw, 3.1rem)",
                   lineHeight: 1.1,
@@ -115,9 +120,9 @@ export default function AboutPage(): JSX.Element {
                   color: "#FFFFFF",
                 }}
               >
-                We are a product
+                We are a product&nbsp;
                 <br />
-                engineering studio helping
+                engineering studio helping&nbsp;
                 <br />
                 teams ship faster.
               </h1>
@@ -137,6 +142,7 @@ export default function AboutPage(): JSX.Element {
 
             {/* Right: snapshot card */}
             <aside
+              className="about-snapshot-card"
               style={{
                 borderRadius: 24,
                 border: "1px solid rgba(148,163,184,0.5)",
@@ -264,6 +270,7 @@ export default function AboutPage(): JSX.Element {
 
           {/* Story & mission row */}
           <section
+            className="about-story-grid"
             style={{
               display: "grid",
               gridTemplateColumns: "minmax(0, 2fr) minmax(0, 1.5fr)",
@@ -319,6 +326,7 @@ export default function AboutPage(): JSX.Element {
 
               {/* Story chips */}
               <div
+                className="about-story-chips"
                 style={{
                   display: "grid",
                   gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
@@ -367,6 +375,7 @@ export default function AboutPage(): JSX.Element {
 
             {/* Right: Why we exist */}
             <div
+              className="about-mission-card"
               style={{
                 borderRadius: 20,
                 border: "1px solid rgba(30,64,175,0.8)",
@@ -468,6 +477,7 @@ export default function AboutPage(): JSX.Element {
             </p>
 
             <div
+              className="about-values-grid"
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
@@ -494,6 +504,7 @@ export default function AboutPage(): JSX.Element {
               ].map((value, i) => (
                 <div
                   key={i}
+                  className="about-value-card"
                   style={{
                     borderRadius: 18,
                     border: "1px solid rgba(30,64,175,0.8)",

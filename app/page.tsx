@@ -354,7 +354,7 @@ export default function Home(): JSX.Element {
       />
       {/* Navigation - Exact SoftGen Structure */}
       <nav className="navbar">
-        <div className="nav-container" style={{ padding: '0 2rem', height: '25px', display: 'flex', alignItems: 'center' }}>
+        <div className="nav-container home-nav-container" style={{ padding: '0 2rem', height: '25px', display: 'flex', alignItems: 'center' }}>
           <div className="nav-logo">
             <a href="#home" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
               <img src="/images/logo.png" alt="NovaGen Logo" style={{ height: '36px', width: 'auto' }} />
@@ -421,10 +421,10 @@ export default function Home(): JSX.Element {
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a0f23]/40 to-[#141a2e]/30 z-[2] pointer-events-none"></div>
 
         {/* Hero Content Container - Aligned with navbar */}
-        <div className="hero-container relative z-[3]" style={{ width: '93%', maxWidth: '1800px', margin: '0 auto', padding: '0 2rem', boxSizing: 'border-box' }}>
+        <div className="hero-container home-hero-container relative z-[3]" style={{ width: '93%', maxWidth: '1800px', margin: '0 auto', padding: '0 2rem', boxSizing: 'border-box' }}>
           {/* Hero Split Layout - CSS GRID (1fr 1fr) with gap */}
           <div
-            className="hero-split-layout w-full items-center"
+            className="hero-split-layout home-split-layout w-full items-center"
             style={{
               display: 'grid',
               gridTemplateColumns: '1fr 1fr',
@@ -436,9 +436,9 @@ export default function Home(): JSX.Element {
             {/* Left Side: Content - Same padding both sides */}
             <div className="hero-content-left relative z-[2] text-left" style={{ paddingRight: '0', marginLeft: '0' }}>
               <h1
-                className="hero-title text-white leading-tight mb-8"
+                id="mobile-hero-title-force"
+                className="hero-title home-hero-title text-white leading-tight mb-8"
                 style={{
-                  fontSize: '3.5rem',
                   fontWeight: 800,
                   lineHeight: 1.05,
                   letterSpacing: '-0.03em',
@@ -510,8 +510,8 @@ export default function Home(): JSX.Element {
         position: 'relative',
         marginTop: '-50px'
       }}>
-        <div style={{ width: '93%', maxWidth: '1800px', margin: '0 auto', padding: '0 2rem' }}>
-          <div style={{
+        <div className="home-services-container" style={{ width: '93%', maxWidth: '1800px', margin: '0 auto', padding: '0 2rem' }}>
+          <div className="home-services-grid" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
             gap: '24px'
@@ -668,7 +668,7 @@ export default function Home(): JSX.Element {
           pointerEvents: 'none'
         }}></div>
 
-        <div style={{ width: '93%', maxWidth: '1800px', margin: '0 auto', padding: '0 2rem', textAlign: 'center', position: 'relative', zIndex: 1 }}>
+        <div className="home-about-container" style={{ width: '93%', maxWidth: '1800px', margin: '0 auto', padding: '0 2rem', textAlign: 'center', position: 'relative', zIndex: 1 }}>
           {/* Title */}
           <h2 style={{
             fontSize: '2.5rem',
@@ -802,7 +802,7 @@ export default function Home(): JSX.Element {
           }}></div>
         </div>
 
-        <div className="process-content-wrapper" style={{ width: '95%', maxWidth: '1400px', margin: '0 auto', padding: '0 2rem', position: 'relative', zIndex: 1 }}>
+        <div className="process-content-wrapper home-process-container" style={{ width: '95%', maxWidth: '1400px', margin: '0 auto', padding: '0 2rem', position: 'relative', zIndex: 1 }}>
 
           {/* Section Header */}
           <div style={{ textAlign: 'center', marginBottom: '15px' }}>
@@ -1114,7 +1114,7 @@ export default function Home(): JSX.Element {
           }}></div>
         </div>
 
-        <div style={{ width: '95%', maxWidth: '1400px', margin: '0 auto', padding: '0 2rem', position: 'relative', zIndex: 1 }}>
+        <div className="home-tech-container" style={{ width: '95%', maxWidth: '1400px', margin: '0 auto', padding: '0 2rem', position: 'relative', zIndex: 1 }}>
 
           {/* Section Header - Centered */}
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
@@ -1164,7 +1164,7 @@ export default function Home(): JSX.Element {
           </div>
 
           {/* Tech Categories Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '25px' }}>
+          <div className="home-tech-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '25px' }}>
 
             {/* Frontend Development Card */}
             <div style={{
@@ -1885,7 +1885,7 @@ export default function Home(): JSX.Element {
           animation: 'float 10s ease-in-out infinite reverse'
         }}></div>
 
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+        <div className="container home-testimonials-container" style={{ position: 'relative', zIndex: 1 }}>
           {/* Section Header */}
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
             <div style={{
@@ -2090,7 +2090,7 @@ export default function Home(): JSX.Element {
                     color: '#a855f7'
                   }
                 ].map((testimonial, i) => (
-                  <div key={i} style={{
+                  <div key={i} className="home-testimonial-card testimonial-card" style={{
                     minWidth: 'calc(25% - 22.5px)',
                     width: 'calc(25% - 22.5px)',
                     background: 'radial-gradient(circle at 0% 0%, rgba(56,189,248,0.1) 0, transparent 50%), radial-gradient(circle at 100% 0%, rgba(129,140,248,0.1) 0, transparent 50%), rgba(10,15,35,0.95)',

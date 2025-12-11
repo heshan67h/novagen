@@ -132,6 +132,7 @@ export default function Projects() {
       <Navbar />
 
       <main
+        className="projects-main-wrapper"
         style={{
           padding: "120px 0 80px",
         }}
@@ -156,6 +157,7 @@ export default function Projects() {
         </div>
 
         <div
+          className="projects-main-container"
           style={{
             position: "relative",
             width: "93%",
@@ -167,6 +169,7 @@ export default function Projects() {
         >
           {/* Top meta row */}
           <div
+            className="projects-meta-row"
             style={{
               display: "flex",
               justifyContent: "space-between",
@@ -247,6 +250,7 @@ export default function Projects() {
 
           {/* Hero */}
           <section
+            className="projects-hero-grid"
             style={{
               display: "grid",
               gridTemplateColumns: "minmax(0, 2.1fr) minmax(0, 1.4fr)",
@@ -257,6 +261,7 @@ export default function Projects() {
           >
             <div>
               <h1
+                className="projects-hero-title"
                 style={{
                   fontSize: "clamp(2.3rem, 3.2vw, 3rem)",
                   lineHeight: 1.1,
@@ -266,9 +271,9 @@ export default function Projects() {
                   color: "#FFFFFF",
                 }}
               >
-                Work that drives
+                Work that drives&nbsp;
                 <br />
-                real business impact
+                real business impact&nbsp;
                 <br />
                 not just pixels.
               </h1>
@@ -286,6 +291,7 @@ export default function Projects() {
 
             {/* Snapshot card */}
             <aside
+              className="projects-snapshot-card"
               style={{
                 position: "relative",
                 borderRadius: 24,
@@ -467,6 +473,7 @@ export default function Projects() {
           {/* Projects grid */}
           <section>
             <div
+              className="projects-section-header"
               style={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -513,6 +520,7 @@ export default function Projects() {
             </div>
 
             <div
+              className="projects-grid"
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
@@ -735,6 +743,7 @@ export default function Projects() {
             </div>
 
             <div
+              className="dna-grid"
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
@@ -809,6 +818,7 @@ export default function Projects() {
 
           {/* Tech Stack & Pipeline Section */}
           <section
+            className="tech-pipeline-grid"
             style={{
               marginTop: 60,
               display: "grid",
@@ -846,8 +856,8 @@ export default function Projects() {
                   { cat: "Backend", techs: ["Node.js", "Python", "Go", "GraphQL", "PostgreSQL", "Redis"] },
                   { cat: "DevOps", techs: ["Docker", "Kubernetes", "AWS", "Terraform", "GitHub Actions"] },
                 ].map((row, idx) => (
-                  <div key={idx} style={{ display: "flex", alignItems: "center", gap: 20, borderBottom: idx !== 2 ? "1px solid rgba(255,255,255,0.05)" : "none", paddingBottom: idx !== 2 ? 20 : 0 }}>
-                    <span style={{ fontSize: 13, fontWeight: 600, color: "#94a3b8", width: 80, textTransform: "uppercase", letterSpacing: 0.5 }}>{row.cat}</span>
+                  <div className="tech-row" key={idx} style={{ display: "flex", alignItems: "center", gap: 20, borderBottom: idx !== 2 ? "1px solid rgba(255,255,255,0.05)" : "none", paddingBottom: idx !== 2 ? 20 : 0 }}>
+                    <span className="tech-cat-label" style={{ fontSize: 13, fontWeight: 600, color: "#94a3b8", width: 80, textTransform: "uppercase", letterSpacing: 0.5 }}>{row.cat}</span>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
                       {row.techs.map((tech) => (
                         <span

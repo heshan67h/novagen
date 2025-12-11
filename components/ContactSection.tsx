@@ -30,7 +30,7 @@ const ContactSection = () => {
       alignItems: 'center'
     }}>
 
-      <div className="max-w-[1600px] mx-auto px-6 lg:px-8 relative z-10 w-full">
+      <div className="max-w-[1600px] mx-auto px-5 lg:px-8 relative z-10 w-full">
         {/* Section Header */}
         <div className="text-center mb-12">
           <div className="inline-block mb-3">

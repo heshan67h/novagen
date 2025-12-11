@@ -132,7 +132,7 @@ export default function BlogPage(): JSX.Element {
         >
             <Navbar />
 
-            <main style={{ padding: '120px 0 88px' }}>
+            <main className="blog-main-wrapper" style={{ padding: '120px 0 88px' }}>
                 {/* Ambient gradients */}
                 <div
                     style={{
@@ -153,6 +153,7 @@ export default function BlogPage(): JSX.Element {
                 </div>
 
                 <div
+                    className="blog-main-container"
                     style={{
                         position: 'relative',
                         width: '93%',
@@ -164,6 +165,7 @@ export default function BlogPage(): JSX.Element {
                 >
                     {/* Breadcrumb */}
                     <div
+                        className="blog-breadcrumb"
                         style={{
                             display: 'flex',
                             alignItems: 'center',
@@ -207,6 +209,7 @@ export default function BlogPage(): JSX.Element {
 
                     {/* Hero Section */}
                     <section
+                        className="blog-hero-grid"
                         style={{
                             display: "grid",
                             gridTemplateColumns: "minmax(0, 2.1fr) minmax(0, 1.4fr)",
@@ -229,6 +232,7 @@ export default function BlogPage(): JSX.Element {
                                 NovaGen Blog
                             </p>
                             <h1
+                                className="blog-hero-title"
                                 style={{
                                     fontSize: 'clamp(2.4rem, 3.4vw, 3.2rem)',
                                     lineHeight: 1.1,
@@ -306,6 +310,7 @@ export default function BlogPage(): JSX.Element {
 
                         {/* Right: snapshot card */}
                         <aside
+                            className="blog-snapshot-card"
                             style={{
                                 borderRadius: 24,
                                 border: "1px solid rgba(148,163,184,0.5)",
@@ -449,8 +454,8 @@ export default function BlogPage(): JSX.Element {
                                     e.currentTarget.style.boxShadow = 'none';
                                 }}
                             >
-                                <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 30, padding: 30 }}>
-                                    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                                <div className="blog-featured-post-card" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 30, padding: 30 }}>
+                                    <div className="blog-featured-content" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                                         <span
                                             style={{
                                                 display: 'inline-block',
@@ -496,6 +501,7 @@ export default function BlogPage(): JSX.Element {
                                         </div>
                                     </div>
                                     <div
+                                        className="blog-featured-image"
                                         style={{
                                             borderRadius: 16,
                                             height: 280,
@@ -521,6 +527,7 @@ export default function BlogPage(): JSX.Element {
                     {/* Category Filter Bar */}
                     <section style={{ marginBottom: 40 }}>
                         <div
+                            className="blog-filter-bar"
                             style={{
                                 display: 'flex',
                                 gap: 12,
@@ -585,6 +592,7 @@ export default function BlogPage(): JSX.Element {
                     {/* Blog Grid */}
                     <section>
                         <div
+                            className="blog-grid"
                             style={{
                                 display: 'grid',
                                 gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
@@ -707,7 +715,7 @@ export default function BlogPage(): JSX.Element {
                     </section>
 
                     {/* Pagination */}
-                    <section style={{ marginTop: 60, display: 'flex', justifyContent: 'center', gap: 10 }}>
+                    <section className="blog-pagination" style={{ marginTop: 60, display: 'flex', justifyContent: 'center', gap: 10 }}>
                         <button
                             style={{
                                 padding: '10px 18px',
