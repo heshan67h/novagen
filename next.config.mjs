@@ -9,6 +9,20 @@ const nextConfig = {
     // Lint during production builds
     ignoreDuringBuilds: false,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'randomuser.me',
+        pathname: '**',
+      },
+    ],
+  },
 };
 
 export default nextConfig;

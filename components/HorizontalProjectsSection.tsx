@@ -4,106 +4,121 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 
-const projects = [
+const gradients = [
+    'radial-gradient(circle at top left, rgba(56,189,248,0.14), transparent 55%)',
+    'radial-gradient(circle at top left, rgba(34,197,94,0.12), transparent 55%)',
+    'radial-gradient(circle at top left, rgba(129,140,248,0.14), transparent 55%)',
+    'radial-gradient(circle at top left, rgba(236,72,153,0.12), transparent 55%)',
+    'radial-gradient(circle at top left, rgba(168,85,247,0.14), transparent 55%)',
+    'radial-gradient(circle at top left, rgba(239,68,68,0.12), transparent 55%)'
+];
+
+interface ProjectProperty {
+    id: number;
+    title: string;
+    description: string;
+    imageUrl: string;
+    category: string;
+    tags: string; // Comma separated string from DB
+    link?: string;
+    featured: boolean;
+}
+
+interface ProjectsSectionProps {
+    projects?: ProjectProperty[];
+}
+
+const DEFAULT_PROJECTS = [
     {
         id: 1,
         title: 'Smart Learning Platform',
-        category: 'Education',
         description: 'Comprehensive LMS platform for online exams, payments, and hybrid education management.',
-        image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80',
-        tech: ['React', 'Node.js', 'PostgreSQL', 'AWS'],
-        stats: { users: '50K+', uptime: '99.9%' },
-        gradient: 'radial-gradient(circle at top left, rgba(56,189,248,0.14), transparent 55%)',
-        border: 'rgba(56,189,248,0.2)',
-        accentColor: '#38bdf8'
+        imageUrl: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=2070&auto=format&fit=crop',
+        category: 'EdTech',
+        tags: 'React, Node.js, AWS, Stripe',
+        featured: true
     },
     {
         id: 2,
         title: 'Fintech Dashboard',
-        category: 'Finance',
         description: 'Real-time analytics for wealth managers with portfolio monitoring and compliance.',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
-        tech: ['Next.js', 'Python', 'Redis', 'K8s'],
-        stats: { processed: '$2B+', clients: '150+' },
-        gradient: 'radial-gradient(circle at top left, rgba(34,197,94,0.12), transparent 55%)',
-        border: 'rgba(34,197,94,0.2)',
-        accentColor: '#22c55e'
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
+        category: 'FinTech',
+        tags: 'Next.js, Python, Blockchain, AI',
+        featured: true
     },
     {
         id: 3,
         title: 'ElectroMart',
-        category: 'E-commerce',
         description: 'Enterprise e-commerce platform with real-time inventory and multi-vendor support.',
-        image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80',
-        tech: ['Next.js', 'Stripe', 'Redis'],
-        stats: { sales: '$2M+', rating: '4.8★' },
-        gradient: 'radial-gradient(circle at top left, rgba(129,140,248,0.14), transparent 55%)',
-        border: 'rgba(129,140,248,0.2)',
-        accentColor: '#818cf8'
+        imageUrl: 'https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=2070&auto=format&fit=crop',
+        category: 'E-Commerce',
+        tags: 'Vue.js, Django, Redis, PostgreSQL',
+        featured: true
     },
     {
         id: 4,
         title: 'FemCare Health',
-        category: 'Healthcare',
         description: 'Privacy-first health tracking with AI-powered cycle predictions and wellness insights.',
-        image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
-        tech: ['Flutter', 'TensorFlow', 'Firebase'],
-        stats: { downloads: '100K+', rating: '4.9★' },
-        gradient: 'radial-gradient(circle at top left, rgba(236,72,153,0.12), transparent 55%)',
-        border: 'rgba(236,72,153,0.2)',
-        accentColor: '#ec4899'
+        imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop',
+        category: 'Healthcare',
+        tags: 'Mobile, WebRTC, Cloud, Security',
+        featured: true
     },
     {
         id: 5,
         title: 'SmartHire AI',
-        category: 'AI / SaaS',
         description: 'AI-powered recruitment with automated resume parsing and bias-free workflows.',
-        image: 'https://images.unsplash.com/photo-1655720828018-edd2daec9349?w=800&q=80',
-        tech: ['Python', 'FastAPI', 'GPT-4'],
-        stats: { saved: '85%', companies: '200+' },
-        gradient: 'radial-gradient(circle at top left, rgba(168,85,247,0.14), transparent 55%)',
-        border: 'rgba(168,85,247,0.2)',
-        accentColor: '#a855f7'
+        imageUrl: 'https://images.unsplash.com/photo-1553877607-4972f7af60db?q=80&w=2070&auto=format&fit=crop',
+        category: 'HR Tech',
+        tags: 'Python, TensorFlow, React, NLP',
+        featured: true
     },
     {
         id: 6,
         title: 'Cloud Migration Suite',
-        category: 'Cloud / DevOps',
         description: 'Seamless migration of legacy systems to modern cloud infrastructure with zero downtime.',
-        image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80',
-        tech: ['AWS', 'Terraform', 'Docker'],
-        stats: { migrated: '100+', savings: '40%' },
-        gradient: 'radial-gradient(circle at top left, rgba(56,189,248,0.12), transparent 55%)',
-        border: 'rgba(56,189,248,0.2)',
-        accentColor: '#38bdf8'
+        imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop',
+        category: 'Cloud',
+        tags: 'AWS, Kubernetes, Docker, Terraform',
+        featured: true
     },
     {
         id: 7,
         title: 'SecureVault Pro',
-        category: 'Cybersecurity',
         description: 'Enterprise password management with zero-knowledge encryption and biometric authentication.',
-        image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80',
-        tech: ['Rust', 'WebAssembly', 'AES-256'],
-        stats: { encrypted: '10M+', breaches: '0' },
-        gradient: 'radial-gradient(circle at top left, rgba(239,68,68,0.12), transparent 55%)',
-        border: 'rgba(239,68,68,0.2)',
-        accentColor: '#ef4444'
+        imageUrl: 'https://images.unsplash.com/photo-1614064641938-3e81390235e1?q=80&w=2010&auto=format&fit=crop',
+        category: 'Cybersecurity',
+        tags: 'Rust, WebAssembly, iOS, Android',
+        featured: true
     },
     {
         id: 8,
         title: 'GreenEnergy Analytics',
-        category: 'Sustainability',
         description: 'Real-time monitoring and optimization platform for renewable energy infrastructure.',
-        image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80',
-        tech: ['IoT', 'GraphQL', 'TimeSeries'],
-        stats: { sensors: '5000+', saved: '2GWh' },
-        gradient: 'radial-gradient(circle at top left, rgba(34,197,94,0.14), transparent 55%)',
-        border: 'rgba(34,197,94,0.2)',
-        accentColor: '#22c55e'
+        imageUrl: 'https://images.unsplash.com/photo-1473341304170-891463ee3287?q=80&w=2069&auto=format&fit=crop',
+        category: 'CleanTech',
+        tags: 'IoT, Grafana, Go, TimeScaleDB',
+        featured: true
     }
 ];
 
-export default function ProjectsSection() {
+export default function ProjectsSection({ projects = [] }: ProjectsSectionProps) {
+    // Fallback to default if no DB projects
+    const dataSource = (projects && projects.length > 0) ? projects : DEFAULT_PROJECTS;
+
+    const projectsToDisplay = dataSource.map((p, index) => ({
+        id: p.id,
+        title: p.title,
+        category: p.category,
+        description: p.description,
+        image: p.imageUrl,
+        tech: p.tags ? p.tags.split(',').map(t => t.trim()) : [],
+        stats: { view: 'Details', type: 'Project' },
+        gradient: gradients[index % gradients.length],
+        accentColor: '#38bdf8'
+    }));
+
     return (
         <section
             id="projects"
@@ -122,6 +137,7 @@ export default function ProjectsSection() {
                 position: 'relative',
                 zIndex: 1
             }}>
+                {/* ... (Header remains same) */}
                 {/* Header */}
                 <div style={{ textAlign: 'center', marginBottom: '80px' }}>
                     <motion.div
@@ -188,7 +204,7 @@ export default function ProjectsSection() {
                     maxWidth: '1400px',
                     margin: '0 auto',
                 }}>
-                    {projects.map((project, index) => {
+                    {projectsToDisplay.map((project, index) => {
                         return (
                             <motion.div
                                 key={project.id}
@@ -283,6 +299,10 @@ export default function ProjectsSection() {
                                             color: 'rgba(148,163,184,0.9)', // Matching body text color
                                             lineHeight: 1.6,
                                             marginBottom: '20px',
+                                            display: '-webkit-box',
+                                            WebkitLineClamp: 3,
+                                            WebkitBoxOrient: 'vertical',
+                                            overflow: 'hidden'
                                         }}>{project.description}</p>
 
                                         {/* Tech stack */}
@@ -292,7 +312,7 @@ export default function ProjectsSection() {
                                             gap: '6px',
                                             marginBottom: '24px',
                                         }}>
-                                            {project.tech.map((tech, i) => (
+                                            {project.tech.slice(0, 4).map((tech: string, i: number) => (
                                                 <span
                                                     key={i}
                                                     style={{
@@ -306,32 +326,31 @@ export default function ProjectsSection() {
                                                     }}
                                                 >{tech}</span>
                                             ))}
+                                            {project.tech.length > 4 && (
+                                                <span style={{
+                                                    fontSize: '0.7rem',
+                                                    padding: '4px 8px',
+                                                    color: 'rgba(148,163,184,0.8)',
+                                                }}>+{project.tech.length - 4}</span>
+                                            )}
                                         </div>
 
-                                        {/* Stats - Uniform coloring */}
+                                        {/* View Details Link */}
                                         <div style={{
                                             display: 'flex',
-                                            gap: '24px',
-                                            paddingTop: '16px',
-                                            borderTop: '1px solid rgba(148,163,184,0.2)',
+                                            justifyContent: 'flex-end',
+                                            marginTop: 'auto',
                                         }}>
-                                            {Object.entries(project.stats).map(([key, value], i) => (
-                                                <div key={i}>
-                                                    <div style={{
-                                                        fontSize: '1.05rem',
-                                                        fontWeight: 700,
-                                                        color: 'white',
-                                                        marginBottom: '2px',
-                                                    }}>{value}</div>
-                                                    <div style={{
-                                                        fontSize: '0.65rem',
-                                                        color: 'rgba(148,163,184,0.7)',
-                                                        textTransform: 'uppercase',
-                                                        letterSpacing: '0.5px',
-                                                        fontWeight: 600,
-                                                    }}>{key}</div>
-                                                </div>
-                                            ))}
+                                            <span style={{
+                                                fontSize: '0.85rem',
+                                                fontWeight: 600,
+                                                color: '#38bdf8',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: '4px'
+                                            }}>
+                                                View Project <ExternalLink size={14} />
+                                            </span>
                                         </div>
                                     </div>
                                 </div>

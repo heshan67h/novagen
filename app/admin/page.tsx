@@ -122,14 +122,28 @@ export default function AdminDashboard() {
                 <div style={cardStyle} className="rounded-2xl p-5 flex flex-col items-center justify-center relative group hover:border-white/20 transition-all duration-300">
                     <h3 className="absolute top-5 left-5 text-sm font-bold text-white">Project Types</h3>
                     <div className="relative w-32 h-32 mt-4">
-                        {/* CSS Donut Chart approximation */}
+                        {/* CSS Donut Chart with Professional Gray Gradients */}
                         <svg viewBox="0 0 36 36" className="w-full h-full rotate-[-90deg]">
-                            {/* Web 45% */}
-                            <circle cx="18" cy="18" r="15.915" fill="transparent" stroke="#3b82f6" strokeWidth="4" strokeDasharray="45 55" strokeDashoffset="0" />
-                            {/* Mobile 30% */}
-                            <circle cx="18" cy="18" r="15.915" fill="transparent" stroke="#8b5cf6" strokeWidth="4" strokeDasharray="30 70" strokeDashoffset="-45" />
-                            {/* Design 25% */}
-                            <circle cx="18" cy="18" r="15.915" fill="transparent" stroke="#10b981" strokeWidth="4" strokeDasharray="25 75" strokeDashoffset="-75" />
+                            <defs>
+                                <linearGradient id="gray1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stopColor="#cbd5e1" /> {/* Slate-300 */}
+                                    <stop offset="100%" stopColor="#94a3b8" /> {/* Slate-400 */}
+                                </linearGradient>
+                                <linearGradient id="gray2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stopColor="#64748b" /> {/* Slate-500 */}
+                                    <stop offset="100%" stopColor="#475569" /> {/* Slate-600 */}
+                                </linearGradient>
+                                <linearGradient id="gray3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stopColor="#334155" /> {/* Slate-700 */}
+                                    <stop offset="100%" stopColor="#1e293b" /> {/* Slate-800 */}
+                                </linearGradient>
+                            </defs>
+                            {/* Web 45% - Light Silver */}
+                            <circle cx="18" cy="18" r="15.915" fill="transparent" stroke="url(#gray1)" strokeWidth="4" strokeDasharray="45 55" strokeDashoffset="0" />
+                            {/* Mobile 30% - Steel */}
+                            <circle cx="18" cy="18" r="15.915" fill="transparent" stroke="url(#gray2)" strokeWidth="4" strokeDasharray="30 70" strokeDashoffset="-45" />
+                            {/* Design 25% - Dark Graphite */}
+                            <circle cx="18" cy="18" r="15.915" fill="transparent" stroke="url(#gray3)" strokeWidth="4" strokeDasharray="25 75" strokeDashoffset="-75" />
                         </svg>
                         <div className="absolute inset-0 flex items-center justify-center flex-col">
                             <span className="text-xl font-bold text-white">12</span>
@@ -137,9 +151,9 @@ export default function AdminDashboard() {
                         </div>
                     </div>
                     <div className="mt-6 flex flex-wrap gap-3 justify-center text-[10px]">
-                        <span className="flex items-center gap-1.5 text-slate-300"><span className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.6)]" /> Web</span>
-                        <span className="flex items-center gap-1.5 text-slate-300"><span className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_rgba(139,92,246,0.6)]" /> Mobile</span>
-                        <span className="flex items-center gap-1.5 text-slate-300"><span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)]" /> Design</span>
+                        <span className="flex items-center gap-1.5 text-slate-300"><span className="w-2 h-2 rounded-full bg-slate-300 shadow-[0_0_8px_rgba(203,213,225,0.6)]" /> Web</span>
+                        <span className="flex items-center gap-1.5 text-slate-300"><span className="w-2 h-2 rounded-full bg-slate-500 shadow-[0_0_8px_rgba(100,116,139,0.6)]" /> Mobile</span>
+                        <span className="flex items-center gap-1.5 text-slate-300"><span className="w-2 h-2 rounded-full bg-slate-700 shadow-[0_0_8px_rgba(51,65,85,0.6)]" /> Design</span>
                     </div>
                 </div>
 
@@ -154,7 +168,7 @@ export default function AdminDashboard() {
                                     animate={{ height: `${h}%` }}
                                     className={cn(
                                         "w-full rounded-t-sm opacity-80 group-hover:opacity-100 transition-opacity",
-                                        i % 2 === 0 ? "bg-[#8b5cf6]" : "bg-[#3b82f6]"
+                                        i % 2 === 0 ? "bg-gradient-to-t from-slate-600 to-slate-400" : "bg-gradient-to-t from-slate-800 to-slate-600"
                                     )}
                                 />
                                 <span className="text-[10px] text-slate-400 text-center font-medium">{['M', 'T', 'W', 'T', 'F', 'S', 'S'][i]}</span>
@@ -162,8 +176,8 @@ export default function AdminDashboard() {
                         ))}
                     </div>
                     <div className="flex justify-center gap-4 mt-2 text-[10px]">
-                        <span className="flex items-center gap-1.5 text-slate-400"><span className="w-2 h-2 rounded bg-[#8b5cf6]" /> Views</span>
-                        <span className="flex items-center gap-1.5 text-slate-400"><span className="w-2 h-2 rounded bg-[#3b82f6]" /> Clicks</span>
+                        <span className="flex items-center gap-1.5 text-slate-400"><span className="w-2 h-2 rounded bg-slate-400" /> Views</span>
+                        <span className="flex items-center gap-1.5 text-slate-400"><span className="w-2 h-2 rounded bg-slate-600" /> Clicks</span>
                     </div>
                 </div>
             </div>
