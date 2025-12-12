@@ -2,7 +2,16 @@
 
 import React from 'react';
 
+import { usePathname } from 'next/navigation';
+
 export default function Footer() {
+  const pathname = usePathname();
+
+  // Hide footer on admin pages
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
+
   return (
     <footer style={{
       background: '#020617',
