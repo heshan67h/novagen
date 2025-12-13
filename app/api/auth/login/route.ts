@@ -10,9 +10,14 @@ export async function POST(req: Request) {
         const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
         const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 
-        if (!ADMIN_EMAIL || !ADMIN_PASSWORD) {
-            console.error("Missing ADMIN_EMAIL or ADMIN_PASSWORD in environment variables");
-            return NextResponse.json({ success: false, message: 'Server misconfiguration' }, { status: 500 });
+        if (!ADMIN_EMAIL) {
+            console.error("Critical: ADMIN_EMAIL is not defined in environment variables");
+            return NextResponse.json({ success: false, message: 'Configuration Error: ADMIN_EMAIL is missing on server' }, { status: 500 });
+        }
+
+        if (!ADMIN_PASSWORD) {
+            console.error("Critical: ADMIN_PASSWORD is not defined in environment variables");
+            return NextResponse.json({ success: false, message: 'Configuration Error: ADMIN_PASSWORD is missing on server' }, { status: 500 });
         }
 
         if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
