@@ -8,7 +8,7 @@ export async function POST(req: Request) {
         // Default Credentials (as proposed in plan)
         // Ideally these should come from process.env
         const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
-        const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+        const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;//frr
 
         if (!ADMIN_EMAIL) {
             console.error("Critical: ADMIN_EMAIL is not defined in environment variables");
