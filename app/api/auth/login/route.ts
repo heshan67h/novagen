@@ -5,10 +5,11 @@ export async function POST(req: Request) {
     try {
         const { email, password } = await req.json();
 
-        // Default Credentials (as proposed in plan)
+        // Default Credentials (as proposed in plafn)
         // Ideally these should come from process.env
-        const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
-        const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;//frr
+        // Network/Env var fallback (Unblocking the user)
+        const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@novagen.com';
+        const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'Heshan@###67hhh';//frr
 
         if (!ADMIN_EMAIL) {
             console.error("Critical: ADMIN_EMAIL is not defined in environment variables");
