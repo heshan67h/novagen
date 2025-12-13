@@ -1,8 +1,13 @@
 import { getHero, getServices, getProjects, getTestimonials, getProcessSteps } from '@/app/actions/home';
 import HomeClient from '@/components/HomeClient';
+import { HeroSection, Service, Project, Testimonial, ProcessStep } from '@prisma/client';
 
 export default async function Home() {
-    let heroData, services, projects, testimonials, processSteps;
+    let heroData: HeroSection | null = null;
+    let services: Service[] = [];
+    let projects: Project[] = [];
+    let testimonials: Testimonial[] = [];
+    let processSteps: ProcessStep[] = [];
 
     try {
         // Fetch all data in parallel for better performance
